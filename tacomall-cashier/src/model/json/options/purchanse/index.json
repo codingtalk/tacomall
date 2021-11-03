@@ -1,0 +1,70 @@
+{
+  "type": [
+    {
+      "value": 1,
+      "label": "新订单"
+    },
+    {
+      "value": 2,
+      "label": "预售"
+    },
+    {
+      "value": 3,
+      "label": "预存组合"
+    },
+    {
+      "value": 5,
+      "label": "自定义"
+    },
+    {
+      "value": 6,
+      "label": "思雪新订单"
+    },
+    {
+      "value": 7,
+      "label": "思雪预售"
+    }
+  ],
+  "status": [
+    {
+      "value": 0,
+      "label": "保存"
+    },
+    {
+      "value": 1,
+      "label": "审核中"
+    },
+    {
+      "value": 2,
+      "label": "不通过"
+    },
+    {
+      "value": 3,
+      "label": "待出库"
+    },
+    {
+      "value": 4,
+      "label": "部分出库"
+    },
+    {
+      "value": 5,
+      "label": "已出库"
+    },
+    {
+      "value": 6,
+      "label": "异常"
+    },
+    {
+      "value": 7,
+      "label": "废弃"
+    },
+    {
+      "value": 8,
+      "label": "取消"
+    },
+    {
+      "value": 9,
+      "label": "已过期"
+    }
+  ]
+}

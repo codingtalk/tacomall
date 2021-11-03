@@ -1,0 +1,38 @@
+{
+  "type": [
+    {
+      "value": 1,
+      "label": "自己申请"
+    },
+    {
+      "value": 2,
+      "label": "他人申请"
+    },
+    {
+      "value": 3,
+      "label": "系统创建"
+    }
+  ],
+  "workflow": [
+    {
+      "value": 15,
+      "label": "店铺申请"
+    },
+    {
+      "value": 16,
+      "label": "保证金"
+    },
+    {
+      "value": 17,
+      "label": "地址申请"
+    },
+    {
+      "value": 18,
+      "label": "签约申请"
+    },
+    {
+      "value": 19,
+      "label": "装修申请"
+    }
+  ]
+}

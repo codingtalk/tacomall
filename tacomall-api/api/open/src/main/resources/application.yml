@@ -1,0 +1,32 @@
+server:
+  port: 4003
+spring:
+  profiles:
+    active: @environment@
+
+logging:
+  level:
+    org.springframework.web: info
+    com.github.binarywang.demo.wx.miniapp: debug
+    cn.binarywang.wx.miniapp: debug
+
+wx:
+  miniapp:
+    configs:
+      - appid: wx8a661b1b75f66322
+        secret: efd147da87fd5fb06bdeb93beb31f77b
+        token:
+        aesKey:
+        msgDataFormat: JSON
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  type-aliases-package: store.tacomall.common.mapper
+  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+
+  configuration:
+    call-setters-on-nulls: true

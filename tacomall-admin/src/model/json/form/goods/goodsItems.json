@@ -1,0 +1,54 @@
+{
+  "add": {
+    "default": {
+      "specJson": {
+        "skip": false,
+        "isRaw": true,
+        "require": true,
+        "type": "array",
+        "value": ""
+      },
+      "stock": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "barCode": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      }
+    }
+  },
+  "update": {
+    "default": {
+      "id": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": ""
+      },
+      "goodsId": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": ""
+      },
+      "specJson": {
+        "skip": false,
+        "isRaw": true,
+        "require": true,
+        "type": "array",
+        "value": ""
+      },
+      "barCode": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      }
+    }
+  }
+}

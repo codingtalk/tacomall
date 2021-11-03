@@ -1,0 +1,64 @@
+{
+  "add": {
+    "default": {
+      "pId": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "name": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "thumbnail": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "status": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      }
+    }
+  },
+  "update": {
+    "default": {
+      "id": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": 0
+      },
+      "pId": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "name": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "thumbnail": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "status": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      }
+    }
+  }
+}

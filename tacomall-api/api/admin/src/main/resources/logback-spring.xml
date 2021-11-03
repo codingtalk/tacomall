@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+  <springProperty scope="context" name="LOG_HOME" source="logback.path"/>
+  <conversionRule conversionWord="customColor" converterClass="store.tacomall.common.config.LogbackColorfulConfig"/>
+  <property name="ENCODING" value="UTF-8"/>
+  <property name="NORMAL_LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5level ${PID:- } [%15.15t]%logger{50}.%method（）@%line : %msg%n"/>
+  <property name="CONSOLE_LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] %customColor(%-5level) %magenta(${PID:- }) [%15.15t] %cyan(%logger{50}.%method（） @%line) : %msg%n"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      <charset>${ENCODING}</charset>
+    </encoder>
+  </appender>
+
+  <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <FileNamePattern>${LOG_HOME}/info/%d{yyyy-MM-dd_HH}.%i.log</FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <maxFileSize>30MB</maxFileSize>
+    </rollingPolicy>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${NORMAL_LOG_PATTERN}</pattern>
+      <charset>${ENCODING}</charset>
+    </encoder>
+  </appender>
+
+  <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <FileNamePattern>${LOG_HOME}/error/%d{yyyy-MM-dd_HH}.%i.log</FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <maxFileSize>30MB</maxFileSize>
+    </rollingPolicy>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${NORMAL_LOG_PATTERN}</pattern>
+      <charset>${ENCODING}</charset>
+    </encoder>
+  </appender>
+
+  <springProfile name="dev">
+    <logger name="store.tacomall.common.mapper" level="debug" />
+    <root level="DEBUG">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE_INFO"/>
+      <appender-ref ref="FILE_ERROR"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="test">
+    <logger name="store.tacomall.common.mapper" level="info" />
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE_INFO"/>
+      <appender-ref ref="FILE_ERROR"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="prod">
+    <logger name="store.tacomall.common.mapper" level="info" />
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE_INFO"/>
+      <appender-ref ref="FILE_ERROR"/>
+    </root>
+  </springProfile>
+</configuration>

@@ -1,0 +1,73 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+- job_name: tacomallServerApi
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: apiAdminInfo
+      __path__: /var/log/tacomall_server-api/api-admin/info/*log
+  - targets:
+      - localhost
+    labels:
+      job: apiAdminError
+      __path__: /var/log/tacomall_server-api/api-admin/error/*log
+  - targets:
+      - localhost
+    labels:
+      job: apiShopInfo
+      __path__: /var/log/tacomall_server-api/api-shop/info/*log
+  - targets:
+      - localhost
+    labels:
+      job: apiShopError
+      __path__: /var/log/tacomall_server-api/api-shop/error/*log
+  - targets:
+      - localhost
+    labels:
+      job: apiOpenInfo
+      __path__: /var/log/tacomall_server-api/api-open/info/*log
+  - targets:
+      - localhost
+    labels:
+      job: apiIOpenError
+      __path__: /var/log/tacomall_server-api/api-opon/error/*log
+  - targets:
+      - localhost
+    labels:
+      job: apiPortalInfo
+      __path__: /var/log/tacomall_server-api/api-portal/info/*log
+  - targets:
+      - localhost
+    labels:
+      job: apiIPortalError
+      __path__: /var/log/tacomall_server-api/api-portal/error/*log
+  - targets:
+      - localhost
+    labels:
+      job: jobExecutorInfo
+      __path__: /var/log/tacomall_server-api/job-executor/info/*log
+  - targets:
+      - localhost
+    labels:
+      job: jobExecutorError
+      __path__: /var/log/tacomall_server-api/job-executor/error/*log
+  - targets:
+      - localhost
+    labels:
+      job: mqRabbitmqInfo
+      __path__: /var/log/tacomall_server-api/mq-rabbitmq/info/*log
+  - targets:
+      - localhost
+    labels:
+      job: mqRabbitmqError
+      __path__: /var/log/tacomall_server-api/mq-rabbitmq/error/*log

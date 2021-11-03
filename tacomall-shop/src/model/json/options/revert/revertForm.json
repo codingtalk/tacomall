@@ -1,0 +1,24 @@
+{
+  "status": [
+    {
+      "value": 0,
+      "label": "未分拣"
+    },
+    {
+      "value": 1,
+      "label": "保存"
+    },
+    {
+      "value": 2,
+      "label": "审核中"
+    },
+    {
+      "value": 3,
+      "label": "已通过"
+    },
+    {
+      "value": 4,
+      "label": "审核不通过"
+    }
+  ]
+}

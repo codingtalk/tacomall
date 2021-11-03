@@ -1,0 +1,64 @@
+{
+  "add": {
+    "default": {
+      "leaderId": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "name": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "description": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "accessRuleIds": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      }
+    }
+  },
+  "update": {
+    "default": {
+      "id": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": 0
+      },
+      "leaderId": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "name": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "description": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "accessRuleIds": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      }
+    }
+  }
+}

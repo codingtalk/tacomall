@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          username: 
+          password: 
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    timeout: 3000
+    database: 0
+    jedis:
+      pool:
+        max-idle: 6
+        max-active: 32
+        max-wait: 100
+        min-idle: 4
+wx:
+  pay:
+    appId: 
+    mchId: 
+    mchKey: 
+    subAppId: 
+    subMchId:
+    keyPath: classpath:/cert-wx-pay_prod
+
+ali:
+  oss:
+    endPoint: 
+    accesskey: 
+    accessSecret: 
+    bucket: 
+    expire: 3600
+    host: 
+    callback: 
+  sms:
+    endPoint: 
+    accesskey: 
+    accessSecret: 
+
+logback:
+  path: /var/log/tacomall-api/api-open/

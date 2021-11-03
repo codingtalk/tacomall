@@ -1,0 +1,30 @@
+{
+  "type": [
+    {
+      "value": 1,
+      "label": "县级代理"
+    },
+    {
+      "value": 2,
+      "label": "市级代理"
+    }
+  ],
+  "status": [
+    {
+      "value": 1,
+      "label": "可申请"
+    },
+    {
+      "value": 2,
+      "label": "寻找中"
+    },
+    {
+      "value": 3,
+      "label": "装修中"
+    },
+    {
+      "value": 4,
+      "label": "已开业"
+    }
+  ]
+}

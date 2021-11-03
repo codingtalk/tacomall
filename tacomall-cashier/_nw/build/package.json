@@ -1,0 +1,12 @@
+{
+  "name": "塔可收银系统",
+  "main": "index.html",
+  "node-remote": "*://*/*",
+  "chromium-args": "--disable-gpu",
+  "window": {
+    "width": 1000,
+    "height": 800,
+    "always-on-top": true,
+    "fullscreen": true
+  }
+}

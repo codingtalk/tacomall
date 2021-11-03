@@ -1,0 +1,10 @@
+{
+  "MEMBER": {
+    "get": 31,
+    "update": 32
+  },
+  "SHOP": {
+    "get": 34,
+    "update": 35
+  }
+}

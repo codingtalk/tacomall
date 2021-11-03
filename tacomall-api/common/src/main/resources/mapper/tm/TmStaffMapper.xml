@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store.tacomall.common.mapper.tm.TmStaffMapper">
+
+    <sql id="base_colums">
+		ts.id,
+		ts.is_admin,
+		ts.access_extra_json,
+		ts.nickname,
+		ts.status,
+        ts.create_time,
+		ts.update_time
+    </sql>
+    <resultMap id="tmStaff" type="store.tacomall.common.entity.tm.TmStaff">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <resultMap id="tmStaffPage" type="store.tacomall.common.vo.base.PageVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <select id="queryInfo" resultMap="tmStaff">
+        SELECT <include refid="base_colums" />
+        FROM tm_staff AS ts
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryPage" resultMap="tmStaffPage">
+        SELECT <include refid="base_colums" />
+        , tj.name AS tm_job_name
+        FROM tm_staff AS ts
+        LEFT JOIN tm_job AS tj ON ts.job_id = tj.id
+        ${ew.customSqlSegment}
+    </select>
+
+</mapper>

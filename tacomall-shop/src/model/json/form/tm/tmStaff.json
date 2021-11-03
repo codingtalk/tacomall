@@ -1,0 +1,99 @@
+{
+  "add": {
+    "default": {
+      "jobId": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "nickname": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "username": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "passwd": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "status": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      }
+    }
+  },
+  "update": {
+    "default": {
+      "id": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": 0
+      },
+      "dept": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "jobId": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "nickname": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "username": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "passwd": {
+        "skip": false,
+        "skipFill": true,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "status": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      }
+    }
+  },
+  "other": {
+    "login": {
+      "username": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "passwd": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "type": [
+    {
+      "value": 1,
+      "label": "区域申请",
+      "accessRuleId": 16
+    },
+    {
+      "value": 2,
+      "label": "店铺申请",
+      "accessRuleId": 17
+    },
+    {
+      "value": 3,
+      "label": "新订单",
+      "accessRuleId": 18
+    },
+    {
+      "value": 4,
+      "label": "预售订单",
+      "accessRuleId": 19
+    },
+    {
+      "value": 5,
+      "label": "预存业绩订单",
+      "accessRuleId": 20
+    },
+    {
+      "value": 7,
+      "label": "自定订单",
+      "accessRuleId": 21
+    },
+    {
+      "value": 12,
+      "label": "思雪订单",
+      "accessRuleId": 22
+    },
+    {
+      "value": 13,
+      "label": "思雪预售单",
+      "accessRuleId": 23
+    },
+    {
+      "value": 8,
+      "label": "异常/废弃订单",
+      "accessRuleId": 24
+    },
+    {
+      "value": 9,
+      "label": "袋子费",
+      "accessRuleId": 25
+    },
+    {
+      "value": 10,
+      "label": "保证金退回",
+      "accessRuleId": 26
+    },
+    {
+      "value": 11,
+      "label": "代理余额退回",
+      "accessRuleId": 27
+    },
+    {
+      "value": 14,
+      "label": "店铺系统收款",
+      "accessRuleId": 28
+    },
+    {
+      "value": 15,
+      "label": "业绩转让",
+      "accessRuleId": 29
+    }
+  ],
+  "status": [
+    {
+      "value": 1,
+      "label": "待审批"
+    },
+    {
+      "value": 2,
+      "label": "已通过"
+    },
+    {
+      "value": 3,
+      "label": "未通过"
+    },
+    {
+      "value": 4,
+      "label": "已取消"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store.tacomall.common.mapper.member.MemberCartMapper">
+    <sql id="base_colums">
+		mc.*
+    </sql>
+    <resultMap id="memberCart" type="store.tacomall.common.entity.member.MemberCart">
+        <id column="id" property="id"></id>
+        <association column="shop_id" property="shop" select="store.tacomall.common.mapper.shop.ShopMapper.selectById"></association>
+        <association column="goods_items_id" property="goodsItems" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryInfoById"></association>
+    </resultMap>
+
+    <select id="queryList" resultMap="memberCart">
+        SELECT <include refid="base_colums" />
+        FROM member_cart AS mc
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

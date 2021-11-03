@@ -1,0 +1,40 @@
+version: "3"
+services:
+  loki:
+    image: grafana/loki
+    container_name: ${PROJECT_NAME}_loki-default
+    volumes:
+      - ${IMAGE_LOKI}/:/etc/loki/
+    command: -config.file=/etc/loki/loki.yml
+    ports:
+      - ${PORT_LOKI}:3100
+  promtail:
+    image: grafana/promtail
+    container_name: ${PROJECT_NAME}_promtail-default
+    volumes:
+      - ${IMAGE_PROMTAIL}/:/etc/promtail/
+      - /var/log/tacomall_server-api:/var/log/tacomall_server-api
+    command: -config.file=/etc/promtail/promtail.yml
+  grafana:
+    image: grafana/grafana
+    container_name: ${PROJECT_NAME}_grafana-default
+    volumes:
+      - ${IMAGE_GRAFANA}/grafana.ini:/etc/grafana/grafana.ini
+    ports:
+      - ${PORT_GRAFANA}:3000
+  rabbitmq:
+    image: daocloud.io/rabbitmq:3-management
+    container_name: ${PROJECT_NAME}_rabbitmq-default
+    ports:
+      - ${PORT_RABBITMQ}:5672
+      - ${PORT_CONSOLE_RABBITMQ}:15672
+  redis:
+    image: redis:latest
+    container_name: ${PROJECT_NAME}_redis-default
+    restart: always
+    ports:
+      - ${PORT_REDIS}:6379
+    volumes:
+      - ${IMAGE_REDIS}/redis.conf:/usr/local/etc/redis/redis.conf:rw
+      - ${IMAGE_REDIS}/data:/data:rw
+    command: /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf"

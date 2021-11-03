@@ -1,0 +1,26 @@
+{
+  "name": "tacomall-uniapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "async-validator": "^3.5.1",
+    "axios": "^0.21.1",
+    "dayjs": "^1.10.7",
+    "lodash": "^4.17.20",
+    "mockjs": "^1.1.0",
+    "throttle-debounce": "^3.0.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-preset-jsx": "^1.2.4"
+  },
+  "scripts": {
+    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue api/ components/ event/ libs/ model/ pages/ plugins/ service/ store/ utils/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

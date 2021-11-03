@@ -1,0 +1,122 @@
+{
+  "status": [
+    {
+      "value": 1,
+      "label": "正常"
+    },
+    {
+      "value": 2,
+      "label": "冻结"
+    }
+  ],
+  "type": [
+    {
+      "value": 1,
+      "label": "兑换会员"
+    },
+    {
+      "value": 2,
+      "label": "推广商会员"
+    },
+    {
+      "value": 3,
+      "label": "市场股东A"
+    },
+    {
+      "value": 4,
+      "label": "市场股东B"
+    },
+    {
+      "value": 5,
+      "label": "市场股东C"
+    },
+    {
+      "value": 6,
+      "label": "市场股东D"
+    },
+    {
+      "value": 7,
+      "label": "代理商"
+    },
+    {
+      "value": 8,
+      "label": "至尊会员"
+    },
+    {
+      "value": 9,
+      "label": "市场股东"
+    }
+  ],
+  "sex": [
+    {
+      "value": 1,
+      "label": "男"
+    },
+    {
+      "value": 2,
+      "label": "女"
+    }
+  ],
+  "level": [
+    {
+      "value": 2,
+      "label": "普通"
+    },
+    {
+      "value": 3,
+      "label": "VIP"
+    },
+    {
+      "value": 4,
+      "label": "银卡"
+    },
+    {
+      "value": 5,
+      "label": "金卡"
+    },
+    {
+      "value": 6,
+      "label": "市场股东A"
+    },
+    {
+      "value": 7,
+      "label": "市场股东B"
+    },
+    {
+      "value": 8,
+      "label": "市场股东C"
+    },
+    {
+      "value": 9,
+      "label": "市场股东D"
+    },
+    {
+      "value": 11,
+      "label": "至尊"
+    },
+    {
+      "value": 12,
+      "label": "市场股东"
+    }
+  ],
+  "isTeamLeader": [
+    {
+      "value": 0,
+      "label": "否"
+    },
+    {
+      "value": 1,
+      "label": "是"
+    }
+  ],
+  "isValidDistributor": [
+    {
+      "value": 0,
+      "label": "否"
+    },
+    {
+      "value": 1,
+      "label": "是"
+    }
+  ]
+}

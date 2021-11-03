@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          username: 
+          password: 
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 2000
+    username: guest
+    password: guest
+logback:
+  path: /var/log/tacomall-api/mq-rabbitmq/

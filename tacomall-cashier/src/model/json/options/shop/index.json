@@ -1,0 +1,40 @@
+{
+  "status": [
+    {
+      "value": 1,
+      "label": "正常"
+    },
+    {
+      "value": 2,
+      "label": "冻结"
+    }
+  ],
+  "approvalWorkflow": [
+    {
+      "value": "12,17",
+      "label": "地址申请"
+    },
+    {
+      "value": "13,18",
+      "label": "签约申请"
+    },
+    {
+      "value": "14,19",
+      "label": "装修申请"
+    }
+  ],
+  "type": [
+    {
+      "value": 1,
+      "label": "独资店铺"
+    },
+    {
+      "value": 2,
+      "label": "独立合伙人店铺"
+    },
+    {
+      "value": 3,
+      "label": "平摊合伙人店铺"
+    }
+  ]
+}

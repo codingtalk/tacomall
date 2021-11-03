@@ -1,0 +1,88 @@
+.cashier-result {
+    .r-result {
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        height         : 355rpx;
+        margin-bottom  : 10rpx;
+        background     : white;
+
+        .iconfont {
+            display    : inline-block;
+            width      : 175rpx;
+            height     : 175rpx;
+            line-height: 175rpx;
+            text-align : center;
+            font-size  : 175rpx;
+            color      : #00c800;
+        }
+
+        .text {
+            font-size: 34rpx;
+            color    : #666;
+        }
+    }
+
+    .r-info {
+        padding   : 43rpx;
+        background: white;
+
+        .i-item {
+            display: flex;
+
+            .item-title {
+                flex-basis: 144rpx;
+
+                text {
+                    color: #666;
+                }
+            }
+
+            .item-text {
+                flex: 1;
+
+                text {
+                    color: #333;
+                }
+            }
+
+            &:not(:first-child) {
+                padding-top: 20rpx;
+            }
+        }
+    }
+
+    .r-footer {
+        position  : fixed;
+        bottom    : 0;
+        left      : 0;
+        display   : flex;
+        width     : 100%;
+        height    : 110rpx;
+        background: white;
+
+        .f-info {
+            display     : flex;
+            align-items : center;
+            flex        : 1;
+            padding-left: 28rpx;
+
+            .i-price {
+                color: @primary-color;
+            }
+        }
+
+        .f-check {
+            display        : flex;
+            align-items    : center;
+            justify-content: center;
+            flex-basis     : 210rpx;
+            background     : @primary-color;
+
+            text {
+                color: white;
+            }
+        }
+    }
+}

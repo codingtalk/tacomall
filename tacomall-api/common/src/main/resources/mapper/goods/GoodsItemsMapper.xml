@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store.tacomall.common.mapper.goods.GoodsItemsMapper">
+    <sql id="base_colums">
+		gi.*
+    </sql>
+    <resultMap id="goodsItems" type="store.tacomall.common.entity.goods.GoodsItems">
+        <id column="id" property="id"></id>
+        <result column="goods_id" property="goodsId"></result>
+        <result column="spec_json" property="specJson" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler"/>
+        <discriminator column="result_type" javaType="Integer">
+            <case value="2">
+                <association column="goods_id" property="goods" select="store.tacomall.common.mapper.goods.GoodsMapper.selectById"></association>
+            </case>
+        </discriminator>
+    </resultMap>
+
+    <select id="queryInfoById" resultMap="goodsItems">
+        SELECT <include refid="base_colums" />
+        , 2 AS result_type
+        FROM goods_items AS gi
+        WHERE gi.id = ${id} AND gi.is_delete = 0
+    </select>
+
+    <select id="queryGoodsItemsListByGoodsId" resultMap="goodsItems">
+        SELECT <include refid="base_colums" />
+        , 1 AS result_type
+        FROM goods_items AS gi
+        WHERE gi.goods_id = ${goodsId} AND gi.is_delete = 0
+    </select>
+
+</mapper>

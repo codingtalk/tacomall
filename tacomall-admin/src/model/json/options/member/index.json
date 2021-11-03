@@ -1,0 +1,66 @@
+{
+  "status": [
+    {
+      "value": 1,
+      "label": "正常"
+    },
+    {
+      "value": 2,
+      "label": "冻结"
+    },
+    {
+      "value": 3,
+      "label": "黑名单"
+    }
+  ],
+  "type": [
+    {
+      "value": 1,
+      "label": "兑换会员"
+    },
+    {
+      "value": 2,
+      "label": "推广商会员"
+    },
+    {
+      "value": 7,
+      "label": "代理商"
+    },
+    {
+      "value": 8,
+      "label": "至尊会员"
+    },
+    {
+      "value": 9,
+      "label": "市场股东"
+    }
+  ],
+  "sex": [
+    {
+      "value": 1,
+      "label": "男"
+    },
+    {
+      "value": 2,
+      "label": "女"
+    }
+  ],
+  "level": [
+    {
+      "value": 2,
+      "label": "普通"
+    },
+    {
+      "value": 3,
+      "label": "VIP"
+    },
+    {
+      "value": 4,
+      "label": "银卡"
+    },
+    {
+      "value": 5,
+      "label": "金卡"
+    }
+  ]
+}

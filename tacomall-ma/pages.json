@@ -1,0 +1,196 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "塔可商城",
+        "app-plus": {
+          "titleNView": false
+        }
+      }
+    },
+    {
+      "path": "pages/category/index",
+      "style": {
+        "navigationBarTitleText": "分类",
+        "app-plus": {
+          "titleNView": false
+        }
+      }
+    },
+    {
+      "path": "pages/cart/index",
+      "style": {
+        "navigationBarTitleText": "购物车",
+        "app-plus": {
+          "titleNView": false
+        }
+      }
+    },
+    {
+      "path": "pages/center/index",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "enablePullDownRefresh": true,
+        "app-plus": {
+          "titleNView": false,
+          "bounce": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "app-plus": {
+          "titleNView": false
+        }
+      }
+    },
+    {
+      "path": "pages/register/index",
+      "style": {
+        "navigationBarTitleText": "注册",
+        "app-plus": {
+          "titleNView": false
+        }
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "sub-pages",
+      "pages": [
+        {
+          "path": "account/index",
+          "style": {
+            "navigationBarTitleText": "会员账户",
+            "app-plus": {
+              "titleNView": false
+            },
+            "usingComponents": {
+              "van-tabs": "/wxcomponents/vant/tabs/index",
+              "van-tab": "/wxcomponents/vant/tab/index",
+              "van-popup": "/wxcomponents/vant/popup/index",
+              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
+            }
+          }
+        },
+        {
+          "path": "goods/index",
+          "style": {
+            "navigationBarTitleText": "商品详情",
+            "app-plus": {
+              "titleNView": false
+            },
+            "usingComponents": {
+              "van-tabs": "/wxcomponents/vant/tabs/index",
+              "van-tab": "/wxcomponents/vant/tab/index",
+              "van-popup": "/wxcomponents/vant/popup/index",
+              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
+            }
+          }
+        },
+        {
+          "path": "cashier/settle",
+          "style": {
+            "navigationBarTitleText": "订单结算",
+            "app-plus": {
+              "titleNView": false
+            },
+            "usingComponents": {
+              "van-tabs": "/wxcomponents/vant/tabs/index",
+              "van-tab": "/wxcomponents/vant/tab/index",
+              "van-popup": "/wxcomponents/vant/popup/index",
+              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
+            }
+          }
+        },
+        {
+          "path": "cashier/result",
+          "style": {
+            "navigationBarTitleText": "订单结果",
+            "app-plus": {
+              "titleNView": false
+            },
+            "usingComponents": {
+              "van-tabs": "/wxcomponents/vant/tabs/index",
+              "van-tab": "/wxcomponents/vant/tab/index",
+              "van-popup": "/wxcomponents/vant/popup/index",
+              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "塔可商城",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F8F8F8",
+    "mp-alipay": {
+      "titleBarColor": "#FFFFFF"
+    },
+    "usingComponents": {
+      "van-index-bar": "/wxcomponents/vant/index-bar/index",
+      "van-index-anchor": "/wxcomponents/vant/index-anchor/index",
+      "van-cell": "/wxcomponents/vant/cell/index",
+      "van-toast": "/wxcomponents/vant/toast/index",
+      "van-dialog": "/wxcomponents/vant/dialog/index",
+      "van-sticky": "/wxcomponents/vant/sticky/index",
+      "van-popup": "/wxcomponents/vant/popup/index",
+      "van-picker": "/wxcomponents/vant/picker/index"
+    }
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#845d32",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/image/tab-home.png",
+        "selectedIconPath": "static/image/tab-home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "iconPath": "static/image/tab-category.png",
+        "selectedIconPath": "static/image/tab-category-active.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "iconPath": "static/image/tab-cart.png",
+        "selectedIconPath": "static/image/tab-cart-active.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/center/index",
+        "iconPath": "static/image/tab-center.png",
+        "selectedIconPath": "static/image/tab-center-active.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^a-(.*)": "@/components/$1/index.vue",
+      "^van-(.*)": "@/wxcomponents/vant/$1/index",
+      "uni-ec-canvas": "@/uni_modules/echart/uni-ec-canvas/uni-ec-canvas"
+    }
+  },
+  "condition": {
+    "current": 0,
+    "list": [
+      {
+        "name": "",
+        "path": "",
+        "query": ""
+      }
+    ]
+  }
+}

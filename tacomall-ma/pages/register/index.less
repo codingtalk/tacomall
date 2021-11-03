@@ -1,0 +1,104 @@
+.register{
+    background: white;
+    .r-wrap{
+        width:540rpx;
+        padding-top: 200rpx;
+        margin:0 auto;
+        .w-title{
+            padding-bottom: 40rpx;
+            text{
+                font-size: 36rpx;
+                font-weight: 600;
+            }
+        }
+        .w-form{
+            .f-input{
+                .i-item{
+                    position: relative;
+					.layout_flex();
+                    height: 80rpx;
+                    padding: 0 30rpx;
+                    background: #f7f7f7;
+                    input{
+                        flex:1;
+                        border:none;
+                        outline: none;
+                        background: #f7f7f7;
+                    }
+                    .btn{
+                        position: absolute;
+                        top:50%;
+                        right:30rpx;
+                        transform: translateY(-50%);
+                        display: block;
+                        height: 60rpx;
+                        padding: 0 30rpx;
+                        line-height: 60rpx;
+                        border-radius: 10rpx;
+	                    background: @primary-color;
+                        color:white;
+	                    z-index: 10;
+	                    &-disable{
+		                    background: #f7f7f7;
+		                    color:@primary-color;
+	                    }
+                    }
+                    &:not(:first-child){
+                        margin-top: 20rpx;
+                    }
+                }
+            }
+            .f-btn{
+				.layout_flex(@j:center);
+                height: 80rpx;
+                margin-top: 40rpx;
+                background: @primary-color;
+                text{
+                    color:white;
+                }
+            }
+        }
+        .w-service{
+			.layout_flex();
+            padding: 20rpx 0 40rpx 0;
+            font-size: 28rpx;
+            color:#71777c;
+            text{
+                &:last-child{
+                    color:@primary-color;
+                }
+            }
+        }
+        .w-third{
+            .t-title{
+                text{
+                    color:#71777c;
+                }
+            }
+            .t-entry{
+				.layout_flex(@j:space-around);
+                padding-top: 40rpx;
+                .e-item{
+                    position: relative;
+					.layout_flex(@j:center);
+                    width:90rpx;
+                    height: 90rpx;
+                    border-radius: 45rpx;
+                    background: #f7f7f7;
+                    text{
+                        font-size: 60rpx;
+                    }
+                    button{
+                        position: absolute;
+                        top:0;
+                        bottom:0;
+                        width:100%;
+                        opacity: 0;
+                        z-index: 10;
+                    }
+                }
+            }
+        }
+    }
+
+}

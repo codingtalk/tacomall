@@ -1,0 +1,112 @@
+{
+  "add": {
+    "default": {
+      "categoryId": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "specCategoryId": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": 0
+      },
+      "name": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "thumbnail": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "amount": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "detailContent": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "status": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "goodsItemsList": {
+        "skip": false,
+        "require": true,
+        "type": "array>GoodsItems",
+        "value": []
+      }
+    }
+  },
+  "update": {
+    "default": {
+      "id": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": 0
+      },
+      "categoryId": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "specCategoryId": {
+        "skip": false,
+        "require": true,
+        "type": "int",
+        "value": 0
+      },
+      "name": {
+        "skip": false,
+        "require": true,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "thumbnail": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "amount": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "detailContent": {
+        "skip": false,
+        "require": false,
+        "type": "string|min:4|max:12",
+        "value": ""
+      },
+      "status": {
+        "skip": false,
+        "require": false,
+        "type": "int",
+        "value": 0
+      },
+      "goodsItemsList": {
+        "skip": false,
+        "require": true,
+        "type": "array>GoodsItems",
+        "value": []
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store.tacomall.common.mapper.member.MemberMapper">
+    <sql id="base_colums">
+		m.*
+    </sql>
+    <resultMap id="member" type="store.tacomall.common.entity.member.Member">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <resultMap id="memberPage" type="store.tacomall.common.vo.base.PageVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <select id="queryInfo" resultMap="member">
+        SELECT <include refid="base_colums" />
+        FROM member AS m
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryPage" resultMap="memberPage">
+        SELECT <include refid="base_colums" />
+        FROM member AS m
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

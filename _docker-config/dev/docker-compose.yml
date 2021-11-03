@@ -1,0 +1,18 @@
+version: "3"
+services:
+  rabbitmq:
+    image: daocloud.io/rabbitmq:3-management
+    container_name: ${PROJECT_NAME}_rabbitmq-default
+    ports:
+      - ${PORT_RABBITMQ}:5672
+      - ${PORT_CONSOLE_RABBITMQ}:15672
+  redis:
+    image: redis:latest
+    container_name: ${PROJECT_NAME}_redis-default
+    restart: always
+    ports:
+      - ${PORT_REDIS}:6379
+    volumes:
+      - ${IMAGE_REDIS}/redis.conf:/usr/local/etc/redis/redis.conf:rw
+      - ${IMAGE_REDIS}/data:/data:rw
+    command: /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf"

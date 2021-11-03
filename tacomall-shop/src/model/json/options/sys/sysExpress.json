@@ -1,0 +1,34 @@
+{
+  "status": [
+    {
+      "value": 1,
+      "label": "正常"
+    },
+    {
+      "value": 2,
+      "label": "禁用"
+    }
+  ],
+  "name": [
+    {
+      "value": 1,
+      "label": "德邦"
+    },
+    {
+      "value": 2,
+      "label": "顺丰"
+    },
+    {
+      "value": 3,
+      "label": "快达"
+    },
+    {
+      "value": 4,
+      "label": "中通"
+    },
+    {
+      "value": 5,
+      "label": "上门自提"
+    }
+  ]
+}

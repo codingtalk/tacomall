@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          username: 
+          password: 
+          driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+          url: jdbc:p6spy:mysql://?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    timeout: 3000
+    database: 0
+    jedis:
+      pool:
+        max-idle: 6
+        max-active: 32
+        max-wait: 100
+        min-idle: 4
+wx:
+  pay:
+    appId: 
+    mchId: 
+    mchKey: 
+    subAppId: 
+    subMchId:
+    keyPath: 
+oss:
+  endPoint: 
+  accesskey: 
+  accessSecret: 
+  bucket: 
+  expire: 3600
+  host: 
+  callback: 
+logback:
+  path: /var/log/tacomall-api/api-open/

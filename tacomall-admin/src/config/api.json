@@ -1,0 +1,160 @@
+{
+  "open": {
+    "url": {
+      "dev": "/apiOpen/",
+      "lcoal": "//localhost:4003/",
+      "test": "",
+      "prod": ""
+    },
+    "domain": {
+      "oss": {
+        "authorize": {
+          "method": "POST",
+          "url": "/oss/authorize"
+        }
+      },
+      "enum": {
+        "lst": {
+          "method": "POST",
+          "url": "/enum/lst"
+        }
+      }
+    }
+  },
+  "admin": {
+    "url": {
+      "dev": "/apiAdmin/",
+      "lcoal": "//localhost:4000/",
+      "test": "",
+      "prod": ""
+    },
+    "domain": {
+      "tm": {
+        "staffLogin": {
+          "method": "POST",
+          "url": "/tm/staffLogin"
+        },
+        "staffLogout": {
+          "method": "POST",
+          "url": "/tm/staffLogout"
+        },
+        "staffPage": {
+          "method": "POST",
+          "url": "/tm/staffPage"
+        },
+        "staffInfo": {
+          "method": "POST",
+          "url": "/tm/staffInfo"
+        },
+        "staffAdd": {
+          "method": "POST",
+          "url": "/tm/staffAdd"
+        },
+        "staffUpdate": {
+          "method": "POST",
+          "url": "/tm/staffUpdate"
+        },
+        "staffAccessRuleList": {
+          "method": "POST",
+          "url": "/tm/staffAccessRuleList"
+        },
+        "deptPage": {
+          "method": "POST",
+          "url": "/tm/deptPage"
+        },
+        "deptInfo": {
+          "method": "POST",
+          "url": "/tm/deptInfo"
+        },
+        "deptAdd": {
+          "method": "POST",
+          "url": "/tm/deptAdd"
+        },
+        "deptUpdate": {
+          "method": "POST",
+          "url": "/tm/deptUpdate"
+        },
+        "jobPage": {
+          "method": "POST",
+          "url": "/tm/jobPage"
+        },
+        "jobInfo": {
+          "method": "POST",
+          "url": "/tm/jobInfo"
+        },
+        "jobAdd": {
+          "method": "POST",
+          "url": "/tm/jobAdd"
+        },
+        "jobUpdate": {
+          "method": "POST",
+          "url": "/tm/jobUpdate"
+        },
+        "accessRulePage": {
+          "method": "POST",
+          "url": "/tm/accessRulePage"
+        },
+        "accessRuleList": {
+          "method": "POST",
+          "url": "/tm/accessRuleList"
+        },
+        "accessRuleInfo": {
+          "method": "POST",
+          "url": "/tm/accessRuleInfo"
+        },
+        "accessRuleAdd": {
+          "method": "POST",
+          "url": "/tm/accessRuleAdd"
+        },
+        "accessRuleUpdate": {
+          "method": "POST",
+          "url": "/tm/accessRuleUpdate"
+        }
+      },
+      "goods": {
+        "page": {
+          "method": "POST",
+          "url": "/goods/page"
+        },
+        "info": {
+          "method": "POST",
+          "url": "/goods/info"
+        },
+        "add": {
+          "method": "POST",
+          "url": "/goods/add"
+        },
+        "update": {
+          "method": "POST",
+          "url": "/goods/update"
+        },
+        "categoryPage": {
+          "method": "POST",
+          "url": "/goods/categoryPage"
+        },
+        "categoryInfo": {
+          "method": "POST",
+          "url": "/goods/categoryInfo"
+        },
+        "categoryAdd": {
+          "method": "POST",
+          "url": "/goods/categoryAdd"
+        },
+        "categoryUpdate": {
+          "method": "POST",
+          "url": "/goods/categoryUpdate"
+        }
+      },
+      "member": {
+        "page": {
+          "method": "POST",
+          "url": "/member/page"
+        },
+        "info": {
+          "method": "POST",
+          "url": "/member/info"
+        }
+      }
+    }
+  }
+}

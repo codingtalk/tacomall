@@ -1,0 +1,85 @@
+[
+  {
+    "title": "Dashbord",
+    "path": "/index",
+    "icon": "icon-shouye"
+  },
+  {
+    "title": "商品管理",
+    "path": "/goods",
+    "icon": "icon-shangpin",
+    "sub": [
+      {
+        "title": "商品列表",
+        "path": "/goods/list",
+        "accessRuleId": 9999
+      },
+      {
+        "title": "分类列表",
+        "path": "/goods-category/list",
+        "accessRuleId": 9999
+      }
+    ]
+  },
+  {
+    "title": "会员管理",
+    "path": "/member",
+    "icon": "icon-user",
+    "sub": [
+      {
+        "title": "会员列表",
+        "path": "/member/list",
+        "accessRuleId": 9999
+      }
+    ]
+  },
+  {
+    "title": "组织架构",
+    "path": "/tm",
+    "icon": "icon-fl-zuzhi",
+    "sub": [
+      {
+        "title": "部门列表",
+        "path": "/tm-dept/list",
+        "accessRuleId": 9999
+      },
+      {
+        "title": "职位列表",
+        "path": "/tm-job/list",
+        "accessRuleId": 9999
+      },
+      {
+        "title": "职员列表",
+        "path": "/tm-staff/list",
+        "accessRuleId": 9999
+      }
+    ]
+  },
+  {
+    "title": "用户权限",
+    "path": "/tm-access",
+    "icon": "icon-quanxian",
+    "sub": [
+      {
+        "title": "权限列表",
+        "path": "/tm-access-rule/list",
+        "accessRuleId": 9999
+      }
+    ]
+  },
+  {
+    "title": "账户中心",
+    "path": "/account",
+    "icon": "icon-geren",
+    "sub": [
+      {
+        "title": "用户资料",
+        "path": "/account/profile"
+      },
+      {
+        "title": "账户设置",
+        "path": "/account/setting"
+      }
+    ]
+  }
+]

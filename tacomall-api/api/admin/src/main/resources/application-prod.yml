@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          username: 
+          password: 
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true
+logback:
+  path: /var/log/tacomall-api/api-admin/
