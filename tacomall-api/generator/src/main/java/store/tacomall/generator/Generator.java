@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC
  * @Date: 2021-10-06 14:47:17
- * @LastEditTime: 2021-11-01 17:47:34
+ * @LastEditTime: 2021-11-04 13:50:25
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/generator/src/main/java/store/tacomall/generator/Generator.java
@@ -27,8 +27,8 @@ public class Generator {
     public static void main(String[] args) {
         ArrayList<Map<String, String>> doGenTableCfg = new ArrayList<>(Arrays.asList(new HashMap<String, String>() {
             {
-                put("table", "order_form");
-                put("domain", "order");
+                put("table", "shop_stock");
+                put("domain", "shop");
             }
         }));
         for (Map<String, String> cfg : doGenTableCfg) {
