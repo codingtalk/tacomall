@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-11-01 17:50:39
- * @LastEditTime: 2021-11-04 14:02:38
+ * @LastEditTime: 2021-11-04 16:17:57
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/api/ma/src/main/java/store/tacomall/apima/service/impl/OrderFormServiceImpl.java
@@ -102,9 +102,6 @@ public class OrderFormServiceImpl extends ServiceImpl<OrderFormMapper, OrderForm
             OrderForm orderForm = OrderForm.builder().sn(SnUtil.gen("ORDER_FORM")).shopId(1)
                     .memberId(RequestUtil.getLoginUser().getInteger("id"))
                     .amountTotal(goodsItemsQuantityBoList.stream().map(x -> {
-                        if (shopStockMapper.freezeStock(1, x.getGoodsItemsId(), x.getQuantity()) == 0) {
-                            ExceptionUtil.throwServerException("店铺库存不足~");
-                        }
                         return Optional
                                 .ofNullable(goodsMapper.selectOne(new QueryWrapper<Goods>().lambda()
                                         .apply(String.format("id in (select goods_id from goods_items where id = %s)",

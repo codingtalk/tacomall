@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-10-27 10:56:21
- * @LastEditTime: 2021-10-27 10:57:25
+ * @LastEditTime: 2021-11-04 16:48:45
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/api/ma/src/main/java/store/tacomall/apima/service/impl/GoodsServiceImpl.java
@@ -12,17 +12,14 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import store.tacomall.apima.service.GoodsService;
 import store.tacomall.common.entity.goods.Goods;
 import store.tacomall.common.json.ResponsePageJson;
-import store.tacomall.common.mapper.goods.GoodsItemsMapper;
 import store.tacomall.common.mapper.goods.GoodsMapper;
 import store.tacomall.common.vo.base.PageVo;
 
