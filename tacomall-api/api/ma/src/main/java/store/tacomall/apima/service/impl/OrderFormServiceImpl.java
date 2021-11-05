@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-11-01 17:50:39
- * @LastEditTime: 2021-11-04 16:17:57
+ * @LastEditTime: 2021-11-05 15:58:41
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/api/ma/src/main/java/store/tacomall/apima/service/impl/OrderFormServiceImpl.java
@@ -20,6 +20,8 @@ import java.util.stream.Collectors;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import org.slf4j.Logger;
@@ -36,6 +38,7 @@ import store.tacomall.common.entity.order.OrderForm;
 import store.tacomall.common.entity.order.OrderFormGoodsItems;
 import store.tacomall.common.entity.shop.ShopStock;
 import store.tacomall.common.json.ResponseJson;
+import store.tacomall.common.json.ResponsePageJson;
 import store.tacomall.common.mapper.goods.GoodsMapper;
 import store.tacomall.common.mapper.member.MemberCartMapper;
 import store.tacomall.common.mapper.order.OrderFormMapper;
@@ -45,6 +48,7 @@ import store.tacomall.common.util.ExceptionUtil;
 import store.tacomall.common.util.RequestUtil;
 import store.tacomall.common.util.SnUtil;
 import store.tacomall.common.util.StringUtil;
+import store.tacomall.common.vo.base.PageVo;
 
 @Service
 public class OrderFormServiceImpl extends ServiceImpl<OrderFormMapper, OrderForm> implements OrderFormService {
@@ -122,6 +126,30 @@ public class OrderFormServiceImpl extends ServiceImpl<OrderFormMapper, OrderForm
             dataSourceTransactionManager.rollback(transactionStatus);
             ExceptionUtil.throwSqlException(e.toString());
         }
+        responseJson.ok();
+        return responseJson;
+    }
+
+    @Override
+    public ResponsePageJson<List<PageVo>> page(Integer pageIndex, Integer pageSize, JSONObject json) {
+        ResponsePageJson<List<PageVo>> responsePageVo = new ResponsePageJson<>();
+        Page<PageVo> page = new Page<>(pageIndex, pageSize);
+        QueryWrapper<OrderForm> qw = new QueryWrapper<OrderForm>();
+        qw.eq("of.member_id", RequestUtil.getLoginUser().getInteger("id"));
+        qw.eq("of.is_delete", 0);
+        qw.orderByDesc("of.create_time");
+        IPage<PageVo> result = this.baseMapper.queryPage(page, qw);
+        responsePageVo.setData(result.getRecords());
+        responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
+        responsePageVo.ok();
+        return responsePageVo;
+    }
+
+    @Override
+    public ResponseJson<OrderForm> info(Integer id) {
+        ResponseJson<OrderForm> responseJson = new ResponseJson<>();
+        responseJson
+                .setData(this.baseMapper.queryInfo(new QueryWrapper<OrderForm>().lambda().eq(OrderForm::getId, id)));
         responseJson.ok();
         return responseJson;
     }

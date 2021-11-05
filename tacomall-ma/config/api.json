@@ -62,6 +62,10 @@
         "add": {
           "method": "POST",
           "path": "orderForm/add"
+        },
+        "page": {
+          "method": "POST",
+          "path": "orderForm/page"
         }
       }
     }

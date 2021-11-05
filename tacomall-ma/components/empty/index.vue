@@ -1,18 +1,24 @@
+<!--
+ * @Author: 码上talk|RC/3189482282@qq.com
+ * @Date: 2021-10-19 13:50:40
+ * @LastEditTime: 2021-11-05 15:20:31
+ * @LastEditors: 码上talk|RC
+ * @Description: 
+ * @FilePath: /tacomall-ma/components/empty/index.vue
+-->
 <template>
-  <view class="axq-empty">
-    <image class="axq-empty-img" :src="src"></image>
-    <text class="axq-empty-text" v-for="(t,i) in tips" :key="i">{{ t }}</text>
+  <view class="empty">
+    <image class="e-img" src="@/static/image/blank-data.png"></image>
+    <text class="e-text" v-for="(t,i) in tips" :key="i">{{ t }}</text>
   </view>
 </template>
 
 <script>
-import { appConfig } from '@/config/app'
 export default {
   name: 'AxqEmpty',
   components: {},
   mixins: [],
   props: {
-    src: { type: String,default: appConfig.staticUrl + 'empty/order.png' },
     tips: { type: Array,default: () => [ '数据空空~' ] }
   },
   data () {
@@ -24,14 +30,14 @@ export default {
 </script>
 
 <style lang="less">
-.axq-empty{
-  .flexLayout(@a:center,@j:center,@dir:column);
-  &-img{
+.empty{
+  .layout_flex(@a:center,@j:center,@f:column);
+  .e-img{
     margin-top: 223rpx;
     width: 240rpx;
     height: 230rpx;
   }
-  &-text{
+  .e-text{
     font-size: 30rpx;
     color: #666;
     line-height: 1.5em;

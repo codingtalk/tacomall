@@ -1,0 +1,24 @@
+{
+  "status": [
+    {
+      "value": "",
+      "label": "全部订单"
+    },
+    {
+      "value": 1,
+      "label": "待付款"
+    },
+    {
+      "value": 2,
+      "label": "待收货"
+    },
+    {
+      "value": 3,
+      "label": "已收货"
+    },
+    {
+      "value": 4,
+      "label": "退款订单"
+    }
+  ]
+}

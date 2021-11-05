@@ -106,6 +106,15 @@
               "titleNView": false
             }
           }
+        },
+        {
+          "path": "pages/list/index",
+          "style": {
+            "navigationBarTitleText": "订单列表",
+            "app-plus": {
+              "titleNView": false
+            }
+          }
         }
       ]
     }

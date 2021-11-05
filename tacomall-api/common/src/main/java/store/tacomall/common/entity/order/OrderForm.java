@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-11-01 17:47:38
- * @LastEditTime: 2021-11-02 16:07:52
+ * @LastEditTime: 2021-11-05 14:43:07
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/entity/order/OrderForm.java
@@ -9,12 +9,14 @@
 package store.tacomall.common.entity.order;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.Builder;
 import lombok.Data;
@@ -72,5 +74,8 @@ public class OrderForm implements Serializable {
     private LocalDateTime updateTime;
 
     private LocalDateTime deleteTime;
+
+    @TableField(exist = false)
+    private List<OrderFormGoodsItems> orderFormGoodsItemsList;
 
 }

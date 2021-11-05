@@ -1,12 +1,14 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-10-27 21:17:14
- * @LastEditTime: 2021-11-04 17:47:22
+ * @LastEditTime: 2021-11-05 14:36:24
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/api/ma/src/main/java/store/tacomall/apima/controller/OrderFormController.java
  */
 package store.tacomall.apima.controller;
+
+import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,9 @@ import store.tacomall.common.bo.orderForm.OrderFormPayRetBo;
 import store.tacomall.apima.service.OrderFormService;
 import store.tacomall.common.entity.order.OrderForm;
 import store.tacomall.common.json.ResponseJson;
+import store.tacomall.common.json.ResponsePageJson;
 import store.tacomall.common.logic.OrderFormPayLogic;
+import store.tacomall.common.vo.base.PageVo;
 
 @RestController
 @RequestMapping(value = "/orderForm/")
@@ -54,6 +58,19 @@ public class OrderFormController {
         responseJson.setData(orderFormPayLogic.settle(id, orderFormPayReqBo));
         responseJson.ok();
         return responseJson;
+    }
+
+    @LoginUser
+    @PostMapping("page")
+    public ResponsePageJson<List<PageVo>> page(@RequestParam(value = "pageIndex") Integer pageIndex,
+            @RequestParam(value = "pageSize") Integer pageSize, @RequestBody JSONObject json) {
+        return orderFormService.page(pageIndex, pageSize, json);
+    }
+
+    @LoginUser
+    @PostMapping("info")
+    public ResponseJson<OrderForm> info(@RequestParam(value = "id") Integer id) {
+        return orderFormService.info(id);
     }
 
 }

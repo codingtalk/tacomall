@@ -1,15 +1,33 @@
+.page,
+.page--column {
+  background: @body-background;
+
+  text,
+  input {
+    font-size  : @font-size-base;
+    font-family: SourceHanSansSC-regular;
+    font-weight: 400;
+    color      : @text-color;
+  }
+}
+
 .page {
-	position: relative;
-	width: 100%;
-	min-height: 100vh;
-	background: @body-background;
-	
-	text, input {
-		font-size: @font-size-base;
-		font-family: SourceHanSansSC-regular;
-		font-weight: 400;
-		color: @text-color;
-	}
+  position  : relative;
+  width     : 100%;
+  min-height: 100vh;
+
+  &--column {
+    position      : fixed;
+    top           : 0;
+    bottom        : 0;
+    width         : 100%;
+    display       : flex;
+    flex-direction: column;
+
+    .col-main {
+      overflow-y: auto;
+    }
+  }
 }
 
 .border-1px {
