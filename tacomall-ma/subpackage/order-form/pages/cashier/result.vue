@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-11-02 17:23:39
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-ma/sub-pages/cashier/result.vue
+ * @FilePath: /tacomall-ma/subpackage/order-form/pages/cashier/result.vue
  * @微信:  13680065830
  * @邮箱:  3189482282@qq.com
  * @oops: Just do what I think it is right

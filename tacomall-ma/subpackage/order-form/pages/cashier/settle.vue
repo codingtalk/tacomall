@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-11-02 17:23:08
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-ma/sub-pages/cashier/settle.vue
+ * @FilePath: /tacomall-ma/subpackage/order-form/pages/cashier/settle.vue
 -->
 <template>
   <view class="page cashier-settle">

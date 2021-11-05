@@ -59,65 +59,51 @@
   ],
   "subPackages": [
     {
-      "root": "sub-pages",
+      "root": "subpackage/member",
       "pages": [
         {
-          "path": "account/index",
+          "path": "pages/account/index",
           "style": {
             "navigationBarTitleText": "会员账户",
             "app-plus": {
               "titleNView": false
-            },
-            "usingComponents": {
-              "van-tabs": "/wxcomponents/vant/tabs/index",
-              "van-tab": "/wxcomponents/vant/tab/index",
-              "van-popup": "/wxcomponents/vant/popup/index",
-              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      "root": "subpackage/goods",
+      "pages": [
         {
-          "path": "goods/index",
+          "path": "pages/detail/index",
           "style": {
             "navigationBarTitleText": "商品详情",
             "app-plus": {
               "titleNView": false
-            },
-            "usingComponents": {
-              "van-tabs": "/wxcomponents/vant/tabs/index",
-              "van-tab": "/wxcomponents/vant/tab/index",
-              "van-popup": "/wxcomponents/vant/popup/index",
-              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      "root": "subpackage/order-form",
+      "pages": [
         {
-          "path": "cashier/settle",
+          "path": "pages/cashier/settle",
           "style": {
             "navigationBarTitleText": "订单结算",
             "app-plus": {
               "titleNView": false
-            },
-            "usingComponents": {
-              "van-tabs": "/wxcomponents/vant/tabs/index",
-              "van-tab": "/wxcomponents/vant/tab/index",
-              "van-popup": "/wxcomponents/vant/popup/index",
-              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
             }
           }
         },
         {
-          "path": "cashier/result",
+          "path": "pages/cashier/result",
           "style": {
             "navigationBarTitleText": "订单结果",
             "app-plus": {
               "titleNView": false
-            },
-            "usingComponents": {
-              "van-tabs": "/wxcomponents/vant/tabs/index",
-              "van-tab": "/wxcomponents/vant/tab/index",
-              "van-popup": "/wxcomponents/vant/popup/index",
-              "van-datetime-picker": "/wxcomponents/vant/datetime-picker/index"
             }
           }
         }
@@ -133,8 +119,6 @@
       "titleBarColor": "#FFFFFF"
     },
     "usingComponents": {
-      "van-index-bar": "/wxcomponents/vant/index-bar/index",
-      "van-index-anchor": "/wxcomponents/vant/index-anchor/index",
       "van-cell": "/wxcomponents/vant/cell/index",
       "van-toast": "/wxcomponents/vant/toast/index",
       "van-dialog": "/wxcomponents/vant/dialog/index",
@@ -178,9 +162,7 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^a-(.*)": "@/components/$1/index.vue",
-      "^van-(.*)": "@/wxcomponents/vant/$1/index",
-      "uni-ec-canvas": "@/uni_modules/echart/uni-ec-canvas/uni-ec-canvas"
+      "^van-(.*)": "@/wxcomponents/vant/$1/index"
     }
   },
   "condition": {

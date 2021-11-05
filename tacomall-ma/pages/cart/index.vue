@@ -84,7 +84,7 @@
     <view class="c-main" v-else>
       <view class="m-blank">
         <view class="no-data">
-          <image src="../../static/image/blank-cart.png" />
+          <image src="@/static/image/blank-cart.png" />
         </view>
         <view class="to-buy" v-if="isLogin">
           <text>购物车空空如也，去</text>
@@ -209,7 +209,7 @@ export default {
         const { status, data } = res;
         if (status) {
           const { id } = data;
-          this.nav(`/sub-pages/cashier/settle?orderFormId=${id}`);
+          this.nav(`/subpackage/order-form/pages/cashier/settle?orderFormId=${id}`);
         }
       });
     }

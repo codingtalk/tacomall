@@ -12,7 +12,7 @@
 <template>
   <view class="img-loader">
     <view class="l-error" v-if="isLoadError">
-      <image src="../../static/image/img-default.png" />
+      <image src="@/static/image/img-default.png" />
     </view>
     <view class="l-img" v-else>
       <image :src="`${ossUrl}${src}?x-oss-process=image/resize,m_mfit,h_160`" @error="imgError" alt />

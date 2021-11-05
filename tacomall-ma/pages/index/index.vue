@@ -3,7 +3,7 @@
     <view class="i-header">
       <view class="h-top">
         <view class="t-logo">
-          <image src="../../static/image/logo-text.png" />
+          <image src="@/static/image/logo-text.png" />
         </view>
         <view class="t-search" @tap="nav('/pages/search/index')">
           <view class="s-left">
@@ -88,7 +88,7 @@
         <view
           class="c-item"
           :key="key"
-          @tap="nav(`/sub-pages/goods/index?id=${item.id}&ac=seckill`)"
+          @tap="nav(`/subpackage/goods/pages/detail/index?id=${item.id}&ac=seckill`)"
           v-for="(item, key) in seckill.l"
         >
           <view class="i-image">
