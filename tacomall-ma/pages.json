@@ -83,6 +83,15 @@
               "titleNView": false
             }
           }
+        },
+        {
+          "path": "pages/search/index",
+          "style": {
+            "navigationBarTitleText": "发现商品",
+            "app-plus": {
+              "titleNView": false
+            }
+          }
         }
       ]
     },

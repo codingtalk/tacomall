@@ -5,7 +5,7 @@
         <view class="t-logo">
           <image src="@/static/image/logo-text.png" />
         </view>
-        <view class="t-search" @tap="nav('/pages/search/index')">
+        <view class="t-search" @tap="nav('/subpackage/goods/pages/search/index')">
           <view class="s-left">
             <text class="iconfont">&#xe652;</text>
             <text class="l-text">搜索好品，共有16523件商品</text>

@@ -1,7 +1,7 @@
 <!--
  * @Author: 码上talk|RC
  * @Date: 2020-06-09 23:20:26
- * @LastEditTime: 2021-10-27 13:53:43
+ * @LastEditTime: 2021-11-05 16:19:04
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-ma/pages/category/index.vue
@@ -12,7 +12,7 @@
 <template>
   <view class="page category">
     <view class="c-header border-1px-bottom">
-      <view class="header-search">
+      <view class="header-search" @tap="nav('/subpackage/goods/pages/search/index')">
         <text class="iconfont">&#xe652;</text>
         <text class="keyword">润米超级品牌日</text>
       </view>
