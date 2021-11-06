@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     height: 60px; ">
-    <img src="http://img.codingtalk.cn/xAbtPDt1636182194614" style="width:50px;"/>
+    <img style="width:50px;" src="http://img.codingtalk.cn/xAbtPDt1636182194614"/>
     <span style="font-size: 18px; font-weight: bold;">塔可商城TACOMALL©</span>
 </p>
 <p style="text-align: center;">[POWERED BY 码上talk|RC]</p>
