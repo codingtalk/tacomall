@@ -1,13 +1,9 @@
-<p style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60px; ">
-    <img style="width:50px;" src="http://img.codingtalk.cn/xAbtPDt1636182194614"/>
-    <span style="font-size: 18px; font-weight: bold;">塔可商城TACOMALL©</span>
+<p align = "center">
+    <img width="50px" src="http://img.codingtalk.cn/xAbtPDt1636182194614"/>
+    <span>塔可商城TACOMALL©</span>
 </p>
-<p style="text-align: center;">[POWERED BY 码上talk|RC]</p>
-<p style="text-align: center;">
+<p align = "center">[POWERED BY 码上talk|RC]</p>
+<p align = "center">
 	<a target="_blank" href="https://gitee.com/running-cat/tacomall/blob/master/LICENSE">
 		<img src="https://img.shields.io/badge/License-Apache2.0-FA8072.svg" alt="License-Apache2.0"/>
 	</a>
@@ -27,7 +23,7 @@
 		<img src="https://img.shields.io/badge/docker-latest-1E90FF" alt="docker-latest"/>
 	</a>
 </p>
-<p style="text-align: center;">
+<p align = "center">
 🌮塔可商城, 一个基于springboot+uniapp+vue3技术栈开发的开源跨平台小程序、管理后台，后端服务的项目，它内置提供了会员分销， 区域代理， 商品零售等功能的新零售电商系统。强大弹性的架构设计，简洁的代码，最新的技术栈，全方面适合不同需求的前端，后端，架构的同学，同时更是企业开发需求的不二选择。开源不易，您fork是我们持续更新的最大动力！🥳
 </p>
 
