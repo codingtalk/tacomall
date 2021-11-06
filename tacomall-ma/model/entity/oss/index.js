@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-10-11 17:29:51
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /ma-portal/model/entity/oss/index.js
+ * @FilePath: /tacomall-ma/model/entity/oss/index.js
  * @微信:  13680065830
  * @邮箱:  3189482282@qq.com
  * @oops: Just do what I think it is right

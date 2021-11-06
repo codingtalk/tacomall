@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-09-07 19:30:39
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /ma-portal/store/user/mutation-types.js
+ * @FilePath: /tacomall-ma/store/user/mutation-types.js
  * @微信:  13680065830
  * @邮箱:  3189482282@qq.com
  * @oops: Just do what I think it is right

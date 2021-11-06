@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-08-11 09:39:57
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /ma-portal/utils/fn.js
+ * @FilePath: /tacomall-ma/utils/fn.js
  * @微信:  13680065830
  * @邮箱:  3189482282@qq.com
  * @oops: Just do what I think it is right

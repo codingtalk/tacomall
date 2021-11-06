@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-10-12 11:37:04
  * @LastEditors: 码上talk|RC
  * @Description:
- * @FilePath: /ma-portal/mixins/common.js
+ * @FilePath: /tacomall-ma/mixins/common.js
  * @微信:  13680065830
  * @邮箱:  3189482282@qq.com
  * @oops: Just do what I think it is right

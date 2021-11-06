@@ -4,7 +4,7 @@
  * @LastEditTime: 2021-08-20 13:56:38
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /ma-portal/wxcomponents/vant/tree-select/index.js
+ * @FilePath: /tacomall-ma/wxcomponents/vant/tree-select/index.js
  * @微信:  13680065830
  * @邮箱:  3189482282@qq.com
  * @oops: Just do what I think it is right
