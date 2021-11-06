@@ -1,14 +1,5 @@
 <p align="center">
-    <table border="0">
-        <tr>
-            <td>
-                <img width="50px" src="http://img.codingtalk.cn/xAbtPDt1636182194614"/>
-            </td>
-            <td>
-                <h2>塔可商城TACOMALL©</h1>
-            </td>
-        </tr>
-    </table>
+    <img height="120px" src="http://img.codingtalk.cn/a6Yzd6a1636188780637"/>
 </p>
 <p align="center">[POWERED BY 码上talk|RC]</p>
 <p align="center">
