@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-10-10 13:47:47
- * @LastEditTime: 2021-10-26 15:23:08
+ * @LastEditTime: 2021-11-08 15:30:49
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/entity/member/Member.java
@@ -43,6 +43,8 @@ public class Member {
     private String inviteCode;
 
     private String inviteWxPic;
+
+    private String realName;
 
     private Integer status;
 

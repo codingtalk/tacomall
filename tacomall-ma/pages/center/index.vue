@@ -12,10 +12,10 @@
     >
       <view class="a-left">
         <view class="l-avatar">
-          <img :src="userInfo.avatar" alt />
+          <img :src="info.avatar" alt />
         </view>
         <view class="l-name">
-          <text>{{userInfo.nickname}}</text>
+          <text>{{info.realName}}</text>
         </view>
       </view>
       <view class="a-right">
@@ -49,22 +49,34 @@
         <view class="c-item">
           <text class="iconfont">&#xe673;</text>
           <text class="i-text">待付款</text>
-          <text class="i-tag" v-if="userInfo.orderNonPaymentCount">{{userInfo.orderNonPaymentCount}}</text>
+          <text
+            class="i-tag"
+            v-if="$_.get(PAGE_INFO, 'sumOrderUnPay')"
+          >{{$_.get(PAGE_INFO, 'sumOrderUnPay')}}</text>
         </view>
         <view class="c-item">
           <text class="iconfont">&#xe62f;</text>
           <text class="i-text">待收货</text>
-          <text class="i-tag" v-if="userInfo.orderPaidCount">{{userInfo.orderPaidCount}}</text>
+          <text
+            class="i-tag"
+            v-if="$_.get(PAGE_INFO, 'sumOrderPayed')"
+          >{{$_.get(PAGE_INFO, 'sumOrderPayed')}}</text>
         </view>
         <view class="c-item">
           <text class="iconfont">&#xe672;</text>
           <text class="i-text">待评价</text>
-          <text class="i-tag" v-if="userInfo.orderDoneCount">{{userInfo.orderDoneCount}}</text>
+          <text
+            class="i-tag"
+            v-if="$_.get(PAGE_INFO, 'sumOrderFinished')"
+          >{{$_.get(PAGE_INFO, 'sumOrderFinished')}}</text>
         </view>
         <view class="c-item">
           <text class="iconfont">&#xe622;</text>
           <text class="i-text">退款/售后</text>
-          <text class="i-tag" v-if="userInfo.orderReturnCount">{{userInfo.orderReturnCount}}</text>
+          <text
+            class="i-tag"
+            v-if="$_.get(PAGE_INFO, 'sumOrderReturn')"
+          >{{$_.get(PAGE_INFO, 'sumOrderReturn')}}</text>
         </view>
       </view>
     </view>
@@ -114,16 +126,17 @@
 </template>
 
 <script>
-import {
-  mapState
-} from 'vuex'
+import mixinPageInfo from '@/mixins/type/pageInfo';
+
 export default {
-  computed: {
-    ...mapState(['isLogin']),
-    ...mapState('user', {
-      userInfo: 'info'
-    })
-  }
+  mixins: [mixinPageInfo],
+  data () {
+    return {
+      PAGE_CONFIG: {
+        key: 'center'
+      }
+    }
+  },
 };
 </script>
 

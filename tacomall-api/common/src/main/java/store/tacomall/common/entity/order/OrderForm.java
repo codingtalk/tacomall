@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-11-01 17:47:38
- * @LastEditTime: 2021-11-05 14:43:07
+ * @LastEditTime: 2021-11-08 15:25:06
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/entity/order/OrderForm.java
@@ -18,8 +18,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -32,6 +34,8 @@ import lombok.Data;
 @Data
 @Builder
 @TableName(autoResultMap = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderForm implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,7 +66,7 @@ public class OrderForm implements Serializable {
 
     private BigDecimal couponAmount;
 
-    private String payWayJson;
+    private String payWay;
 
     private Integer status;
 
