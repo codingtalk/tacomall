@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ApiMaApplication<api-ma>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "store.tacomall.apima.ApiMaApplication",
+      "projectName": "api-ma",
+      "args": ""
+    }
+  ]
+}

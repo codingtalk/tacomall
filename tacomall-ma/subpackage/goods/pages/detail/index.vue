@@ -73,7 +73,7 @@
     </view>
     <view class="g-info">
       <view class="i-name">
-        <text>{{pageInfo.goods.name}}</text>
+        <text>{{goods.name}}</text>
       </view>
       <view class="i-desc">
         <text>骁龙710处理器 / AI 超感光双摄 / 5.88" 全面屏 / 前置2000万柔光自拍 / 三星 AMOLED 屏幕 / 3120mAh 长续航</text>
@@ -279,7 +279,7 @@
           </view>
           <view class="g-info">
             <view class="i-name">
-              <text>路易丝漫男式纯羊毛抗皱三防西装套装</text>
+              <text>{{goods.name}}</text>
             </view>
             <view class="i-price">
               <text>￥199.00</text>
@@ -307,7 +307,7 @@
           </view>
           <view class="g-info">
             <view class="i-name">
-              <text>路易丝漫男式纯羊毛抗皱三防西装套装</text>
+              <text>{{goods.name}}</text>
             </view>
             <view class="i-price">
               <text>￥199.00</text>
@@ -368,7 +368,7 @@ export default {
         fn: {
           do: (valueId) => {
             if (this.selected.attr.valueIds.includes(valueId)) {
-              this.selected.attr.valueIds = this.selected.attr.valueIds.filters(i => i !== valueId);
+              this.selected.attr.valueIds = this.selected.attr.valueIds.filter(i => i !== valueId);
             } else {
               this.selected.attr.valueIds.push(valueId);
             }
