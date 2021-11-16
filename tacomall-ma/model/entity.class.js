@@ -1,7 +1,7 @@
 /*
  * @Author: 码上talk|RC
  * @Date: 2021-04-26 11:40:02
- * @LastEditTime: 2021-10-21 15:45:51
+ * @LastEditTime: 2021-11-08 17:32:02
  * @LastEditors: 码上talk|RC
  * @Description:
  * @FilePath: /tacomall-ma/model/entity.class.js
@@ -12,7 +12,6 @@
 import { Request } from './request';
 import { formToolkit } from './form-toolkit';
 import collection from './collection';
-import Vue from 'vue';
 import _ from 'lodash'
 import { toast } from '@/utils/uni'
 

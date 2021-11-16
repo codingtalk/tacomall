@@ -130,6 +130,11 @@ import mixinPageInfo from '@/mixins/type/pageInfo';
 
 export default {
   mixins: [mixinPageInfo],
+  onPullDownRefresh () {
+    this._boot().then(res => {
+      uni.stopPullDownRefresh();
+    });
+  },
   data () {
     return {
       PAGE_CONFIG: {
