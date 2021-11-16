@@ -24,6 +24,10 @@ export default {
 };
 </script>
 
+<style lang="scss">
+@import "@/uni_modules/uview-ui/index.scss";
+</style>
+
 <style lang="less">
 @import "./assets/less/var.less";
 @import "./assets/less/global.less";

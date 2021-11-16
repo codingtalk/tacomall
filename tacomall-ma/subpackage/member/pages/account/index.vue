@@ -14,7 +14,9 @@
     <cell-group title="基础资料">
       <cell title="头像" :is-link="true">
         <div class="a-avatar">
-          <image src="https://s1.mi-img.com/mfsv2/avatar/fdsc3/p013qAccs3i9/WT2sfu9guuY496.jpg" />
+          <image
+            src="https://s1.mi-img.com/mfsv2/avatar/fdsc3/p013qAccs3i9/WT2sfu9guuY496.jpg"
+          />
         </div>
       </cell>
       <cell title="账号" value="16607574271"></cell>
@@ -25,42 +27,46 @@
       <cell title="密码" :is-link="true"></cell>
     </cell-group>
     <view class="a-logout">
-      <view class="l-btn" @click="doLogout">
+      <view class="l-btn" @tap="modalLogoutShow = true">
         <text>退出登录</text>
       </view>
     </view>
-    <van-dialog id="van-dialog" confirm-button-color="#b4946d" />
+    <u-modal
+      content="注销当前登录账号，是否继续？"
+      :show="modalLogoutShow"
+      showCancelButton
+      closeOnClickOverlay
+      @confrim="doLogout"
+      @close="() => (modalLogoutShow = false)"
+    ></u-modal>
   </view>
 </template>
 
 <script>
-import cell from '@/components/cell'
-import cellGroup from '@/components/cell-group'
-import Dialog from '@/wxcomponents/vant/dialog/dialog'
-import { mapActions } from 'vuex'
+import cell from "@/components/cell";
+import cellGroup from "@/components/cell-group";
+import { mapActions } from "vuex";
 
 export default {
   components: {
     cell,
-    cellGroup
+    cellGroup,
+  },
+  data() {
+    return {
+      modalLogoutShow: false,
+    };
   },
   methods: {
-    ...mapActions('user', ['logout']),
-    doLogout () {
-      Dialog.confirm({
-        title: '退出登录',
-        message: '确定退出当前账号？',
-      })
-        .then(() => {
-          this.logout().then(() => {
-            this.swi('/pages/index/index')
-          })
-          this.swi('/pages/index/index')
-        })
-        .catch(() => { })
-    }
-  }
-}
+    ...mapActions("user", ["logout"]),
+    doLogout() {
+      this.logout().then(() => {
+        this.swi("/pages/index/index");
+      });
+      this.swi("/pages/index/index");
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>

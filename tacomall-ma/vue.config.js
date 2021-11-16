@@ -7,8 +7,8 @@
  * @FilePath: /tacomall-ma/vue.config.js
  */
 const path = require('path');
-const lessVar = path.resolve(__dirname, 'assets/less/var.less')
-const lessMixins = path.resolve(__dirname, 'assets/less/mixins.less')
+const lessVar = path.resolve(__dirname, 'assets/less/var.less');
+const lessMixins = path.resolve(__dirname, 'assets/less/mixins.less');
 module.exports = {
   css: {
     loaderOptions: {
@@ -23,7 +23,6 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        vant: path.join(__dirname, 'wxcomponents/vant'),
         '~': path.join(__dirname, 'static'),
       }
     }

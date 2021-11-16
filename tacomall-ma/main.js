@@ -12,6 +12,7 @@
 import Vue from 'vue'
 import App from './App'
 
+import uView from '@/uni_modules/uview-ui';
 import store from './store'
 import { get, find, cloneDeep, difference, throttle } from 'lodash'
 import './mixins'
@@ -27,10 +28,9 @@ Vue.prototype.$_ = {
   difference,
   throttle
 };
-
 Vue.prototype.$dayjs = dayjs;
-
 Vue.prototype.$log4js = new Log4js();
+Vue.use(uView);
 
 App.mpType = 'app';
 

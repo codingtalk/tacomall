@@ -136,14 +136,7 @@
     "mp-alipay": {
       "titleBarColor": "#FFFFFF"
     },
-    "usingComponents": {
-      "van-cell": "/wxcomponents/vant/cell/index",
-      "van-toast": "/wxcomponents/vant/toast/index",
-      "van-dialog": "/wxcomponents/vant/dialog/index",
-      "van-sticky": "/wxcomponents/vant/sticky/index",
-      "van-popup": "/wxcomponents/vant/popup/index",
-      "van-picker": "/wxcomponents/vant/picker/index"
-    }
+    "usingComponents": {}
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -180,7 +173,7 @@
   "easycom": {
     "autoscan": true,
     "custom": {
-      "^van-(.*)": "@/wxcomponents/vant/$1/index"
+      "^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
     }
   },
   "condition": {

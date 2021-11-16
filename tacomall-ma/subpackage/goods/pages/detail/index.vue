@@ -23,7 +23,12 @@
       </view>
     </view>
     <view class="g-banner">
-      <swiper :indicator-dots="true" :autoplay="true" interval="2000" duration="3000">
+      <swiper
+        :indicator-dots="true"
+        :autoplay="true"
+        interval="2000"
+        duration="3000"
+      >
         <swiper-item>
           <view class="b-image">
             <image
@@ -48,7 +53,7 @@
             <text>1799</text>
           </view>
           <view class="a-before">
-            <text>￥{{goods.amount | amountFormat}}</text>
+            <text>￥{{ goods.amount | amountFormat }}</text>
           </view>
         </view>
       </view>
@@ -73,15 +78,20 @@
     </view>
     <view class="g-info">
       <view class="i-name">
-        <text>{{goods.name}}</text>
+        <text>{{ goods.name }}</text>
       </view>
       <view class="i-desc">
-        <text>骁龙710处理器 / AI 超感光双摄 / 5.88" 全面屏 / 前置2000万柔光自拍 / 三星 AMOLED 屏幕 / 3120mAh 长续航</text>
+        <text
+          >骁龙710处理器 / AI 超感光双摄 / 5.88" 全面屏 / 前置2000万柔光自拍 /
+          三星 AMOLED 屏幕 / 3120mAh 长续航</text
+        >
       </view>
       <view class="i-price">
         <view class="price-pay">
           <text>￥</text>
-          <text>{{$_.get(selected.attr.active, 'amount', 0) | amountFormat}}</text>
+          <text>{{
+            $_.get(selected.attr.active, "amount", 0) | amountFormat
+          }}</text>
         </view>
       </view>
     </view>
@@ -104,8 +114,10 @@
           <text>规格：</text>
         </view>
         <view class="c-mid">
-          <text>{{$_.get(selected.attr.active, 'specJson2str')}}</text>
-          <text class="no-stock" v-if="!selected.attr.active">该规格商品不存在</text>
+          <text>{{ $_.get(selected.attr.active, "specJson2str") }}</text>
+          <text class="no-stock" v-if="!selected.attr.active"
+            >该规格商品不存在</text
+          >
         </view>
         <view class="c-right">
           <text class="iconfont">&#xe93d;</text>
@@ -129,7 +141,9 @@
             </view>
             <view class="i-item">
               <text class="iconfont">&#xe705;</text>
-              <text class="text">支持7天无理由退货（请参考商品详情-常见问题）</text>
+              <text class="text"
+                >支持7天无理由退货（请参考商品详情-常见问题）</text
+              >
             </view>
           </view>
         </view>
@@ -232,10 +246,14 @@
       </view>
       <view class="d-content">
         <view class="c-item">
-          <image src="http://yanxuan.nosdn.127.net/64181a4409dc4c4a116f0e0b6c6d8fb4.jpg" />
+          <image
+            src="http://yanxuan.nosdn.127.net/64181a4409dc4c4a116f0e0b6c6d8fb4.jpg"
+          />
         </view>
         <view class="c-item">
-          <image src="http://yanxuan.nosdn.127.net/fc5f3104ec3f8493c636d8552e3ce9bf.jpg" />
+          <image
+            src="http://yanxuan.nosdn.127.net/fc5f3104ec3f8493c636d8552e3ce9bf.jpg"
+          />
         </view>
       </view>
     </view>
@@ -279,7 +297,7 @@
           </view>
           <view class="g-info">
             <view class="i-name">
-              <text>{{goods.name}}</text>
+              <text>{{ goods.name }}</text>
             </view>
             <view class="i-price">
               <text>￥199.00</text>
@@ -307,7 +325,7 @@
           </view>
           <view class="g-info">
             <view class="i-name">
-              <text>{{goods.name}}</text>
+              <text>{{ goods.name }}</text>
             </view>
             <view class="i-price">
               <text>￥199.00</text>
@@ -316,108 +334,119 @@
         </view>
         <view class="p-section" :key="key" v-for="(item, key) in spec">
           <view class="s-title">
-            <text>{{item.k}}</text>
+            <text>{{ item.k }}</text>
           </view>
           <view class="s-content">
             <text
-              :class="{'active': selected.attr.valueIds.includes(item1.id)}"
+              :class="{ active: selected.attr.valueIds.includes(item1.id) }"
               :key="key1"
               @tap="selected.fn.do(item1.id)"
               v-for="(item1, key1) in item.v"
-            >{{item1.name}}</text>
+              >{{ item1.name }}</text
+            >
           </view>
         </view>
       </view>
     </popup>
-    <van-notify id="van-notify" />
   </view>
 </template>
 
 <script>
-import popup from '@/components/popup'
-import counter from '@/components/counter'
-import { model } from 'model';
+import popup from "@/components/popup";
+import counter from "@/components/counter";
+import { model } from "model";
 
-import mixinPageInfo from '@/mixins/type/pageInfo';
+import mixinPageInfo from "@/mixins/type/pageInfo";
 const { Goods, Member } = model.collection;
 
 export default {
   components: {
     popup,
-    counter
+    counter,
   },
   mixins: [mixinPageInfo],
-  data () {
+  data() {
     return {
       PAGE_CONFIG: {
-        key: 'goods',
+        key: "goods",
         reqData: {
-          id: 4
+          id: 4,
         },
         callback: () => {
-          this.goods = new Goods(this.$_.get(this.PAGE_INFO, 'goods'));
-        }
+          this.goods = new Goods(this.$_.get(this.PAGE_INFO, "goods"));
+        },
       },
       goods: new Goods(),
       selected: {
         attr: {
           valueIds: [],
           active: null,
-          quantity: 1
+          quantity: 1,
         },
         fn: {
           do: (valueId) => {
             if (this.selected.attr.valueIds.includes(valueId)) {
-              this.selected.attr.valueIds = this.selected.attr.valueIds.filter(i => i !== valueId);
+              this.selected.attr.valueIds = this.selected.attr.valueIds.filter(
+                (i) => i !== valueId
+              );
             } else {
               this.selected.attr.valueIds.push(valueId);
             }
-          }
-        }
+          },
+        },
       },
       popup: {
         fn: {
           open: (s) => {
-            this.$refs[s].open()
-          }
-        }
-      }
-    }
+            this.$refs[s].open();
+          },
+        },
+      },
+    };
   },
   computed: {
-    spec () {
+    spec() {
       return this.goods.spec;
-    }
+    },
   },
   watch: {
-    'selected.attr.valueIds': {
+    "selected.attr.valueIds": {
       handler: function (e) {
         this.selected.attr.active = this.goods.getGoodItemsBySpecValueIds(e);
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
-  filters: {
-  },
+  filters: {},
   methods: {
-    addCart () {
+    addCart() {
       if (!this.selected.attr.active) {
-        this.toast('请选择商品规格');
+        this.toast("请选择商品规格");
         return;
       }
-      Member.sendApi('cartAdd', { params: {}, data: { goodsItemsId: this.selected.attr.active.id, quantity: this.selected.attr.quantity } }, { errorTip: '添加购物车失败' }).then(res => {
+      Member.sendApi(
+        "cartAdd",
+        {
+          params: {},
+          data: {
+            goodsItemsId: this.selected.attr.active.id,
+            quantity: this.selected.attr.quantity,
+          },
+        },
+        { errorTip: "添加购物车失败" }
+      ).then((res) => {
         const { status, data } = res;
         if (status) {
-          this.toast('添加购物车成功~');
+          this.toast("添加购物车成功~");
         }
       });
-    }
+    },
   },
-  onLoad (params) {
+  onLoad(params) {
     const { id, ac } = params;
     this.PAGE_CONFIG.reqData.id = Number(id);
-  }
-}
+  },
+};
 </script>
 
 <style lang="less">

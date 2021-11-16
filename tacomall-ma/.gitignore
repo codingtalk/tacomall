@@ -2,6 +2,7 @@
 /.vscode
 /unpackage
 /node_modules
+/uni_modules
 
 # git_hook
 
