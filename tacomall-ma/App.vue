@@ -10,19 +10,17 @@
  * @oops: Just do what I think it is right
 -->
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
   methods: {
-    ...mapActions(['initApp'])
+    ...mapActions(["initApp"]),
   },
   onLaunch: function (options) {
     this.initApp();
   },
-  onShow: function (options) {
-  },
-  onHide: function () {
-  }
+  onShow: function (options) {},
+  onHide: function () {},
 };
 </script>
 
