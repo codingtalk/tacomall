@@ -14,6 +14,7 @@ import java.util.List;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import store.tacomall.apiadmin.req.tm.TmStaffAddReq;
 import store.tacomall.common.entity.tm.TmAccessRule;
 import store.tacomall.common.entity.tm.TmStaff;
 import store.tacomall.common.json.ResponsePageJson;
@@ -32,7 +33,7 @@ public interface TmStaffService extends IService<TmStaff> {
 
     ResponsePageJson<List<PageVo>> page(Integer pageIndex, Integer pageSize, JSONObject json);
 
-    ResponseJson<TmStaff> add(JSONObject json);
+    ResponseJson<TmStaff> add(TmStaffAddReq json);
 
     ResponseJson<String> update(JSONObject json);
 }

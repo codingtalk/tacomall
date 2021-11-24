@@ -11,6 +11,8 @@ package store.tacomall.apiadmin.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.alibaba.fastjson.JSONObject;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +30,7 @@ import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
 import store.tacomall.common.vo.base.PageVo;
 import store.tacomall.apiadmin.annotation.TmLoginLog;
+import store.tacomall.apiadmin.req.tm.TmStaffAddReq;
 import store.tacomall.apiadmin.service.TmStaffService;
 import store.tacomall.apiadmin.service.TmAccessRuleService;
 import store.tacomall.apiadmin.service.TmDeptService;
@@ -79,7 +82,7 @@ public class TmController {
     }
 
     @PostMapping("staffAdd")
-    public ResponseJson<TmStaff> staffAdd(@RequestBody JSONObject json) {
+    public ResponseJson<TmStaff> staffAdd(@Valid @RequestBody TmStaffAddReq json) {
         return tmStaffService.add(json);
     }
 

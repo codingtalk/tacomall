@@ -14,20 +14,22 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import store.tacomall.common.config.WebMvcInterceptorConfig;
 import store.tacomall.common.config.WxMaConfig;
 import store.tacomall.common.config.WxPayConfiguration;
 import store.tacomall.common.libs.wx.WxPayUtil;
 
+@EnableSwagger2
 @SpringBootApplication(scanBasePackages = { "store.tacomall.common", "store.tacomall.apiadmin" })
 @MapperScan({ "store.tacomall.common.mapper", "store.tacomall.apiadmin.mapper" })
 @ComponentScan(basePackages = { "store.tacomall.common", "store.tacomall.apiadmin" }, excludeFilters = {
-    @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { WebMvcInterceptorConfig.class,
-        WxMaConfig.class, WxPayConfiguration.class, WxPayUtil.class }) })
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { WebMvcInterceptorConfig.class,
+                WxMaConfig.class, WxPayConfiguration.class, WxPayUtil.class }) })
 public class ApiAdminApplication {
-  public static void main(String[] args) {
-    SpringApplication.run(ApiAdminApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(ApiAdminApplication.class, args);
+    }
 
 }

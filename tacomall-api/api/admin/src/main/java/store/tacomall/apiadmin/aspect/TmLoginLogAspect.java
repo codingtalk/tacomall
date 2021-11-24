@@ -1,16 +1,5 @@
 /***
  * @Author: 码上talk|RC
- * @Date: 2021-01-29 14:13:26
- * @LastEditTime: 2021-10-10 13:57:55
- * @LastEditors: 码上talk|RC
- * @Description: 
- * @FilePath: /tacomall-api/api/admin/src/main/java/store/tacomall/apiadmin/aspect/TmLoginLogAspect.java
- * @微信:  13680065830
- * @邮箱:  3189482282@qq.com
- * @oops: Just do what I think it is right
- */
-/***
- * @Author: 码上talk|RC
  * @Date: 2020-06-09 23:20:41
  * @LastEditTime: 2020-07-02 09:28:19
  * @LastEditors: 码上talk|RC
@@ -44,44 +33,44 @@ import store.tacomall.common.util.JsonUtil;
 @Component
 public class TmLoginLogAspect {
 
-  private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-  @Autowired
-  private TmLoginLogMapper tmLoginLogMapper;
+    @Autowired
+    private TmLoginLogMapper tmLoginLogMapper;
 
-  @Pointcut("@annotation(store.tacomall.apiadmin.annotation.TmLoginLog)")
-  public void logPointCut() {
-
-  }
-
-  @Around("logPointCut()")
-  public Object around(ProceedingJoinPoint point) throws Throwable {
-    long beginTime = System.currentTimeMillis();
-    Object result = point.proceed();
-    long time = System.currentTimeMillis() - beginTime;
-    saveSysLog(point, time);
-    return result;
-  }
-
-  private void saveSysLog(ProceedingJoinPoint joinPoint, long time) {
-    MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-
-    TmLoginLog tmLoginLog = new TmLoginLog();
-
-    String className = joinPoint.getTarget().getClass().getName();
-    String methodName = signature.getName();
-    this.logger.info(className + "." + methodName + "()");
-    Object[] args = joinPoint.getArgs();
-    try {
-      String params = JsonUtil.toJson(args);
-      this.logger.info(params);
-      HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-          .getRequest();
-      tmLoginLog.setIp(IpUtil.getIpAddr(request));
-      tmLoginLog.setCreateTime(LocalDateTime.now());
-      tmLoginLogMapper.insert(tmLoginLog);
-    } catch (Exception ignored) {
+    @Pointcut("@annotation(store.tacomall.apiadmin.annotation.TmLoginLog)")
+    public void logPointCut() {
 
     }
-  }
+
+    @Around("logPointCut()")
+    public Object around(ProceedingJoinPoint point) throws Throwable {
+        long beginTime = System.currentTimeMillis();
+        Object result = point.proceed();
+        long time = System.currentTimeMillis() - beginTime;
+        saveSysLog(point, time);
+        return result;
+    }
+
+    private void saveSysLog(ProceedingJoinPoint joinPoint, long time) {
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+
+        TmLoginLog tmLoginLog = new TmLoginLog();
+
+        String className = joinPoint.getTarget().getClass().getName();
+        String methodName = signature.getName();
+        this.logger.info(className + "." + methodName + "()");
+        Object[] args = joinPoint.getArgs();
+        try {
+            String params = JsonUtil.toJson(args);
+            this.logger.info(params);
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+                    .getRequest();
+            tmLoginLog.setIp(IpUtil.getIpAddr(request));
+            tmLoginLog.setCreateTime(LocalDateTime.now());
+            tmLoginLogMapper.insert(tmLoginLog);
+        } catch (Exception ignored) {
+
+        }
+    }
 }

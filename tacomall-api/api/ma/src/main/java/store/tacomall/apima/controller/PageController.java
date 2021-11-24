@@ -10,8 +10,6 @@
  */
 package store.tacomall.apima.controller;
 
-import java.util.Map;
-
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,11 +27,11 @@ import store.tacomall.apima.factory.PageFactory;
 public class PageController {
 
     @Autowired
-    private PageFactory PageFactory;
+    private PageFactory pageFactory;
 
     @PostMapping("info")
     @LoginUser(required = false)
     public ResponseJson<Object> info(@RequestParam(value = "key") String key, @RequestBody JSONObject json) {
-        return PageFactory.getStrategy(key).loadPageInfo(json);
+        return pageFactory.getStrategy(key).loadPageInfo(json);
     }
 }

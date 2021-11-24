@@ -58,6 +58,7 @@
         <jedis.version>3.6.3</jedis.version>
         <xxl-job.core.version>2.3.0</xxl-job.core.version>
         <mybatis-spring-boot-starter.version>2.1.4</mybatis-spring-boot-starter.version>
+        <io.springfox.swagger>3.0.0</io.springfox.swagger>
     </properties>
 
     <dependencies>
@@ -172,6 +173,16 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${io.springfox.swagger}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${io.springfox.swagger}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

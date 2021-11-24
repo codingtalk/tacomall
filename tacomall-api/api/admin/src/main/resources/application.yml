@@ -19,4 +19,6 @@ mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*Mapper.xml
   configuration:
     call-setters-on-nulls: true
-
+swagger:
+  flag: true
+  host: localhost

@@ -33,6 +33,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
 
+import store.tacomall.apiadmin.req.tm.TmStaffAddReq;
 import store.tacomall.apiadmin.service.TmStaffService;
 import store.tacomall.common.entity.tm.TmAccessRule;
 import store.tacomall.common.entity.tm.TmDept;
@@ -156,10 +157,10 @@ public class TmStaffServiceImpl extends ServiceImpl<TmStaffMapper, TmStaff> impl
     }
 
     @Override
-    public ResponseJson<TmStaff> add(JSONObject json) {
+    public ResponseJson<TmStaff> add(TmStaffAddReq json) {
         ResponseJson<TmStaff> responseJson = new ResponseJson<>();
         responseJson.setStatus(false);
-        TmStaff tmStaff = JSON.toJavaObject(json, TmStaff.class);
+        TmStaff tmStaff = JSONObject.parseObject(JSONObject.toJSONString(json), TmStaff.class);
         tmStaff.setPasswd(PasswordUtil.encode(tmStaff.getPasswd()));
         this.baseMapper.insert(tmStaff);
         responseJson.ok();
