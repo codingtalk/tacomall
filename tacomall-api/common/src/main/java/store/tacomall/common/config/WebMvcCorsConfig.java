@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC
  * @Date: 2021-01-29 14:13:27
- * @LastEditTime: 2021-10-21 14:38:31
+ * @LastEditTime: 2022-01-03 16:18:52
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/config/WebMvcCorsConfig.java
@@ -18,10 +18,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcCorsConfig implements WebMvcConfigurer {
 
-  @Override
-  public void addCorsMappings(CorsRegistry registry) {
-    WebMvcConfigurer.super.addCorsMappings(registry);
-    registry.addMapping("/**").allowedOriginPatterns("*").allowedHeaders("*")
-        .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE").allowCredentials(true);
-  }
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        WebMvcConfigurer.super.addCorsMappings(registry);
+        registry.addMapping("/**").allowedOriginPatterns("*").allowedHeaders("*")
+                .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE").allowCredentials(true);
+    }
+
 }

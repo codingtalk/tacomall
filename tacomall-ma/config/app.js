@@ -1,7 +1,7 @@
 /*
  * @Author: 码上talk|RC
  * @Date: 2021-08-17 09:57:55
- * @LastEditTime: 2021-10-21 15:51:48
+ * @LastEditTime: 2022-01-03 15:54:13
  * @LastEditors: 码上talk|RC
  * @Description:
  * @FilePath: /tacomall-ma/config/app.js
@@ -10,7 +10,7 @@
  * @oops: Just do what I think it is right
  */
 
-const APP_ENV = 'dev';
+const APP_ENV = 'prod';
 
 
 export const appConfig = {

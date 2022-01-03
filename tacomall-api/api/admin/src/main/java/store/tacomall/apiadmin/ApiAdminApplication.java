@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC
  * @Date: 2020-06-09 23:20:41
- * @LastEditTime: 2021-10-22 17:34:03
+ * @LastEditTime: 2022-01-03 16:51:26
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/api/admin/src/main/java/store/tacomall/apiadmin/ApiAdminApplication.java
@@ -14,14 +14,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import store.tacomall.common.config.WebMvcInterceptorConfig;
 import store.tacomall.common.config.WxMaConfig;
 import store.tacomall.common.config.WxPayConfiguration;
 import store.tacomall.common.libs.wx.WxPayUtil;
 
-@EnableSwagger2
 @SpringBootApplication(scanBasePackages = { "store.tacomall.common", "store.tacomall.apiadmin" })
 @MapperScan({ "store.tacomall.common.mapper", "store.tacomall.apiadmin.mapper" })
 @ComponentScan(basePackages = { "store.tacomall.common", "store.tacomall.apiadmin" }, excludeFilters = {

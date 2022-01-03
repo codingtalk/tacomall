@@ -4,7 +4,7 @@
       "dev": "http://127.0.0.1:4003/",
       "lcoal": "",
       "test": "",
-      "prod": ""
+      "prod": "https://api.tacomall.codingtalk.cn/open/"
     },
     "domain": {
       "oss": {
@@ -25,7 +25,7 @@
     "url": {
       "dev": "http://127.0.0.1:4001/",
       "test": "",
-      "prod": ""
+      "prod": "https://api.tacomall.codingtalk.cn/ma/"
     },
     "domain": {
       "page": {
