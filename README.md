@@ -44,9 +44,9 @@
     <tr>
         <td><img title="码上talk" src="https://img.codingtalk.cn/3Y4h5Zz1608078777538" height="150" width="150"/></td>
         <td>
-            <p>----->🖥️<a target="_blank" href="">管理后台</a></p>
-            <p>----->🧸<a target="_blank" href="">店铺系统</a></p>
-            <p>----->🗳️<a target="_blank" href="">收银系统</a></p>
+            <p>----->🖥️<a target="_blank" href="http://admin.tacomall.codingtalk.cn">管理后台</a></p>
+            <p>----->🧸<a target="_blank" href="http://admin.tacomall.codingtalk.cn">店铺系统</a></p>
+            <p>----->🗳️<a target="_blank" href="http://admin.tacomall.codingtalk.cn">收银系统</a></p>
         </td>
     </tr>
 </table>
@@ -59,7 +59,6 @@
         <td>商务合作</td>
     </tr>
     <tr>
-        <td><img title="码上talk" src="https://img.codingtalk.cn/ncr3m3k1585147351285" height="200" width="200"/></td>
         <td><img title="tacomall QQ交流群" src="https://img.codingtalk.cn/haPkJxc1585147447571" height="200" width="220"/></td>
         <td><img title="码上talk|RC" src="https://img.codingtalk.cn/meJzskn1584540440273" height="200" width="220"/></td>
     </tr>
