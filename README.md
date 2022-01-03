@@ -54,7 +54,6 @@
 ### 🐶社区帮助
 <table border="0">
     <tr>
-        <td>关注“码上talk”微信公众号</td>
         <td>tacomall QQ交流群</td>
         <td>商务合作</td>
     </tr>
