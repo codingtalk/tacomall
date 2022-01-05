@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC
  * @Date: 2020-06-09 23:20:41
- * @LastEditTime: 2021-10-10 20:53:03
+ * @LastEditTime: 2022-01-05 14:02:34
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/api/admin/src/main/java/store/tacomall/apiadmin/shiro/CORSAuthenticationFilter.java
@@ -40,9 +40,8 @@ public class CORSAuthenticationFilter extends FormAuthenticationFilter {
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         HttpServletResponse res = (HttpServletResponse) response;
         ResponseJson<String> responseJson = new ResponseJson<>();
-        responseJson.setCode(BizEnum.USER_NOT_LOGGED_IN.getCode());
         responseJson.setStatus(false);
-        responseJson.setMessage(BizEnum.USER_NOT_LOGGED_IN.getMessage());
+        responseJson.setMessage("用户未登录~");
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setStatus(HttpServletResponse.SC_OK);
         res.setCharacterEncoding("UTF-8");

@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import store.tacomall.apiadmin.bo.member.MemberInfoBo;
 import store.tacomall.apiadmin.service.MemberService;
+import store.tacomall.apiadmin.vo.member.MemberInfoVo;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
 import store.tacomall.common.vo.base.PageVo;
@@ -41,7 +41,7 @@ public class MemberController {
     }
 
     @PostMapping("info")
-    public ResponseJson<MemberInfoBo> info(@RequestParam(value = "id") Integer id) {
+    public ResponseJson<MemberInfoVo> info(@RequestParam(value = "id") Integer id) {
         return memberService.info(id);
     }
 

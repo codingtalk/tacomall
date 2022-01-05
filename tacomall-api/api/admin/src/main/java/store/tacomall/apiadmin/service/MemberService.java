@@ -13,7 +13,7 @@ package store.tacomall.apiadmin.service;
 
 import java.util.List;
 
-import store.tacomall.apiadmin.bo.member.MemberInfoBo;
+import store.tacomall.apiadmin.vo.member.MemberInfoVo;
 import store.tacomall.common.entity.member.Member;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
@@ -26,7 +26,7 @@ public interface MemberService extends IService<Member> {
 
     ResponsePageJson<List<PageVo>> page(Integer pageIndex, Integer pageSize, JSONObject json);
 
-    ResponseJson<MemberInfoBo> info(Integer id);
+    ResponseJson<MemberInfoVo> info(Integer id);
 
     ResponseJson<String> updateField(Integer id, Integer type, JSONObject json);
 

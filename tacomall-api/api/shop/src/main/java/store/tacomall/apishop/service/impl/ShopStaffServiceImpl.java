@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC
  * @Date: 2020-06-09 23:20:41
- * @LastEditTime: 2021-10-11 22:02:56
+ * @LastEditTime: 2022-01-05 14:01:08
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/api/shop/src/main/java/store/tacomall/apishop/service/impl/ShopStaffServiceImpl.java
@@ -48,56 +48,55 @@ import store.tacomall.common.vo.base.PageVo;
 @Service
 public class ShopStaffServiceImpl extends ServiceImpl<ShopStaffMapper, ShopStaff> implements ShopStaffService {
 
-  @Autowired
-  ShopStaffMapper shopStaffMapper;
+    @Autowired
+    ShopStaffMapper shopStaffMapper;
 
-  @Autowired
-  DataSourceTransactionManager dataSourceTransactionManager;
+    @Autowired
+    DataSourceTransactionManager dataSourceTransactionManager;
 
-  @Autowired
-  TransactionDefinition transactionDefinition;
+    @Autowired
+    TransactionDefinition transactionDefinition;
 
-  @Override
-  public ResponseJson<String> loginByMobile(String mobile, String password) throws Exception {
-    ResponseJson<String> responseJson = new ResponseJson<>();
-    String token = "";
-    LambdaQueryWrapper<ShopStaff> lqw = new QueryWrapper<ShopStaff>().lambda();
-    lqw.eq(ShopStaff::getMobile, mobile);
-    lqw.eq(ShopStaff::getPasswd, PasswordUtil.encode(password));
+    @Override
+    public ResponseJson<String> loginByMobile(String mobile, String password) throws Exception {
+        ResponseJson<String> responseJson = new ResponseJson<>();
+        String token = "";
+        LambdaQueryWrapper<ShopStaff> lqw = new QueryWrapper<ShopStaff>().lambda();
+        lqw.eq(ShopStaff::getMobile, mobile);
+        lqw.eq(ShopStaff::getPasswd, PasswordUtil.encode(password));
 
-    ShopStaff shopStaff = baseMapper.selectOne(lqw);
-    if (ObjectUtil.isNull(shopStaff)) {
-      responseJson.setMessage("账号或密码错误");
-      responseJson.setCode(BizEnum.USER_NOT_EXIST.getCode());
-      return responseJson;
+        ShopStaff shopStaff = baseMapper.selectOne(lqw);
+        if (ObjectUtil.isNull(shopStaff)) {
+            responseJson.setMessage("账号或密码错误");
+            return responseJson;
+        }
+
+        Map<String, String> claims = new HashMap<>(1);
+        claims.put("id", NumberUtil.toStr(shopStaff.getId()));
+        JwtUtil jwtUtil = new JwtUtil();
+        jwtUtil.setISSUER("api-shop");
+        token = jwtUtil.create(claims);
+        responseJson.setData(token);
+        responseJson.ok();
+        return responseJson;
     }
 
-    Map<String, String> claims = new HashMap<>(1);
-    claims.put("id", NumberUtil.toStr(shopStaff.getId()));
-    JwtUtil jwtUtil = new JwtUtil();
-    jwtUtil.setISSUER("api-shop");
-    token = jwtUtil.create(claims);
-    responseJson.setData(token);
-    responseJson.ok();
-    return responseJson;
-  }
+    @Override
+    public ResponseJson<ShopStaff> info(JSONObject json) {
+        ResponseJson<ShopStaff> responseJson = new ResponseJson<>();
+        ShopStaff shopStaff = shopStaffMapper.selectById(RequestUtil.getLoginUser().getString("id"));
+        JSONObject query = json.getJSONObject("query");
+        LambdaQueryWrapper<ShopStaff> qw = new LambdaQueryWrapper<ShopStaff>();
 
-  @Override
-  public ResponseJson<ShopStaff> info(JSONObject json) {
-    ResponseJson<ShopStaff> responseJson = new ResponseJson<>();
-    ShopStaff shopStaff = shopStaffMapper.selectById(RequestUtil.getLoginUser().getString("id"));
-    JSONObject query = json.getJSONObject("query");
-    LambdaQueryWrapper<ShopStaff> qw = new LambdaQueryWrapper<ShopStaff>();
+        if (ObjectUtil.isNotNull(query) && ObjectUtil.isNotNull(query.getInteger("id"))) {
+            qw.eq(ShopStaff::getId, query.getInteger("id"));
+        } else {
+            qw.eq(ShopStaff::getId, shopStaff.getId());
+        }
 
-    if (ObjectUtil.isNotNull(query) && ObjectUtil.isNotNull(query.getInteger("id"))) {
-      qw.eq(ShopStaff::getId, query.getInteger("id"));
-    } else {
-      qw.eq(ShopStaff::getId, shopStaff.getId());
+        responseJson.setData(this.baseMapper.selectOne(qw));
+        responseJson.ok();
+        return responseJson;
     }
-
-    responseJson.setData(this.baseMapper.selectOne(qw));
-    responseJson.ok();
-    return responseJson;
-  }
 
 }

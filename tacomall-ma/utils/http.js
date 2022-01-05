@@ -73,9 +73,9 @@ const send = (url, params, data, config = null) => {
         return config
       })(),
       success: (res) => {
-        const { message } = res.data
+        const { code } = res.data
         finalConfig.showLoading && uni.hideLoading()
-        if (message.indexOf('token鉴权失败') > -1) {
+        if (code === 4200) {
           localCache.clearToken()
           uni.navigateTo({
             url: '/pages/login/index'

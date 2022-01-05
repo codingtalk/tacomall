@@ -26,8 +26,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 
-import store.tacomall.apiadmin.bo.member.MemberInfoBo;
 import store.tacomall.apiadmin.service.MemberService;
+import store.tacomall.apiadmin.vo.member.MemberInfoVo;
 import store.tacomall.common.entity.member.Member;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
@@ -76,9 +76,9 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     }
 
     @Override
-    public ResponseJson<MemberInfoBo> info(Integer id) {
-        ResponseJson<MemberInfoBo> responseJson = new ResponseJson<>();
-        responseJson.setData(MemberInfoBo.builder()
+    public ResponseJson<MemberInfoVo> info(Integer id) {
+        ResponseJson<MemberInfoVo> responseJson = new ResponseJson<>();
+        responseJson.setData(MemberInfoVo.builder()
                 .member(this.baseMapper.queryInfo(new QueryWrapper<Member>().lambda().eq(Member::getId, id))).build());
         responseJson.ok();
         return responseJson;
@@ -90,11 +90,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         TransactionStatus transactionStatus = dataSourceTransactionManager.getTransaction(transactionDefinition);
         try {
             switch (type) {
-            case 1:
-                updateStatus(id, json.getInteger("value"));
-                break;
-            default:
-                ExceptionUtil.throwClientException("非法参数：type");
+                case 1:
+                    updateStatus(id, json.getInteger("value"));
+                    break;
+                default:
+                    ExceptionUtil.throwClientException("非法参数：type");
             }
             dataSourceTransactionManager.commit(transactionStatus);
             responseJson.ok();
