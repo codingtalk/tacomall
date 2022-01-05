@@ -4,9 +4,9 @@
  * @LastEditTime: 2021-11-04 16:33:33
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/bo/orderForm/OrderFormPayRetPayWayBo.java
+ * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/bo/saleForm/SaleFormPayRetPayWayBo.java
  */
-package store.tacomall.common.bo.orderForm;
+package store.tacomall.common.bo.sale;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,11 +17,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderFormPayRetPayWayBo {
+public class SaleFormPayRetPayWayBo {
 
-    private Integer type;
+  private Integer type;
 
-    private Integer amount;
+  private Integer amount;
 
-    private Integer trackSn;
+  private Integer trackSn;
 }

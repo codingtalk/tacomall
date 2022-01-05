@@ -4,11 +4,11 @@
  * @LastEditTime: 2021-11-05 14:48:54
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/mapper/order/OrderFormGoodsItemsMapper.java
+ * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/mapper/order/SaleFormGoodsItemsMapper.java
  */
-package store.tacomall.common.mapper.order;
+package store.tacomall.common.mapper.sale;
 
-import store.tacomall.common.entity.order.OrderFormGoodsItems;
+import store.tacomall.common.entity.sale.SaleFormGoodsItems;
 
 import java.util.List;
 
@@ -26,8 +26,8 @@ import org.springframework.stereotype.Repository;
  * @since 2021-11-01
  */
 @Repository
-public interface OrderFormGoodsItemsMapper extends BaseMapper<OrderFormGoodsItems> {
+public interface SaleFormGoodsItemsMapper extends BaseMapper<SaleFormGoodsItems> {
 
-    List<OrderFormGoodsItems> queryOrderFormGoodsItemsListByFormId(@Param("formId") Integer formId);
+  List<SaleFormGoodsItems> querySaleFormGoodsItemsListByFormId(@Param("formId") Integer formId);
 
 }

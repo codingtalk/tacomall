@@ -4,9 +4,9 @@
  * @LastEditTime: 2021-11-05 14:41:09
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/mapper/order/OrderFormMapper.java
+ * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/mapper/order/SaleFormMapper.java
  */
-package store.tacomall.common.mapper.order;
+package store.tacomall.common.mapper.sale;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
@@ -16,7 +16,7 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import store.tacomall.common.entity.order.OrderForm;
+import store.tacomall.common.entity.sale.SaleForm;
 import store.tacomall.common.vo.base.PageVo;
 
 /**
@@ -28,10 +28,10 @@ import store.tacomall.common.vo.base.PageVo;
  * @since 2021-11-01
  */
 @Repository
-public interface OrderFormMapper extends BaseMapper<OrderForm> {
+public interface SaleFormMapper extends BaseMapper<SaleForm> {
 
-    OrderForm queryInfo(@Param(Constants.WRAPPER) Wrapper<OrderForm> wrapper);
+  SaleForm queryInfo(@Param(Constants.WRAPPER) Wrapper<SaleForm> wrapper);
 
-    IPage<PageVo> queryPage(@Param("page") Page<?> page, @Param(Constants.WRAPPER) Wrapper<OrderForm> wrapper);
+  IPage<PageVo> queryPage(@Param("page") Page<?> page, @Param(Constants.WRAPPER) Wrapper<SaleForm> wrapper);
 
 }

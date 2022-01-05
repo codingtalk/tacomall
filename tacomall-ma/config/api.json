@@ -58,14 +58,14 @@
           "path": "goods/page"
         }
       },
-      "orderForm": {
+      "sale": {
         "add": {
           "method": "POST",
-          "path": "orderForm/add"
+          "path": "sale/formAdd"
         },
         "page": {
           "method": "POST",
-          "path": "orderForm/page"
+          "path": "sale/formPage"
         }
       }
     }

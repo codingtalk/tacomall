@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 16/11/2021 14:13:50
+ Date: 05/01/2022 14:38:09
 */
 
 SET NAMES utf8mb4;
@@ -52,105 +52,117 @@ CREATE TABLE `activity`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for approval
+-- Table structure for approve
 -- ----------------------------
-DROP TABLE IF EXISTS `approval`;
-CREATE TABLE `approval`  (
+DROP TABLE IF EXISTS `approve`;
+CREATE TABLE `approve`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tenant_id` int(11) NULL DEFAULT NULL,
+  `project_id` int(11) NULL DEFAULT NULL,
+  `creator_id` int(11) NULL DEFAULT NULL,
+  `executor_id` int(11) NULL DEFAULT NULL,
+  `type_id` int(11) NULL DEFAULT NULL,
+  `node_id` int(11) NULL DEFAULT NULL,
+  `sn` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `form_content` json NULL,
+  `options_config` json NULL,
+  `relate_config` json NULL,
+  `status` int(11) NULL DEFAULT NULL COMMENT '1->审核中;2->已通过；3->未通过；4->已取消',
   `is_delete` int(11) NULL DEFAULT 0,
   `create_time` datetime NULL DEFAULT NULL,
   `update_time` datetime NULL DEFAULT NULL,
   `delete_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of approval
+-- Records of approve
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for approval_log
+-- Table structure for approve_log
 -- ----------------------------
-DROP TABLE IF EXISTS `approval_log`;
-CREATE TABLE `approval_log`  (
+DROP TABLE IF EXISTS `approve_log`;
+CREATE TABLE `approve_log`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `approve_id` int(11) NULL DEFAULT NULL,
+  `node_id` int(11) NULL DEFAULT NULL,
+  `checker_id` int(11) NULL DEFAULT NULL,
+  `status` int(11) NULL DEFAULT NULL,
+  `remark` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `is_delete` int(11) NULL DEFAULT 0,
   `create_time` datetime NULL DEFAULT NULL,
   `update_time` datetime NULL DEFAULT NULL,
   `delete_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of approval_log
+-- Records of approve_log
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for approval_node
+-- Table structure for approve_node
 -- ----------------------------
-DROP TABLE IF EXISTS `approval_node`;
-CREATE TABLE `approval_node`  (
+DROP TABLE IF EXISTS `approve_node`;
+CREATE TABLE `approve_node`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) NULL DEFAULT NULL,
+  `sort` int(11) NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `tenant_dept_ids` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `tenant_staff_ids` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `is_delete` int(11) NULL DEFAULT 0,
   `create_time` datetime NULL DEFAULT NULL,
   `update_time` datetime NULL DEFAULT NULL,
   `delete_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of approval_node
+-- Records of approve_node
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for approval_sub_purchanse
+-- Table structure for approve_tag
 -- ----------------------------
-DROP TABLE IF EXISTS `approval_sub_purchanse`;
-CREATE TABLE `approval_sub_purchanse`  (
+DROP TABLE IF EXISTS `approve_tag`;
+CREATE TABLE `approve_tag`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tenant_id` int(11) NULL DEFAULT NULL,
+  `project_id` int(11) NULL DEFAULT NULL,
+  `type_id` int(11) NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `is_delete` int(11) NULL DEFAULT 0,
   `create_time` datetime NULL DEFAULT NULL,
   `update_time` datetime NULL DEFAULT NULL,
   `delete_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of approval_sub_purchanse
+-- Records of approve_tag
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for approval_sub_shop_apply
+-- Table structure for approve_type
 -- ----------------------------
-DROP TABLE IF EXISTS `approval_sub_shop_apply`;
-CREATE TABLE `approval_sub_shop_apply`  (
+DROP TABLE IF EXISTS `approve_type`;
+CREATE TABLE `approve_type`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tenant_id` int(11) NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `form_example` json NULL,
   `is_delete` int(11) NULL DEFAULT 0,
   `create_time` datetime NULL DEFAULT NULL,
   `update_time` datetime NULL DEFAULT NULL,
   `delete_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of approval_sub_shop_apply
--- ----------------------------
-
--- ----------------------------
--- Table structure for approval_type
--- ----------------------------
-DROP TABLE IF EXISTS `approval_type`;
-CREATE TABLE `approval_type`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `is_delete` int(11) NULL DEFAULT 0,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `delete_time` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of approval_type
+-- Records of approve_type
 -- ----------------------------
 
 -- ----------------------------
@@ -534,58 +546,6 @@ INSERT INTO `member_type` VALUES (1, '积分会员', 0, '2021-10-21 14:15:32', N
 INSERT INTO `member_type` VALUES (2, '推广会员', 0, '2021-10-21 14:15:32', NULL, NULL);
 
 -- ----------------------------
--- Table structure for order_form
--- ----------------------------
-DROP TABLE IF EXISTS `order_form`;
-CREATE TABLE `order_form`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sn` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `type` int(11) NULL DEFAULT NULL COMMENT '1->零售订单；2->会员订单；',
-  `shop_id` int(11) NULL DEFAULT NULL,
-  `member_id` int(11) NULL DEFAULT NULL,
-  `amount_total` decimal(11, 2) NULL DEFAULT NULL,
-  `amount_pay` decimal(11, 2) NULL DEFAULT NULL,
-  `activity_id` int(11) NULL DEFAULT NULL,
-  `activity_amount` decimal(11, 2) NULL DEFAULT NULL,
-  `coupon_id` int(11) NULL DEFAULT NULL,
-  `coupon_amount` decimal(22, 3) NULL DEFAULT NULL,
-  `pay_way` json NULL,
-  `status` int(11) NULL DEFAULT NULL COMMENT '1->保存；2->待支付；3->已支付；',
-  `is_delete` int(11) NULL DEFAULT 0,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `delete_time` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of order_form
--- ----------------------------
-INSERT INTO `order_form` VALUES (2, 'HYDD-202111021605163792801', NULL, 1, 1, 598.00, NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, NULL, NULL, NULL);
-
--- ----------------------------
--- Table structure for order_form_goods_items
--- ----------------------------
-DROP TABLE IF EXISTS `order_form_goods_items`;
-CREATE TABLE `order_form_goods_items`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `form_id` int(11) NULL DEFAULT NULL,
-  `goods_items_id` int(11) NULL DEFAULT NULL,
-  `quantity` int(11) NULL DEFAULT NULL,
-  `amount` decimal(11, 2) NULL DEFAULT NULL,
-  `is_delete` int(11) NULL DEFAULT 0,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `delete_time` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of order_form_goods_items
--- ----------------------------
-INSERT INTO `order_form_goods_items` VALUES (2, 2, 7, 2, NULL, 0, NULL, NULL, NULL);
-
--- ----------------------------
 -- Table structure for purchanse
 -- ----------------------------
 DROP TABLE IF EXISTS `purchanse`;
@@ -633,6 +593,58 @@ CREATE TABLE `purchanse_goods_items`  (
 -- ----------------------------
 -- Records of purchanse_goods_items
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for sale_form
+-- ----------------------------
+DROP TABLE IF EXISTS `sale_form`;
+CREATE TABLE `sale_form`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sn` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `type` int(11) NULL DEFAULT NULL COMMENT '1->零售订单；2->会员订单；',
+  `shop_id` int(11) NULL DEFAULT NULL,
+  `member_id` int(11) NULL DEFAULT NULL,
+  `amount_total` decimal(11, 2) NULL DEFAULT NULL,
+  `amount_pay` decimal(11, 2) NULL DEFAULT NULL,
+  `activity_id` int(11) NULL DEFAULT NULL,
+  `activity_amount` decimal(11, 2) NULL DEFAULT NULL,
+  `coupon_id` int(11) NULL DEFAULT NULL,
+  `coupon_amount` decimal(22, 3) NULL DEFAULT NULL,
+  `pay_way` json NULL,
+  `status` int(11) NULL DEFAULT NULL COMMENT '1->保存；2->待支付；3->已支付；',
+  `is_delete` int(11) NULL DEFAULT 0,
+  `create_time` datetime NULL DEFAULT NULL,
+  `update_time` datetime NULL DEFAULT NULL,
+  `delete_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of sale_form
+-- ----------------------------
+INSERT INTO `sale_form` VALUES (2, 'HYDD-202111021605163792801', NULL, 1, 1, 598.00, NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for sale_form_goods_items
+-- ----------------------------
+DROP TABLE IF EXISTS `sale_form_goods_items`;
+CREATE TABLE `sale_form_goods_items`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `form_id` int(11) NULL DEFAULT NULL,
+  `goods_items_id` int(11) NULL DEFAULT NULL,
+  `quantity` int(11) NULL DEFAULT NULL,
+  `amount` decimal(11, 2) NULL DEFAULT NULL,
+  `is_delete` int(11) NULL DEFAULT 0,
+  `create_time` datetime NULL DEFAULT NULL,
+  `update_time` datetime NULL DEFAULT NULL,
+  `delete_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of sale_form_goods_items
+-- ----------------------------
+INSERT INTO `sale_form_goods_items` VALUES (2, 2, 7, 2, NULL, 0, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for shop

@@ -4,9 +4,9 @@
  * @LastEditTime: 2021-11-05 15:12:32
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/entity/order/OrderFormGoodsItems.java
+ * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/entity/order/SaleFormGoodsItems.java
  */
-package store.tacomall.common.entity.order;
+package store.tacomall.common.entity.sale;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -31,31 +31,31 @@ import store.tacomall.common.entity.goods.GoodsItems;
  */
 @Data
 @Builder
-public class OrderFormGoodsItems implements Serializable {
+public class SaleFormGoodsItems implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+  @TableId(value = "id", type = IdType.AUTO)
+  private Integer id;
 
-    private Integer formId;
+  private Integer formId;
 
-    private Integer goodsItemsId;
+  private Integer goodsItemsId;
 
-    private Integer quantity;
+  private Integer quantity;
 
-    private BigDecimal amount;
+  private BigDecimal amount;
 
-    @TableLogic
-    private Integer isDelete;
+  @TableLogic
+  private Integer isDelete;
 
-    private LocalDateTime createTime;
+  private LocalDateTime createTime;
 
-    private LocalDateTime updateTime;
+  private LocalDateTime updateTime;
 
-    private LocalDateTime deleteTime;
+  private LocalDateTime deleteTime;
 
-    @TableField(exist = false)
-    private GoodsItems goodsItems;
+  @TableField(exist = false)
+  private GoodsItems goodsItems;
 
 }

@@ -4,14 +4,14 @@
  * @LastEditTime: 2021-11-02 16:36:56
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-api/api/ma/src/main/java/store/tacomall/apima/service/OrderFormGoodsItemsService.java
+ * @FilePath: /tacomall-api/api/ma/src/main/java/store/tacomall/apima/service/SaleFormGoodsItemsService.java
  */
 package store.tacomall.apima.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
-import store.tacomall.common.entity.order.OrderFormGoodsItems;
+import store.tacomall.common.entity.sale.SaleFormGoodsItems;
 
-public interface OrderFormGoodsItemsService extends IService<OrderFormGoodsItems> {
+public interface SaleFormGoodsItemsService extends IService<SaleFormGoodsItems> {
 
 }
