@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="store.tacomall.common.mapper.sale.SaleFormGoodsItemsMapper">
-  <sql id="base_colums">
+    <sql id="base_colums">
 		ofgi.*
-  </sql>
-  <resultMap id="saleFormGoodsItems" type="store.tacomall.common.entity.sale.SaleFormGoodsItems">
-    <id column="id" property="id"></id>
-    <association column="goods_items_id" property="goodsItems" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryInfoById"></association>
-  </resultMap>
+    </sql>
+    <resultMap id="saleFormGoodsItems" type="store.tacomall.common.entity.sale.SaleFormGoodsItems">
+        <id column="id" property="id"></id>
+        <association column="{id=goods_items_id}" property="goodsItems" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryInfoByMap"></association>
+    </resultMap>
 
-  <select id="queryGoodsItemsListByGoodsId" resultMap="saleFormGoodsItems">
+    <select id="querySaleFormGoodsItemsListByMap" parameterType="hashMap" resultMap="saleFormGoodsItems">
         SELECT <include refid="base_colums" />
         FROM order_form_goods_items AS ofgi
-        WHERE ofgi.form_id = ${formId} AND gi.is_delete = 0
-  </select>
+    <where>
+        <if test="form_id != null  and form_id != ''"> ofgi.form_id = ${form_id} AND </if>
+    </where>
+        gi.is_delete = 0
+</select>
 </mapper>

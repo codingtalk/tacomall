@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="store.tacomall.common.mapper.sale.SaleFormMapper">
-  <sql id="base_colums">
+    <sql id="base_colums">
 		of.*
-  </sql>
-  <resultMap id="saleForm" type="store.tacomall.common.entity.sale.SaleForm">
-    <id column="id" property="id"></id>
-    <collection property="saleFormGoodsItemsList" column="id" select="store.tacomall.common.mapper.sale.SaleFormGoodsItemsMapper.querySaleFormGoodsItemsListByFormId"></collection>
-  </resultMap>
-  <resultMap id="saleFormPage" type="store.tacomall.common.vo.base.PageVo">
-    <id column="id" property="id"></id>
-  </resultMap>
-  <select id="queryInfo" resultMap="saleForm">
+    </sql>
+    <resultMap id="saleForm" type="store.tacomall.common.entity.sale.SaleForm">
+        <id column="id" property="id"></id>
+        <collection property="saleFormGoodsItemsList" column="{form_id=id}" select="store.tacomall.common.mapper.sale.SaleFormGoodsItemsMapper.querySaleFormGoodsItemsListByMap"></collection>
+    </resultMap>
+    <resultMap id="saleFormPage" type="store.tacomall.common.vo.base.PageVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <select id="queryInfo" resultMap="saleForm">
         SELECT <include refid="base_colums" />
         FROM order_form AS of
         ${ew.customSqlSegment}
-  </select>
+    </select>
 
-  <select id="queryPage" resultMap="saleFormPage">
+    <select id="queryPage" resultMap="saleFormPage">
         SELECT <include refid="base_colums" />
         FROM order_form AS of
         ${ew.customSqlSegment}
-  </select>
+    </select>
 </mapper>

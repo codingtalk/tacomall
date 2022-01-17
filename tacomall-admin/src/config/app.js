@@ -11,7 +11,7 @@
  */
 
 export const appConfig = {
-  tokenKey: 'user-access-token',
+  tokenKey: 'x-access-token',
   localHistoryKey: 'local-history-key',
   ossUrl: {
     dev: '',

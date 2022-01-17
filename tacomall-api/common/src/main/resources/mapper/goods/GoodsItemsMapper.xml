@@ -15,18 +15,24 @@
         </discriminator>
     </resultMap>
 
-    <select id="queryInfoById" resultMap="goodsItems">
+    <select id="queryInfoByMap" parameterType="hashMap" resultMap="goodsItems">
         SELECT <include refid="base_colums" />
         , 2 AS result_type
         FROM goods_items AS gi
-        WHERE gi.id = ${id} AND gi.is_delete = 0
-    </select>
+    <where>
+        <if test="id != null  and id != ''"> gi.id = ${id} AND </if>
+    </where>
+        gi.is_delete = 0
+</select>
 
-    <select id="queryGoodsItemsListByGoodsId" resultMap="goodsItems">
+<select id="queryGoodsItemsListByMap" parameterType="hashMap" resultMap="goodsItems">
         SELECT <include refid="base_colums" />
         , 1 AS result_type
         FROM goods_items AS gi
-        WHERE gi.goods_id = ${goodsId} AND gi.is_delete = 0
-    </select>
+<where>
+    <if test="goods_id != null  and goods_id != ''"> gi.goods_id = ${goods_id} AND </if>
+</where>
+        gi.is_delete = 0
+</select>
 
 </mapper>

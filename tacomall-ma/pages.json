@@ -22,6 +22,7 @@
       "path": "pages/cart/index",
       "style": {
         "navigationBarTitleText": "购物车",
+        "enablePullDownRefresh": true,
         "app-plus": {
           "titleNView": false
         }

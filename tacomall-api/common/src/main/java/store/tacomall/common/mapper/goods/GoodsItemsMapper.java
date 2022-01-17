@@ -1,7 +1,7 @@
 /***
  * @Author: 码上talk|RC/3189482282@qq.com
  * @Date: 2021-10-19 13:48:55
- * @LastEditTime: 2021-10-29 14:19:00
+ * @LastEditTime: 2022-01-17 17:07:03
  * @LastEditors: 码上talk|RC
  * @Description: 
  * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/mapper/goods/GoodsItemsMapper.java
@@ -11,10 +11,10 @@ package store.tacomall.common.mapper.goods;
 import store.tacomall.common.entity.goods.GoodsItems;
 
 import java.util.List;
+import java.util.Map;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -28,8 +28,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GoodsItemsMapper extends BaseMapper<GoodsItems> {
 
-    GoodsItems queryInfoById(@Param("id") int id);
+    GoodsItems queryInfoByMap(Map<String, Object> map);
 
-    List<GoodsItems> queryGoodsItemsListByGoodsId(@Param("goodsId") int goodsId);
+    List<GoodsItems> queryGoodsItemsListByMap(Map<String, Object> map);
 
 }

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="store.tacomall.common.mapper.goods.GoodsMapper">
-  <sql id="base_colums">
+    <sql id="base_colums">
 		g.*
-  </sql>
-  <resultMap id="goods" type="store.tacomall.common.entity.goods.Goods">
-    <id column="id" property="id"></id>
-    <collection property="goodsItemsList" column="id" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryGoodsItemsListByGoodsId"></collection>
-  </resultMap>
-  <resultMap id="goodsPage" type="store.tacomall.common.vo.base.PageVo">
-    <id column="id" property="id"></id>
-  </resultMap>
-  <select id="queryInfo" resultMap="goods">
+    </sql>
+    <resultMap id="goods" type="store.tacomall.common.entity.goods.Goods">
+        <id column="id" property="id"></id>
+        <collection property="goodsItemsList" column="{goods_id=id}" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryGoodsItemsListByMap"></collection>
+    </resultMap>
+    <resultMap id="goodsPage" type="store.tacomall.common.vo.base.PageVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <select id="queryInfo" resultMap="goods">
         SELECT <include refid="base_colums" />
         FROM goods AS g
         ${ew.customSqlSegment}
-  </select>
+    </select>
 
-  <select id="queryPage" resultMap="goodsPage">
+    <select id="queryPage" resultMap="goodsPage">
         SELECT <include refid="base_colums" />
         FROM goods AS g
         ${ew.customSqlSegment}
-  </select>
+    </select>
 </mapper>
