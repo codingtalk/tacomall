@@ -1,7 +1,0 @@
-./nw ./build/
-
-cmd>>>
-copy /b nw.exe+app.nw app.exe
-
->>>>>>>>ino
-load setup.iss

@@ -71,9 +71,8 @@
 ├─── _docker_config    docker启动配置文件（redis, rabiitmq为项目必须启动项， mysql可以自行决定）。
 ├─── tacomall-admin    基于vuejs开发， 管理后台，提供商品管理，会员管理，权限管理，订单管理等。
 ├─── tacomall-api      基于springboot多模块设计，提供各前端应用接口服务。
-├─── taomall-cashier   基于nwjs打包的window收银安装应用，已打通微信支付，建行被扫支付。
+├─── taomall-cashier   基于flutter2.0+vue3_vite打包的跨平台收银安装应用，已打通微信支付，建行被扫支付，提供库存出入，盘点，营销活动，代金券设置。
 ├─── tacomall-ma       uniapp开发的小程序商城。
-├─── tacomall-shop     店铺后台，提供库存出入，盘点，营销活动，代金券设置。
 ~~~
 
 ### 🙈程序预览

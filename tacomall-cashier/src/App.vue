@@ -1,109 +1,119 @@
-<!--
- * @Author: 码上talk|RC
- * @Date: 2021-05-05 08:09:28
- * @LastEditTime: 2021-10-14 16:25:27
- * @LastEditors: 码上talk|RC
- * @Description:
- * @FilePath: /tacomall-web/src/App.vue
- * @微信:  13680065830
- * @邮箱:  3189482282@qq.com
- * @oops: Just do what I think it is right
--->
-<template>
-  <div id="app">
-    <div class="a-notity">
-      <!-- @TODO Web update notify -->
-    </div>
-    <div class="a-main">
-      <router-view></router-view>
-    </div>
-  </div>
-</template>
-
-<script>
-import { mapState, mapActions } from 'vuex';
-
-export default {
-  name: 'App',
-  data () {
-    return {
-      timerUpdate: null,
-      isShowDialogUpdate: false,
-    }
-  },
-  computed: {
-    ...mapState('sys', ['ws'])
-  },
-  watch: {
-    'ws.update.isWillUpdate': function (e) {
-      if (!e) {
-        this.timerUpdate && clearInterval(this.timerUpdate);
-        this.isShowDialogUpdate = false;
-        return;
-      } else {
-        this.keepDialogUpdate();
-        this.getUpdateVersion();
-      }
-    }
-  },
-  created () {
-    this.appInit();
-  },
-  methods: {
-    ...mapActions(['appInit']),
-    ...mapActions('sys', ['getUpdateVersion']),
-    keepDialogUpdate () {
-      this.timerUpdate = setInterval(() => {
-        if (this.$dayjs().diff(this.$dayjs(this.ws.update.info.updateStartTime)) > 0) {
-          this.isShowDialogUpdate = true;
-        }
-      }, 3000);
-    }
-  }
-};
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
-<style lang="less">
+<template>
+  <header>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
+
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
+</template>
+
+<style>
+@import '@/assets/base.css';
+
 #app {
-  position: absolute;
-  top: 0px;
-  bottom: 0;
-  width: 100%;
-  min-width: 1200px;
-  min-height: 800px;
-  display: flex;
-  flex-direction: column;
-  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
-    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  font-weight: normal;
+}
+
+header {
   line-height: 1.5;
-  font-size: 14px;
-  background: #f7f7f7;
-  color: #515a6e;
-  .a-notity {
-  }
-  .a-main {
-    flex: 1;
-    overflow-y: hidden;
-  }
-}
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  max-height: 100vh;
 }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: #535353;
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
 
-  &:hover {
-    background: #409eff;
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
 
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  background: #ededed;
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
 }
 </style>
