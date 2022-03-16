@@ -1,38 +1,6 @@
 ## 项目结构
 
 通过项目结构，你将清楚明白你即将入手的是一个怎么样的项目，你可能需要什么，如何快速的把它变成自己的产品。
-### 功能模块
-
-- [x] [首    页](https://gitee.com/running-cat/tacomall-uniapp/tree/master/pages/index) 首页支持轮播展示，商品分类入口，秒杀等功能
-- [x] [商品分类](https://gitee.com/running-cat/tacomall-uniapp/tree/master/pages/category) 商品分类
-- [x] [购 物 车](https://gitee.com/running-cat/tacomall-uniapp/tree/master/pages/cart) 提供购物车操作
-- [x] [用户模块](https://gitee.com/running-cat/tacomall-uniapp/tree/master/pages/center) 包括登录用户系类功能（登录，个人中心，账户）
-- [x] [搜    索](https://gitee.com/running-cat/tacomall-uniapp/tree/master/pages/search) 商品搜索
-- [x] [商品模块](https://gitee.com/running-cat/tacomall-uniapp/tree/master/pages/goods) 商品信息展示（详情，评价，购买）
-- [x] [订单模块](https://gitee.com/running-cat/tacomall-uniapp/tree/master/pages/checkout) 订单支付流程页面
-
-### 程序预览
-
-以下为程序在手机端的运行预览图（取至部分功能页面）
-
-<table border="0">
-    <tr>
-        <td>首页</td>
-        <td>商品分类</td>
-        <td>购物车</td>
-        <td>我的</td>
-        <td>商品详情</td>
-    </tr>
-    <tr>
-        <td><img title="码上talk" src="https://img.codingtalk.cn/WHjZJJh1586355355657" height="340" width="170"/></td>
-        <td><img title="码上talk" src="https://img.codingtalk.cn/MmNmCR21586355392776" height="340" width="170"/></td>
-        <td><img title="码上talk" src="https://img.codingtalk.cn/25NbeMD1586355410426" height="340" width="170"/></td>
-        <td><img title="码上talk" src="https://img.codingtalk.cn/nrnzKwr1586355431298" height="340" width="170"/></td>
-        <td><img title="码上talk" src="https://img.codingtalk.cn/r8yRj251586355442801" height="340" width="170"/></td>
-    </tr>
-</table>
-
-### 代码描述
 
 ~~~
 tacomall-uniapp                     项目
