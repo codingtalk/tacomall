@@ -12,20 +12,17 @@
 package store.tacomall.apiadmin.service.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
@@ -35,13 +32,11 @@ import org.springframework.transaction.TransactionStatus;
 import store.tacomall.apiadmin.service.GoodsService;
 import store.tacomall.common.entity.goods.Goods;
 import store.tacomall.common.entity.goods.GoodsItems;
-import store.tacomall.common.enumeration.BizEnum;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
 import store.tacomall.common.mapper.goods.GoodsItemsMapper;
 import store.tacomall.common.mapper.goods.GoodsMapper;
 import store.tacomall.common.util.ExceptionUtil;
-import store.tacomall.common.util.SnUtil;
 import store.tacomall.common.vo.base.PageVo;
 
 @Service
