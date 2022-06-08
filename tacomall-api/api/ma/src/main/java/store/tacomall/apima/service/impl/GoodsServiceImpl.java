@@ -33,7 +33,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         QueryWrapper<Goods> qw = new QueryWrapper<Goods>();
         qw.eq("g.is_delete", 0);
         qw.orderByDesc("g.create_time");
-        IPage<PageVo> result = this.baseMapper.queryPage(page, qw);
+        IPage<PageVo> result = baseMapper.queryPage(page, qw);
         responsePageVo.setData(result.getRecords());
         responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
         responsePageVo.ok();

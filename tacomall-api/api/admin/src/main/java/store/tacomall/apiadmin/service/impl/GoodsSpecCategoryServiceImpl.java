@@ -52,7 +52,7 @@ public class GoodsSpecCategoryServiceImpl extends ServiceImpl<GoodsSpecCategoryM
         Page<GoodsSpecCategory> page = new Page<>(pageIndex, pageSize);
         QueryWrapper<GoodsSpecCategory> lqw = new QueryWrapper<GoodsSpecCategory>();
         lqw.orderByDesc("create_time");
-        IPage<GoodsSpecCategory> result = this.baseMapper.selectPage(page, lqw);
+        IPage<GoodsSpecCategory> result = baseMapper.selectPage(page, lqw);
         responsePageVo.setData(result.getRecords());
         responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
         responsePageVo.ok();
@@ -62,7 +62,7 @@ public class GoodsSpecCategoryServiceImpl extends ServiceImpl<GoodsSpecCategoryM
     @Override
     public ResponseJson<GoodsSpecCategory> info(Integer id) {
         ResponseJson<GoodsSpecCategory> responseJson = new ResponseJson<>();
-        responseJson.setData(this.baseMapper
+        responseJson.setData(baseMapper
                 .queryInfo(new QueryWrapper<GoodsSpecCategory>().lambda().eq(GoodsSpecCategory::getId, id)));
         responseJson.ok();
         return responseJson;
@@ -74,7 +74,7 @@ public class GoodsSpecCategoryServiceImpl extends ServiceImpl<GoodsSpecCategoryM
         GoodsSpecCategory goodsSpecCategory = JSON.toJavaObject(json, GoodsSpecCategory.class);
         TransactionStatus transactionStatus = dataSourceTransactionManager.getTransaction(transactionDefinition);
         try {
-            this.baseMapper.insert(goodsSpecCategory);
+            baseMapper.insert(goodsSpecCategory);
             goodsSpecCategory.getGoodsSpecKeyList().stream().forEach((GoodsSpecKey goodsSpecKey) -> {
                 goodsSpecKey.setSpecCategoryId(goodsSpecCategory.getId());
                 goodsSpecKeyMapper.insert(goodsSpecKey);
@@ -100,7 +100,7 @@ public class GoodsSpecCategoryServiceImpl extends ServiceImpl<GoodsSpecCategoryM
         TransactionStatus transactionStatus = dataSourceTransactionManager.getTransaction(transactionDefinition);
         try {
             List<GoodsSpecKey> k = new ArrayList<>();
-            this.baseMapper.updateById(goodsSpecCategory);
+            baseMapper.updateById(goodsSpecCategory);
             List<GoodsSpecKey> goodsSpecKeyList = goodsSpecKeyMapper.selectList(new QueryWrapper<GoodsSpecKey>()
                     .lambda().eq(GoodsSpecKey::getSpecCategoryId, goodsSpecCategory.getId()));
             goodsSpecCategory.getGoodsSpecKeyList().stream().forEach((GoodsSpecKey goodsSpecKey) -> {

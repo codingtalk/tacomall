@@ -6,7 +6,7 @@
  * @Description: 
  * @FilePath: /tacomall-api/api/admin/src/main/java/store/tacomall/apiadmin/req/tm/TmStaffAddReq.java
  */
-package store.tacomall.apiadmin.req.tm;
+package store.tacomall.apiadmin.valid.tm;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import store.tacomall.apiadmin.annotation.EnumValidator;
@@ -17,7 +17,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class TmStaffAddReq {
+public class TmStaffAddValid {
 
     @NotNull(message = "部门ID不能为空")
     private Integer deptId;

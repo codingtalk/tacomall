@@ -51,7 +51,7 @@ public class TmDeptServiceImpl extends ServiceImpl<TmDeptMapper, TmDept> impleme
       q.like(TmDept::getName, json.getJSONObject("query").get("keyword"));
     }
     q.eq(TmDept::getIsDelete, 0);
-    IPage<TmDept> result = this.baseMapper.selectPage(page, q);
+    IPage<TmDept> result = baseMapper.selectPage(page, q);
     responsePageVo.setData(result.getRecords());
     responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
     responsePageVo.ok();
@@ -61,7 +61,7 @@ public class TmDeptServiceImpl extends ServiceImpl<TmDeptMapper, TmDept> impleme
   @Override
   public ResponseJson<TmDept> info(Integer id) {
     ResponseJson<TmDept> responseJson = new ResponseJson<>();
-    responseJson.setData(this.baseMapper.selectOne(new QueryWrapper<TmDept>().lambda().eq(TmDept::getId, id)));
+    responseJson.setData(baseMapper.selectOne(new QueryWrapper<TmDept>().lambda().eq(TmDept::getId, id)));
     responseJson.ok();
     return responseJson;
   }
@@ -70,7 +70,7 @@ public class TmDeptServiceImpl extends ServiceImpl<TmDeptMapper, TmDept> impleme
   public ResponseJson<TmDept> add(JSONObject json) {
     ResponseJson<TmDept> responseJson = new ResponseJson<>();
     TmDept tmDept = JSON.toJavaObject(json, TmDept.class);
-    this.baseMapper.insert(tmDept);
+    baseMapper.insert(tmDept);
     responseJson.ok();
     return responseJson;
   }
@@ -79,7 +79,7 @@ public class TmDeptServiceImpl extends ServiceImpl<TmDeptMapper, TmDept> impleme
   public ResponseJson<String> update(JSONObject json) {
     ResponseJson<String> responseJson = new ResponseJson<>();
     TmDept tmDept = JSON.toJavaObject(json, TmDept.class);
-    this.baseMapper.updateById(tmDept);
+    baseMapper.updateById(tmDept);
     responseJson.setData("更新成功");
     responseJson.ok();
     return responseJson;

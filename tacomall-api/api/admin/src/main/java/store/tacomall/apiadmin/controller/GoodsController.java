@@ -45,7 +45,7 @@ public class GoodsController {
     private GoodsSpecCategoryService goodsSpecCategoryService;
 
     @PostMapping("page")
-    public ResponsePageJson<List<PageVo>> goodsPage(
+    public ResponsePageJson<List<PageVo>> page(
             @RequestParam(value = "pageIndex", defaultValue = "1") Integer pageIndex,
             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize, @RequestBody JSONObject json) {
         return goodsService.page(pageIndex, pageSize, json);

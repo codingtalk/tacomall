@@ -30,8 +30,8 @@ import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
 import store.tacomall.common.vo.base.PageVo;
 import store.tacomall.apiadmin.annotation.TmLoginLog;
-import store.tacomall.apiadmin.req.tm.TmStaffAddReq;
 import store.tacomall.apiadmin.service.TmStaffService;
+import store.tacomall.apiadmin.valid.tm.TmStaffAddValid;
 import store.tacomall.apiadmin.service.TmAccessRuleService;
 import store.tacomall.apiadmin.service.TmDeptService;
 import store.tacomall.apiadmin.service.TmJobService;
@@ -82,7 +82,7 @@ public class TmController {
     }
 
     @PostMapping("staffAdd")
-    public ResponseJson<TmStaff> staffAdd(@Valid @RequestBody TmStaffAddReq json) {
+    public ResponseJson<TmStaff> staffAdd(@Valid @RequestBody TmStaffAddValid json) {
         return tmStaffService.add(json);
     }
 

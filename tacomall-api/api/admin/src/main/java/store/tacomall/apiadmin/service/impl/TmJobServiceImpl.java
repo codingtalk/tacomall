@@ -57,7 +57,7 @@ public class TmJobServiceImpl extends ServiceImpl<TmJobMapper, TmJob> implements
       q.like(TmJob::getName, json.getJSONObject("query").get("keyword"));
     }
     q.eq(TmJob::getIsDelete, 0);
-    IPage<TmJob> result = this.baseMapper.selectPage(page, q);
+    IPage<TmJob> result = baseMapper.selectPage(page, q);
     responsePageJson.setData(result.getRecords());
     responsePageJson.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
     responsePageJson.ok();
@@ -67,7 +67,7 @@ public class TmJobServiceImpl extends ServiceImpl<TmJobMapper, TmJob> implements
   @Override
   public ResponseJson<TmJob> info(Integer id) {
     ResponseJson<TmJob> responseJson = new ResponseJson<>();
-    responseJson.setData(this.baseMapper.selectOne(new QueryWrapper<TmJob>().lambda().eq(TmJob::getId, id)));
+    responseJson.setData(baseMapper.selectOne(new QueryWrapper<TmJob>().lambda().eq(TmJob::getId, id)));
     responseJson.ok();
     return responseJson;
   }
@@ -77,7 +77,7 @@ public class TmJobServiceImpl extends ServiceImpl<TmJobMapper, TmJob> implements
     ResponseJson<TmJob> responseJson = new ResponseJson<>();
     responseJson.setStatus(false);
     TmJob tmJob = JSON.toJavaObject(json, TmJob.class);
-    this.baseMapper.insert(tmJob);
+    baseMapper.insert(tmJob);
     responseJson.setData(tmJob);
     responseJson.ok();
     return responseJson;
@@ -87,7 +87,7 @@ public class TmJobServiceImpl extends ServiceImpl<TmJobMapper, TmJob> implements
   public ResponseJson<String> update(JSONObject json) {
     ResponseJson<String> responseJson = new ResponseJson<>();
     TmJob tmJob = JSON.toJavaObject(json, TmJob.class);
-    this.baseMapper.updateById(tmJob);
+    baseMapper.updateById(tmJob);
     responseJson.setData("更新成功");
     responseJson.ok();
     return responseJson;

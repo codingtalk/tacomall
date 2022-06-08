@@ -145,7 +145,7 @@ public class SaleFormServiceImpl extends ServiceImpl<SaleFormMapper, SaleForm> i
     qw.eq("of.member_id", RequestUtil.getLoginUser().getInteger("id"));
     qw.eq("of.is_delete", 0);
     qw.orderByDesc("of.create_time");
-    IPage<PageVo> result = this.baseMapper.queryPage(page, qw);
+    IPage<PageVo> result = baseMapper.queryPage(page, qw);
     responsePageVo.setData(result.getRecords());
     responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
     responsePageVo.ok();
@@ -156,7 +156,7 @@ public class SaleFormServiceImpl extends ServiceImpl<SaleFormMapper, SaleForm> i
   public ResponseJson<SaleForm> info(Integer id) {
     ResponseJson<SaleForm> responseJson = new ResponseJson<>();
     responseJson
-        .setData(this.baseMapper.queryInfo(new QueryWrapper<SaleForm>().lambda().eq(SaleForm::getId, id)));
+        .setData(baseMapper.queryInfo(new QueryWrapper<SaleForm>().lambda().eq(SaleForm::getId, id)));
     responseJson.ok();
     return responseJson;
   }

@@ -57,7 +57,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
   DataSourceTransactionManager dataSourceTransactionManager;
 
   private void updateStatus(Integer id, String status) {
-    this.baseMapper.update(null,
+    baseMapper.update(null,
         new UpdateWrapper<Goods>().lambda().eq(Goods::getId, id).set(Goods::getStatus, status));
   }
 
@@ -68,7 +68,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     QueryWrapper<Goods> qw = new QueryWrapper<Goods>();
     qw.eq("g.is_delete", 0);
     qw.orderByDesc("g.create_time");
-    IPage<PageVo> result = this.baseMapper.queryPage(page, qw);
+    IPage<PageVo> result = baseMapper.queryPage(page, qw);
     responsePageVo.setData(result.getRecords());
     responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
     responsePageVo.ok();
@@ -78,7 +78,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
   @Override
   public ResponseJson<Goods> info(Integer id) {
     ResponseJson<Goods> responseJson = new ResponseJson<>();
-    responseJson.setData(this.baseMapper.queryInfo(new QueryWrapper<Goods>().lambda().eq(Goods::getId, id)));
+    responseJson.setData(baseMapper.queryInfo(new QueryWrapper<Goods>().lambda().eq(Goods::getId, id)));
     responseJson.ok();
     return responseJson;
   }
@@ -89,7 +89,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     Goods goods = JSON.toJavaObject(json, Goods.class);
     TransactionStatus transactionStatus = dataSourceTransactionManager.getTransaction(transactionDefinition);
     try {
-      this.baseMapper.insert(goods);
+      baseMapper.insert(goods);
       goods.getGoodsItemsList().stream().forEach((GoodsItems goodsItems) -> {
         goodsItems.setGoodsId(goods.getId());
         goodsItemsMapper.insert(goodsItems);
@@ -113,7 +113,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
       List<GoodsItems> goodsItemsList = goodsItemsMapper
           .selectList(new QueryWrapper<GoodsItems>().lambda().eq(GoodsItems::getGoodsId, goods.getId()));
       List<GoodsItems> k = new ArrayList<>();
-      this.baseMapper.updateById(goods);
+      baseMapper.updateById(goods);
       goods.getGoodsItemsList().stream().forEach((GoodsItems goodsItems) -> {
         if (ObjectUtil.equal(goodsItems.getId(), 0)) {
           goodsItems.setGoodsId(goods.getId());

@@ -60,41 +60,31 @@ public class ShopStaffServiceImpl extends ServiceImpl<ShopStaffMapper, ShopStaff
     @Override
     public ResponseJson<String> loginByMobile(String mobile, String password) throws Exception {
         ResponseJson<String> responseJson = new ResponseJson<>();
+        JwtUtil jwtUtil = new JwtUtil();
         String token = "";
-        LambdaQueryWrapper<ShopStaff> lqw = new QueryWrapper<ShopStaff>().lambda();
-        lqw.eq(ShopStaff::getMobile, mobile);
-        lqw.eq(ShopStaff::getPasswd, PasswordUtil.encode(password));
-
-        ShopStaff shopStaff = baseMapper.selectOne(lqw);
+        ShopStaff shopStaff = baseMapper.selectOne(new QueryWrapper<ShopStaff>().lambda()
+                .eq(ShopStaff::getMobile, mobile)
+                .eq(ShopStaff::getPasswd, PasswordUtil.encode(password)));
         if (ObjectUtil.isNull(shopStaff)) {
             responseJson.setMessage("账号或密码错误");
             return responseJson;
         }
-
-        Map<String, String> claims = new HashMap<>(1);
-        claims.put("id", NumberUtil.toStr(shopStaff.getId()));
-        JwtUtil jwtUtil = new JwtUtil();
         jwtUtil.setISSUER("api-shop");
-        token = jwtUtil.create(claims);
+        token = jwtUtil.create(new HashMap<String, String>() {
+            {
+                put("id", shopStaff.getId().toString());
+            }
+        });
         responseJson.setData(token);
         responseJson.ok();
         return responseJson;
     }
 
     @Override
-    public ResponseJson<ShopStaff> info(JSONObject json) {
+    public ResponseJson<ShopStaff> info(Integer id) {
         ResponseJson<ShopStaff> responseJson = new ResponseJson<>();
-        ShopStaff shopStaff = shopStaffMapper.selectById(RequestUtil.getLoginUser().getString("id"));
-        JSONObject query = json.getJSONObject("query");
-        LambdaQueryWrapper<ShopStaff> qw = new LambdaQueryWrapper<ShopStaff>();
-
-        if (ObjectUtil.isNotNull(query) && ObjectUtil.isNotNull(query.getInteger("id"))) {
-            qw.eq(ShopStaff::getId, query.getInteger("id"));
-        } else {
-            qw.eq(ShopStaff::getId, shopStaff.getId());
-        }
-
-        responseJson.setData(this.baseMapper.selectOne(qw));
+        responseJson.setData(baseMapper.selectById(id.equals(0) ? RequestUtil.getLoginUser().getInteger("id")
+                : id));
         responseJson.ok();
         return responseJson;
     }

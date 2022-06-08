@@ -50,7 +50,7 @@ public class TmAccessRuleServiceImpl extends ServiceImpl<TmAccessRuleMapper, TmA
       q.in(TmAccessRule::getPId, Arrays.asList(query.getString("pId").split(",")));
     }
     q.like(TmAccessRule::getIsDelete, 0);
-    IPage<TmAccessRule> result = this.baseMapper.selectPage(page, q);
+    IPage<TmAccessRule> result = baseMapper.selectPage(page, q);
     responsePageVo.setData(result.getRecords());
     responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
     responsePageVo.ok();
@@ -61,7 +61,7 @@ public class TmAccessRuleServiceImpl extends ServiceImpl<TmAccessRuleMapper, TmA
   public ResponseJson<TmAccessRule> info(Integer id) {
     ResponseJson<TmAccessRule> responseJson = new ResponseJson<>();
     responseJson
-        .setData(this.baseMapper.selectOne(new QueryWrapper<TmAccessRule>().lambda().eq(TmAccessRule::getId, id)));
+        .setData(baseMapper.selectOne(new QueryWrapper<TmAccessRule>().lambda().eq(TmAccessRule::getId, id)));
     responseJson.ok();
     return responseJson;
   }
@@ -70,7 +70,7 @@ public class TmAccessRuleServiceImpl extends ServiceImpl<TmAccessRuleMapper, TmA
   public ResponseJson<TmAccessRule> add(JSONObject jsonObject) {
     ResponseJson<TmAccessRule> responseJson = new ResponseJson<>();
     TmAccessRule tmAccessRule = JSON.toJavaObject(jsonObject, TmAccessRule.class);
-    this.baseMapper.insert(tmAccessRule);
+    baseMapper.insert(tmAccessRule);
     responseJson.ok();
     return responseJson;
   }
@@ -79,7 +79,7 @@ public class TmAccessRuleServiceImpl extends ServiceImpl<TmAccessRuleMapper, TmA
   public ResponseJson<String> update(JSONObject json) {
     ResponseJson<String> responseJson = new ResponseJson<>();
     TmAccessRule tmAccessRule = JSON.toJavaObject(json, TmAccessRule.class);
-    this.baseMapper.updateById(tmAccessRule);
+    baseMapper.updateById(tmAccessRule);
     responseJson.setData("更新成功");
     responseJson.ok();
     return responseJson;

@@ -68,7 +68,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
             lqw.eq("m.status", query.getString("status"));
         }
         lqw.eq("m.is_delete", 0);
-        IPage<PageVo> result = this.baseMapper.queryPage(page, lqw);
+        IPage<PageVo> result = baseMapper.queryPage(page, lqw);
         responsePageVo.setData(result.getRecords());
         responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
         responsePageVo.ok();
@@ -79,7 +79,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     public ResponseJson<MemberInfoVo> info(Integer id) {
         ResponseJson<MemberInfoVo> responseJson = new ResponseJson<>();
         responseJson.setData(MemberInfoVo.builder()
-                .member(this.baseMapper.queryInfo(new QueryWrapper<Member>().lambda().eq(Member::getId, id))).build());
+                .member(baseMapper.queryInfo(new QueryWrapper<Member>().lambda().eq(Member::getId, id))).build());
         responseJson.ok();
         return responseJson;
     }

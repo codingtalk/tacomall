@@ -33,8 +33,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
 
-import store.tacomall.apiadmin.req.tm.TmStaffAddReq;
 import store.tacomall.apiadmin.service.TmStaffService;
+import store.tacomall.apiadmin.valid.tm.TmStaffAddValid;
 import store.tacomall.common.entity.tm.TmAccessRule;
 import store.tacomall.common.entity.tm.TmDept;
 import store.tacomall.common.entity.tm.TmJob;
@@ -149,7 +149,7 @@ public class TmStaffServiceImpl extends ServiceImpl<TmStaffMapper, TmStaff> impl
             }
         }
         qw.eq("ts.is_delete", 0);
-        IPage<PageVo> result = this.baseMapper.queryPage(page, qw);
+        IPage<PageVo> result = baseMapper.queryPage(page, qw);
         responsePageVo.setData(result.getRecords());
         responsePageVo.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
         responsePageVo.ok();
@@ -157,12 +157,12 @@ public class TmStaffServiceImpl extends ServiceImpl<TmStaffMapper, TmStaff> impl
     }
 
     @Override
-    public ResponseJson<TmStaff> add(TmStaffAddReq json) {
+    public ResponseJson<TmStaff> add(TmStaffAddValid json) {
         ResponseJson<TmStaff> responseJson = new ResponseJson<>();
         responseJson.setStatus(false);
         TmStaff tmStaff = JSONObject.parseObject(JSONObject.toJSONString(json), TmStaff.class);
         tmStaff.setPasswd(PasswordUtil.encode(tmStaff.getPasswd()));
-        this.baseMapper.insert(tmStaff);
+        baseMapper.insert(tmStaff);
         responseJson.ok();
         responseJson.setData(tmStaff);
         return responseJson;
@@ -175,7 +175,7 @@ public class TmStaffServiceImpl extends ServiceImpl<TmStaffMapper, TmStaff> impl
         if (StringUtil.isNotBlank(tmStaff.getPasswd())) {
             tmStaff.setPasswd(PasswordUtil.encode(tmStaff.getPasswd()));
         }
-        this.baseMapper.updateById(tmStaff);
+        baseMapper.updateById(tmStaff);
         responseJson.setData("更新成功");
         responseJson.ok();
         return responseJson;

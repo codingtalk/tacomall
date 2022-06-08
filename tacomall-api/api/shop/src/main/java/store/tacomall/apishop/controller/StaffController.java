@@ -14,7 +14,6 @@ import store.tacomall.common.annotation.LoginUser;
 import store.tacomall.common.entity.shop.ShopStaff;
 import store.tacomall.common.json.ResponseJson;
 
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,8 +32,8 @@ public class StaffController {
 
     @LoginUser
     @PostMapping("info")
-    public ResponseJson<ShopStaff> info(@RequestBody JSONObject json) {
-        return shopStaffService.info(json);
+    public ResponseJson<ShopStaff> info(@RequestParam(value = "id", defaultValue = "0") Integer id) {
+        return shopStaffService.info(id);
     }
 
 }

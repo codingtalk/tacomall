@@ -47,7 +47,7 @@ public class GoodsCategoryServiceImpl extends ServiceImpl<GoodsCategoryMapper, G
       lqw.in(GoodsCategory::getPId, Arrays.asList(query.getString("pId").split(",")));
     }
     lqw.eq(GoodsCategory::getIsDelete, 0);
-    IPage<GoodsCategory> result = this.baseMapper.selectPage(page, lqw);
+    IPage<GoodsCategory> result = baseMapper.selectPage(page, lqw);
     responsePageJson.setData(result.getRecords());
     responsePageJson.buildPage(result.getCurrent(), result.getSize(), result.getTotal());
     responsePageJson.ok();
@@ -58,7 +58,7 @@ public class GoodsCategoryServiceImpl extends ServiceImpl<GoodsCategoryMapper, G
   public ResponseJson<GoodsCategory> add(JSONObject json) {
     ResponseJson<GoodsCategory> responseJson = new ResponseJson<>();
     GoodsCategory goodsCategory = JSON.toJavaObject(json, GoodsCategory.class);
-    this.baseMapper.insert(goodsCategory);
+    baseMapper.insert(goodsCategory);
     responseJson.setData(goodsCategory);
     responseJson.ok();
     return responseJson;
@@ -68,7 +68,7 @@ public class GoodsCategoryServiceImpl extends ServiceImpl<GoodsCategoryMapper, G
   public ResponseJson<GoodsCategory> info(Integer id) {
     ResponseJson<GoodsCategory> responseJson = new ResponseJson<>();
     responseJson
-        .setData(this.baseMapper.selectOne(new QueryWrapper<GoodsCategory>().lambda().eq(GoodsCategory::getId, id)));
+        .setData(baseMapper.selectOne(new QueryWrapper<GoodsCategory>().lambda().eq(GoodsCategory::getId, id)));
     responseJson.ok();
     return responseJson;
   }
@@ -77,7 +77,7 @@ public class GoodsCategoryServiceImpl extends ServiceImpl<GoodsCategoryMapper, G
   public ResponseJson<String> update(JSONObject json) {
     ResponseJson<String> responseJson = new ResponseJson<>();
     GoodsCategory goodsCategory = JSON.toJavaObject(json, GoodsCategory.class);
-    this.baseMapper.updateById(goodsCategory);
+    baseMapper.updateById(goodsCategory);
     responseJson.setData("更新成功");
     responseJson.ok();
     return responseJson;
