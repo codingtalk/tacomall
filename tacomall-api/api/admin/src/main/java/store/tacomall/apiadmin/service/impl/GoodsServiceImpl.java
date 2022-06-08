@@ -135,7 +135,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
   }
 
   @Override
-  public ResponseJson<String> updateField(String id, Integer type, JSONObject json) {
+  public ResponseJson<String> updateField(Integer id, Integer type, JSONObject json) {
     ResponseJson<String> responseJson = new ResponseJson<>();
     String value = "";
     if (ObjectUtil.isNotEmpty(json) && ObjectUtil.isNotEmpty(json.get("value"))) {

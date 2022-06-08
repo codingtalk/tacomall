@@ -31,6 +31,6 @@ public interface GoodsService extends IService<Goods> {
 
   ResponseJson<String> update(JSONObject json);
 
-  ResponseJson<String> updateField(String id, Integer type, JSONObject json);
+  ResponseJson<String> updateField(Integer id, Integer type, JSONObject json);
 
 }

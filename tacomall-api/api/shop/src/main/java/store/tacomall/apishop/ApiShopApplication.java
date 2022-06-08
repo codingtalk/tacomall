@@ -12,18 +12,27 @@ package store.tacomall.apishop;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 
+import store.tacomall.common.aspect.NoRepeatSubmitAspect;
 import store.tacomall.common.config.RedisConfig;
+import store.tacomall.common.config.WxMaConfig;
+import store.tacomall.common.config.WxPayConfiguration;
+import store.tacomall.common.libs.wx.WxPayUtil;
+import store.tacomall.common.util.RedisUtil;
+import store.tacomall.common.util.SpringContextUtil;
 
 @SpringBootApplication(scanBasePackages = { "store.tacomall.common", "store.tacomall.apishop" })
 @MapperScan({ "store.tacomall.common.mapper", "store.tacomall.apishop.mapper" })
-@ComponentScan(excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { RedisConfig.class }) })
+@ComponentScan(basePackages = { "store.tacomall.common", "store.tacomall.apishop" }, excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { RedisConfig.class,
+                NoRepeatSubmitAspect.class, WxMaConfig.class, WxPayConfiguration.class, WxPayUtil.class, RedisUtil.class }) })
 public class ApiShopApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ApiShopApplication.class, args);
+        ApplicationContext context = SpringApplication.run(ApiShopApplication.class, args);
+        SpringContextUtil.setApplicationContext(context);
     }
 
 }

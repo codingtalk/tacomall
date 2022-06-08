@@ -67,7 +67,7 @@ public class GoodsController {
     }
 
     @PostMapping("updateField")
-    public ResponseJson<String> updateField(@RequestParam(value = "id") String id,
+    public ResponseJson<String> updateField(@RequestParam(value = "id") Integer id,
             @RequestParam(value = "type") Integer type, @RequestBody JSONObject json) {
         return goodsService.updateField(id, type, json);
     }
