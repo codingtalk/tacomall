@@ -6,7 +6,7 @@
  * @Description: 
  * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/bo/saleForm/SaleFormPayRetPayWayBo.java
  */
-package store.tacomall.common.bo.sale;
+package store.tacomall.common.bo.pay;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,10 +14,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaleFormPayRetPayWayBo {
+public class PayResPayWayBo {
 
   private Integer type;
 

@@ -6,7 +6,7 @@
  * @Description: 
  * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/bo/saleForm/SaleFormPayRetBo.java
  */
-package store.tacomall.common.bo.sale;
+package store.tacomall.common.bo.pay;
 
 import java.math.BigDecimal;
 
@@ -17,12 +17,16 @@ import lombok.NoArgsConstructor;
 import store.tacomall.common.entity.sale.SaleForm;
 
 @Data
-@Builder
+@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaleFormPayRetBo {
+public class PayResBo {
 
   private SaleForm saleForm;
+
+  private BigDecimal amountNeed;
+
+  private BigDecimal amountPayed;
 
   private Integer activityId;
 
@@ -32,7 +36,5 @@ public class SaleFormPayRetBo {
 
   private BigDecimal couponAmount;
 
-  private BigDecimal amountPay;
-
-  private SaleFormPayRetPayWayBo payWay;
+  private PayResPayWayBo payWay;
 }

@@ -1,12 +1,4 @@
-/***
- * @Author: 码上talk|RC/3189482282@qq.com
- * @Date: 2021-10-28 17:26:21
- * @LastEditTime: 2021-10-28 17:26:43
- * @LastEditors: 码上talk|RC
- * @Description: 
- * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/entity/shop/Shop.java
- */
-package store.tacomall.common.entity.shop;
+package store.tacomall.common.entity.approve;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -36,14 +28,22 @@ import lombok.Setter;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Shop implements Serializable {
+public class ApproveNode implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    private Integer typeId;
+
+    private Integer sort;
+
     private String name;
+
+    private String tmDeptIds;
+
+    private String tmStaffIds;
 
     @TableLogic
     private Integer isDelete;
@@ -53,5 +53,6 @@ public class Shop implements Serializable {
     private LocalDateTime updateTime;
 
     private LocalDateTime deleteTime;
+
 
 }

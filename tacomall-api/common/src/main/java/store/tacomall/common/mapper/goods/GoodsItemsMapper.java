@@ -30,6 +30,6 @@ public interface GoodsItemsMapper extends BaseMapper<GoodsItems> {
 
     GoodsItems queryInfoByMap(Map<String, Object> map);
 
-    List<GoodsItems> queryGoodsItemsListByMap(Map<String, Object> map);
+    List<GoodsItems> queryListByMap(Map<String, Object> map);
 
 }

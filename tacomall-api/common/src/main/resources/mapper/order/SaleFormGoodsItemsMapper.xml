@@ -9,7 +9,7 @@
         <association column="{id=goods_items_id}" property="goodsItems" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryInfoByMap"></association>
     </resultMap>
 
-    <select id="querySaleFormGoodsItemsListByMap" parameterType="hashMap" resultMap="saleFormGoodsItems">
+    <select id="queryListByMap" parameterType="hashMap" resultMap="saleFormGoodsItems">
         SELECT <include refid="base_colums" />
         FROM order_form_goods_items AS ofgi
     <where>

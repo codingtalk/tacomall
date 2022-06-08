@@ -32,6 +32,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.TransactionDefinition;
 
 import store.tacomall.apima.service.SaleFormService;
+import store.tacomall.apima.vo.sale.SaleFormPayVo;
 import store.tacomall.common.entity.goods.Goods;
 import store.tacomall.common.entity.member.MemberCart;
 import store.tacomall.common.entity.sale.SaleForm;
@@ -39,11 +40,14 @@ import store.tacomall.common.entity.sale.SaleFormGoodsItems;
 import store.tacomall.common.entity.shop.ShopStock;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
+import store.tacomall.common.logic.sale.SaleFormPayLogic;
 import store.tacomall.common.mapper.goods.GoodsMapper;
 import store.tacomall.common.mapper.member.MemberCartMapper;
 import store.tacomall.common.mapper.sale.SaleFormMapper;
 import store.tacomall.common.mapper.shop.ShopStockMapper;
 import store.tacomall.common.bo.goods.GoodsItemsQuantityBo;
+import store.tacomall.common.bo.pay.PayReqBo;
+import store.tacomall.common.bo.pay.PayResBo;
 import store.tacomall.common.util.ExceptionUtil;
 import store.tacomall.common.util.RequestUtil;
 import store.tacomall.common.util.SnUtil;
@@ -66,6 +70,9 @@ public class SaleFormServiceImpl extends ServiceImpl<SaleFormMapper, SaleForm> i
 
   @Autowired
   SaleFormGoodsItemsServiceImpl saleFormGoodsItemsServiceImpl;
+
+  @Autowired
+  SaleFormPayLogic saleFormPayLogic;
 
   @Autowired
   TransactionDefinition transactionDefinition;
@@ -150,6 +157,26 @@ public class SaleFormServiceImpl extends ServiceImpl<SaleFormMapper, SaleForm> i
     ResponseJson<SaleForm> responseJson = new ResponseJson<>();
     responseJson
         .setData(this.baseMapper.queryInfo(new QueryWrapper<SaleForm>().lambda().eq(SaleForm::getId, id)));
+    responseJson.ok();
+    return responseJson;
+  }
+
+  @Override
+  public ResponseJson<SaleFormPayVo> pay(Integer id, Integer isPreview, PayReqBo payReqBo) {
+    ResponseJson<SaleFormPayVo> responseJson = new ResponseJson<>();
+    PayResBo payResBo = null;
+    try {
+      payResBo = saleFormPayLogic.pay(id, isPreview, payReqBo);
+      baseMapper.update(null, new UpdateWrapper<SaleForm>().lambda()
+          .set(SaleForm::getAmountPay, payResBo.getAmountPayed())
+          .set(SaleForm::getActivityId, payResBo.getActivityId())
+          .set(SaleForm::getCouponId, payResBo.getCouponId())
+          .set(SaleForm::getCouponAmount, payResBo.getCouponAmount()));
+    } catch (Exception e) {
+      ExceptionUtil.throwBizException("结算失败");
+    }
+    responseJson
+        .setData(SaleFormPayVo.builder().saleFormId(id).payResBo(payResBo).build());
     responseJson.ok();
     return responseJson;
   }

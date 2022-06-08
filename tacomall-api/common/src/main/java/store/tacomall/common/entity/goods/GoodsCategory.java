@@ -13,11 +13,16 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * <p>
@@ -25,9 +30,14 @@ import lombok.Data;
  * </p>
  *
  * @author 码上talk
- * @since 2021-10-21
+ * @since 2022-06-08
  */
-@Data
+@Getter
+@Setter
+@TableName(autoResultMap = true)
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class GoodsCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;

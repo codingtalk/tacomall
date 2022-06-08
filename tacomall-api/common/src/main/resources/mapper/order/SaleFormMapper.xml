@@ -6,7 +6,7 @@
     </sql>
     <resultMap id="saleForm" type="store.tacomall.common.entity.sale.SaleForm">
         <id column="id" property="id"></id>
-        <collection property="saleFormGoodsItemsList" column="{form_id=id}" select="store.tacomall.common.mapper.sale.SaleFormGoodsItemsMapper.querySaleFormGoodsItemsListByMap"></collection>
+        <collection property="saleFormGoodsItemsList" column="{form_id=id}" select="store.tacomall.common.mapper.sale.SaleFormGoodsItemsMapper.queryListByMap"></collection>
     </resultMap>
     <resultMap id="saleFormPage" type="store.tacomall.common.vo.base.PageVo">
         <id column="id" property="id"></id>

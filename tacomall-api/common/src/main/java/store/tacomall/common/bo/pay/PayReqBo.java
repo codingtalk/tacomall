@@ -4,9 +4,9 @@
  * @LastEditTime: 2022-01-05 14:32:59
  * @LastEditors: 码上talk|RC
  * @Description: 
- * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/bo/sale/SaleFormPayReqBo.java
+ * @FilePath: /tacomall-api/common/src/main/java/store/tacomall/common/bo/sale/payReqBo.java
  */
-package store.tacomall.common.bo.sale;
+package store.tacomall.common.bo.pay;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,12 +14,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class SaleFormPayReqBo {
-
-  private Boolean isUseShopBalance;
+public class PayReqBo {
 
   private Integer activityId;
 

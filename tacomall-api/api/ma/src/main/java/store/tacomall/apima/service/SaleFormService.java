@@ -13,6 +13,8 @@ import java.util.List;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import store.tacomall.apima.vo.sale.SaleFormPayVo;
+import store.tacomall.common.bo.pay.PayReqBo;
 import store.tacomall.common.entity.sale.SaleForm;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
@@ -25,5 +27,7 @@ public interface SaleFormService extends IService<SaleForm> {
   ResponsePageJson<List<PageVo>> page(Integer pageIndex, Integer pageSize, JSONObject json);
 
   ResponseJson<SaleForm> info(Integer id);
+
+  ResponseJson<SaleFormPayVo> pay(Integer id, Integer isPreview, PayReqBo payReqBo);
 
 }

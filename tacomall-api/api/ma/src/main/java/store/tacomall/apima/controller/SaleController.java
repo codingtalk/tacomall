@@ -15,13 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import store.tacomall.common.annotation.LoginUser;
-import store.tacomall.common.bo.sale.SaleFormPayReqBo;
-import store.tacomall.common.bo.sale.SaleFormPayRetBo;
+import store.tacomall.common.bo.pay.PayReqBo;
+import store.tacomall.common.bo.pay.PayResBo;
 import store.tacomall.apima.service.SaleFormService;
+import store.tacomall.apima.vo.sale.SaleFormPayVo;
 import store.tacomall.common.entity.sale.SaleForm;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.json.ResponsePageJson;
-import store.tacomall.common.logic.SaleFormPayLogic;
+import store.tacomall.common.logic.sale.SaleFormPayLogic;
 import store.tacomall.common.vo.base.PageVo;
 
 @RestController
@@ -41,23 +42,10 @@ public class SaleController {
   }
 
   @LoginUser
-  @PostMapping("formCalculate")
-  public ResponseJson<SaleFormPayRetBo> calculate(@RequestParam(value = "id") Integer id,
-      @RequestBody SaleFormPayReqBo saleFormPayReqBo) throws Exception {
-    ResponseJson<SaleFormPayRetBo> responseJson = new ResponseJson<>();
-    responseJson.setData(saleFormPayLogic.calculate(id, saleFormPayReqBo));
-    responseJson.ok();
-    return responseJson;
-  }
-
-  @LoginUser
-  @PostMapping("formSettle")
-  public ResponseJson<SaleFormPayRetBo> settle(@RequestParam(value = "id") Integer id,
-      @RequestBody SaleFormPayReqBo saleFormPayReqBo) throws Exception {
-    ResponseJson<SaleFormPayRetBo> responseJson = new ResponseJson<>();
-    responseJson.setData(saleFormPayLogic.settle(id, saleFormPayReqBo));
-    responseJson.ok();
-    return responseJson;
+  @PostMapping("pay")
+  public ResponseJson<SaleFormPayVo> pay(@RequestParam(value = "id") Integer id,
+      @RequestParam(value = "isPreview") Integer isPreview, @RequestBody PayReqBo payReqBo) throws Exception {
+    return saleFormService.pay(id, isPreview, payReqBo);
   }
 
   @LoginUser

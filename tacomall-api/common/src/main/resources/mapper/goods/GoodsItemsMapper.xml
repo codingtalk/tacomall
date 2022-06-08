@@ -25,7 +25,7 @@
         gi.is_delete = 0
 </select>
 
-<select id="queryGoodsItemsListByMap" parameterType="hashMap" resultMap="goodsItems">
+<select id="queryListByMap" parameterType="hashMap" resultMap="goodsItems">
         SELECT <include refid="base_colums" />
         , 1 AS result_type
         FROM goods_items AS gi

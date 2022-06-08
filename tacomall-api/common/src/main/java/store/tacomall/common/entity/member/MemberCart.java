@@ -12,13 +12,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import store.tacomall.common.entity.goods.GoodsItems;
 import store.tacomall.common.entity.shop.Shop;
 
@@ -28,12 +31,14 @@ import store.tacomall.common.entity.shop.Shop;
  * </p>
  *
  * @author 码上talk
- * @since 2021-10-26
+ * @since 2022-06-08
  */
-@Data
-@Builder
-@NoArgsConstructor
+@Getter
+@Setter
+@TableName(autoResultMap = true)
+@Builder(toBuilder = true)
 @AllArgsConstructor
+@NoArgsConstructor
 public class MemberCart implements Serializable {
 
     private static final long serialVersionUID = 1L;

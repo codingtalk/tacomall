@@ -13,12 +13,16 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import store.tacomall.common.entity.goods.GoodsItems;
 
 /**
@@ -27,10 +31,14 @@ import store.tacomall.common.entity.goods.GoodsItems;
  * </p>
  *
  * @author 码上talk
- * @since 2021-11-01
+ * @since 2022-06-08
  */
-@Data
-@Builder
+@Getter
+@Setter
+@TableName(autoResultMap = true)
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class SaleFormGoodsItems implements Serializable {
 
   private static final long serialVersionUID = 1L;

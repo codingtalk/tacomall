@@ -6,7 +6,7 @@
     </sql>
     <resultMap id="goods" type="store.tacomall.common.entity.goods.Goods">
         <id column="id" property="id"></id>
-        <collection property="goodsItemsList" column="{goods_id=id}" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryGoodsItemsListByMap"></collection>
+        <collection property="goodsItemsList" column="{goods_id=id}" select="store.tacomall.common.mapper.goods.GoodsItemsMapper.queryListByMap"></collection>
     </resultMap>
     <resultMap id="goodsPage" type="store.tacomall.common.vo.base.PageVo">
         <id column="id" property="id"></id>
