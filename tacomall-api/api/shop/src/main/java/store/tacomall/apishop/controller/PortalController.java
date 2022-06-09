@@ -4,16 +4,19 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.*;
 
-import store.tacomall.common.annotation.SimpleController;
+import com.alibaba.fastjson.JSONObject;
+
+import store.tacomall.common.annotation.SimpleRestController;
 import store.tacomall.common.json.ResponseJson;
 
 @RestController
 @RequestMapping(value = "/{domain}/")
 public class PortalController {
 
-    @GetMapping("{action}")
-    @SimpleController
-    public ResponseJson<Object> index(@PathVariable Map<String, String> pathVariableMap) {
+    @PostMapping("{action}")
+    @SimpleRestController
+    public ResponseJson<Object> index(@PathVariable Map<String, String> pathVariableMap,
+            @RequestBody JSONObject body) {
         return new ResponseJson<Object>();
     }
 

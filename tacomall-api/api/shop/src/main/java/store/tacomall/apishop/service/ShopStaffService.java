@@ -12,12 +12,13 @@ package store.tacomall.apishop.service;
 import store.tacomall.common.entity.shop.ShopStaff;
 import store.tacomall.common.json.ResponseJson;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 public interface ShopStaffService extends IService<ShopStaff> {
 
     ResponseJson<String> loginByMobile(String moible, String password) throws Exception;
 
-    ResponseJson<ShopStaff> info(Integer id);
+    ResponseJson<ShopStaff> info(JSONObject body);
 
 }

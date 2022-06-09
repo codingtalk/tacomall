@@ -45,7 +45,7 @@
         <fastjson.version>1.2.78</fastjson.version>
         <lombok.version>1.18.0</lombok.version>
         <javajwt.version>3.4.0</javajwt.version>
-        <mysql.version>8.0.27</mysql.version>
+        <mysql.version>8.0.29</mysql.version>
         <baomidou.dynamicdatasource.version>2.5.6</baomidou.dynamicdatasource.version>
         <binarywang.weixinjavaminiapp.version>4.1.0</binarywang.weixinjavaminiapp.version>
         <aliyun.oss.version>2.4.0</aliyun.oss.version>

@@ -12,6 +12,8 @@ package store.tacomall.apishop.service.impl;
 import java.util.HashMap;
 
 import cn.hutool.core.util.ObjectUtil;
+
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
 
 import store.tacomall.apishop.service.ShopStaffService;
+import store.tacomall.common.annotation.SimpleRestLogin;
 import store.tacomall.common.entity.shop.*;
 import store.tacomall.common.json.ResponseJson;
 import store.tacomall.common.mapper.shop.ShopStaffMapper;
@@ -63,9 +66,13 @@ public class ShopStaffServiceImpl extends ServiceImpl<ShopStaffMapper, ShopStaff
     }
 
     @Override
-    public ResponseJson<ShopStaff> info(Integer id) {
+    @SimpleRestLogin
+    public ResponseJson<ShopStaff> info(JSONObject body) {
+        Integer id = RequestUtil.getIntegerParam("id");
         ResponseJson<ShopStaff> responseJson = new ResponseJson<>();
-        responseJson.setData(baseMapper.selectById(id.equals(0) ? RequestUtil.getLoginUser().getInteger("id")
+        responseJson.setData(baseMapper.selectById(id.equals(0) ? RequestUtil
+                .getLoginUser()
+                .getInteger("id")
                 : id));
         responseJson.ok();
         return responseJson;
