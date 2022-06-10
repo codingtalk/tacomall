@@ -18,9 +18,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
@@ -29,9 +29,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSONObject;
 
+import cn.hutool.core.util.ObjectUtil;
+
 @Aspect
 @Component
-public class SimpleControllerAspect {
+public class SimpleRestControllerAspect {
 
     @Resource
     Environment environment;
@@ -50,15 +52,15 @@ public class SimpleControllerAspect {
     @Around("logPointCut()")
     @SuppressWarnings("unchecked")
     public ResponseJson<Object> around(ProceedingJoinPoint point) throws Throwable {
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
         Object[] args = point.getArgs();
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+                .getRequest();
         Map<String, String> pathVariableMap = (Map<String, String>) args[0];
         Object obj = SpringContextUtil.getBean(String.format("%sServiceImpl", pathVariableMap.get("domain")));
         Method method = ReflectionUtils.findMethod(obj.getClass(), pathVariableMap.get("action"),
                 new Class[] { JSONObject.class });
-        if (method.isAnnotationPresent(SimpleRestLogin.class)) {
-            SimpleRestLogin simpleRestLogin = method.getAnnotation(SimpleRestLogin.class);
+        SimpleRestLogin simpleRestLogin = AnnotationUtils.findAnnotation(method, SimpleRestLogin.class);
+        if (ObjectUtil.isNotNull(simpleRestLogin)) {
             String token = request.getHeader(TOKEN_KEY);
             if (simpleRestLogin.required() && StringUtil.isBlank(token)) {
                 ExceptionUtil.throwUnauthorizedException("token不能为空");

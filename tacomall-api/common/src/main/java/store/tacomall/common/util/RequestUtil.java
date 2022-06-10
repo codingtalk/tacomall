@@ -35,4 +35,13 @@ public class RequestUtil extends JSONObject {
     return Integer.valueOf(param);
   }
 
+  public static String getStringParam(String name) {
+    String param = (((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest())
+        .getParameter(name);
+    if (ObjectUtil.isNull(param)) {
+      ExceptionUtil.throwClientException("参数错误");
+    }
+    return param;
+  }
+
 }

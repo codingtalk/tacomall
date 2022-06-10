@@ -17,7 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 public interface ShopStaffService extends IService<ShopStaff> {
 
-    ResponseJson<String> loginByMobile(String moible, String password) throws Exception;
+    ResponseJson<String> loginByMobile(JSONObject body) throws Exception;
 
     ResponseJson<ShopStaff> info(JSONObject body);
 

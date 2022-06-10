@@ -43,13 +43,15 @@ public class ShopStaffServiceImpl extends ServiceImpl<ShopStaffMapper, ShopStaff
     TransactionDefinition transactionDefinition;
 
     @Override
-    public ResponseJson<String> loginByMobile(String mobile, String password) throws Exception {
+    public ResponseJson<String> loginByMobile(JSONObject body) throws Exception {
         ResponseJson<String> responseJson = new ResponseJson<>();
+        String mobile = RequestUtil.getStringParam("mobile");
+        String passwd = RequestUtil.getStringParam("passwd");
         JwtUtil jwtUtil = new JwtUtil();
         String token = "";
         ShopStaff shopStaff = baseMapper.selectOne(new QueryWrapper<ShopStaff>().lambda()
                 .eq(ShopStaff::getMobile, mobile)
-                .eq(ShopStaff::getPasswd, PasswordUtil.encode(password)));
+                .eq(ShopStaff::getPasswd, PasswordUtil.encode(passwd)));
         if (ObjectUtil.isNull(shopStaff)) {
             responseJson.setMessage("账号或密码错误");
             return responseJson;
