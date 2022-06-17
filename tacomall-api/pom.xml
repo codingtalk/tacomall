@@ -42,7 +42,7 @@
         <spring.boot.version>2.4.2</spring.boot.version>
         <mybatisplus.boot.starter.version>3.4.3.4</mybatisplus.boot.starter.version>
         <baomidou.mybatisplusgenerator.version>3.5.1</baomidou.mybatisplusgenerator.version>
-        <fastjson.version>1.2.78</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <lombok.version>1.18.0</lombok.version>
         <javajwt.version>3.4.0</javajwt.version>
         <mysql.version>8.0.27</mysql.version>
