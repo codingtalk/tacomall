@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tacomall.common.mapper.approve.ApproveNodeMapper">
+    <sql id="base_colums">
+		an.*
+    </sql>
+    <resultMap id="approveNode" type="com.tacomall.common.entity.approve.ApproveNode">
+        <id column="id" property="id"></id>
+        <result column="opt" property="opt" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler" />
+    </resultMap>
+
+    <select id="queryInfoByMap" parameterType="hashMap" resultMap="approveNode">
+        SELECT
+        <include refid="base_colums" />
+        FROM approve_node AS an
+        <where>
+            <if test="typeId != null  and typeId != ''"> an.type_id = ${typeId} AND </if>
+            <if test="id != null  and id != ''"> an.id = ${id} AND </if>
+        </where>
+        an.is_delete = 0
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tacomall.common.mapper.approve.ApproveTypeMapper">
+    <sql id="base_colums">
+        atp.*
+  </sql>
+    <resultMap id="approveType" type="com.tacomall.common.entity.approve.ApproveType">
+        <id column="id" property="id"></id>
+        <collection property="approveNodeList" column="{typeId = id}" select="com.tacomall.common.mapper.approve.ApproveNodeMapper.queryInfoByMap"></collection>
+    </resultMap>
+    <resultMap id="approveTypePage" type="com.tacomall.common.vo.base.PaginatorVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+    <select id="queryInfo" resultMap="approveType">
+        SELECT
+        <include refid="base_colums" />
+        FROM approve_type AS atp
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryPage" resultMap="approveTypePage">
+        SELECT
+        <include refid="base_colums" />
+        FROM approve_type AS atp
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

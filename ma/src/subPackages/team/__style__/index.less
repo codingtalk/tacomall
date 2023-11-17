@@ -1,0 +1,80 @@
+.team{
+  display: flex;
+  flex-direction: column;
+  .team_{
+    &summary{
+      .flex(@a: center);
+      width:710rpx;
+      margin: 20rpx auto 20rpx auto;
+      border-radius: 10rpx;
+      background: white;
+      .summary_item{
+        flex:1;
+        height: 150rpx;
+        .flex(@d: column, @a: center, @j: center);
+      }
+    }
+    &search{
+      .flex(@a: center);
+      box-sizing: border-box;
+      width:710rpx;
+      margin: 0 auto;
+      padding: 10rpx;
+      background: white;
+      .search_{
+        &input{
+          .flex(@a: center);
+          height: 60rpx;
+          flex:1;
+          padding: 0 20rpx;
+          border-radius: 35px;
+          background: @background-color-base;
+          input{
+            line-height: 70rpx;
+          }
+        }
+        &btn{
+          .flex(@a: center, @j: center);
+          width:200rpx;
+          height: 60rpx;
+          margin-left: 40rpx;
+          border-radius: 10rpx;
+          background: @primary-color;
+          text{
+            color: white;
+          }
+        }
+      }
+    }
+    &cols{
+      .flex(@a: center);
+      box-sizing: border-box;
+      width:710rpx;
+      height: 60rpx;
+      padding: 0 20rpx;
+      margin: 0 auto;
+      background: white;
+      .cols_item{
+        .flex(@a: center);
+        flex:1;
+      }
+    }
+    &list{
+      position: relative;
+      flex:1;
+      width:710rpx;
+      margin: 0 auto;
+      background: white;
+      .list_item{
+        margin: 0 auto;
+        .flex(@a: center);
+        .item_col{
+          .flex(@a: center);
+          flex:1;
+          height: 60rpx;
+          padding: 0 20rpx;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tacomall.common.mapper.org.OrgStaffMapper">
+
+    <resultMap id="orgStaffPage" type="com.tacomall.common.vo.base.PaginatorVo">
+        <id property="id" column="id"></id>
+    </resultMap>
+
+    <resultMap id="orgStaff" type="com.tacomall.common.entity.org.OrgStaff">
+        <id property="id" column="id"></id>
+        <result property="jobId" column="job_id"></result>
+        <result property="deptId" column="dept_id"></result>
+        <association property="orgJob" column="job_id" select="com.tacomall.common.mapper.org.OrgJobMapper.selectById"></association>
+        <association property="orgDept" column="dept_id" select="com.tacomall.common.mapper.org.OrgDeptMapper.selectById"></association>
+        <association property="orgStaffAccount" column="id" select="com.tacomall.common.mapper.org.OrgStaffAccountMapper.selectById"></association>
+    </resultMap>
+
+    <select id="queryPage" resultMap="orgStaffPage">
+        SELECT *
+        FROM org_staff
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryInfo" resultMap="orgStaff">
+        SELECT *
+        FROM org_staff
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryListByMap" parameterType="hashMap" resultMap="orgStaffPage">
+        SELECT *
+        FROM org_staff
+        <where>
+            <if test="orgStaffIds != null  and orgStaffIds != ''"> id IN ( ${orgStaffIds}) AND </if>
+        </where>
+        is_delete = 0
+    </select>
+
+</mapper>

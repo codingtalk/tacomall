@@ -1,0 +1,23 @@
+server:
+  port: 4002
+spring:
+  application:
+    name: api_ma
+  profiles:
+    active: @environment@
+logging:
+  level:
+    com.tacomall.common.mapper: debug
+    cn.binarywang.wx.miniapp: debug
+    
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  type-aliases-package: com.tacomall.common.mapper
+  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+
+  configuration:
+    call-setters-on-nulls: true

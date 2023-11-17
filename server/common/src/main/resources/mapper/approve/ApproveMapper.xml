@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tacomall.common.mapper.approve.ApproveMapper">
+    <sql id="base_colums">
+    a.id,
+    a.sn,
+    a.creator_id,
+    a.type_id,
+    a.node_id,
+    a.status,
+    a.create_time
+  </sql>
+    <resultMap id="approve" type="com.tacomall.common.entity.approve.Approve">
+        <id column="id" property="id"></id>
+        <result property="typeId" column="type_id"></result>
+        <result property="nodeId" column="node_id"></result>
+        <result property="creatorId" column="creator_id"></result>
+        <result property="executorId" column="executor_id"></result>
+        <association property="creator" column="creator_id" select="com.tacomall.common.mapper.org.OrgStaffMapper.selectById"></association>
+        <association property="executor" column="executor_id" select="com.tacomall.common.mapper.org.OrgStaffMapper.selectById"></association>
+        <association property="approveType" column="type_id" select="com.tacomall.common.mapper.approve.ApproveTypeMapper.selectById"></association>
+        <association property="approveNode" column="{id = node_id}" select="com.tacomall.common.mapper.approve.ApproveNodeMapper.queryInfoByMap"></association>
+        <collection property="approveNodeList" column="{typeId = type_id}" select="com.tacomall.common.mapper.approve.ApproveNodeMapper.queryInfoByMap"></collection>
+        <collection property="approveProcessList" column="{approveId = id}" select="com.tacomall.common.mapper.approve.ApproveProcessMapper.queryInfoByMap"></collection>
+        <discriminator javaType="int" column="type_id">
+            <case value="1">
+                <association property="formOrder" column="{approveId = id}" select="com.tacomall.common.mapper.form.FormOrderMapper.queryInfoByMap"></association>
+            </case>
+        </discriminator>
+    </resultMap>
+
+    <resultMap id="approvePage" type="com.tacomall.common.vo.base.PaginatorVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+    <select id="queryInfo" resultMap="approve">
+        SELECT
+        <include refid="base_colums" />
+        FROM approve AS a
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryPage" resultMap="approvePage">
+        SELECT
+        <include refid="base_colums" />
+        , os.nickname AS creator_nickname
+        FROM approve AS a
+        LEFT JOIN org_staff os ON a.creator_id = os.id
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tacomall.common.mapper.form.FormOrderMapper">
+    <sql id="base_colums">
+        oform.*
+  </sql>
+    <resultMap id="formOrder" type="com.tacomall.common.entity.form.FormOrder">
+        <id column="id" property="id"></id>
+        <result column="info_data" property="infoData" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler" />
+    </resultMap>
+
+    <resultMap id="formOrderPage" type="com.tacomall.common.vo.base.PaginatorVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+    <select id="queryInfo" resultMap="formOrder">
+        SELECT
+        <include refid="base_colums" />
+        FROM order_form AS oform
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryPage" resultMap="formOrderPage">
+        SELECT
+        <include refid="base_colums" />,
+        m.nickname,
+        (SELECT JSON_OBJECT('type', l.type, 'infoData', l.info_data) from logistic l where id = oform.logistic_id) as logistic
+        FROM order_form AS oform
+        LEFT JOIN member m on oform.member_id = m.id
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryInfoByMap" parameterType="hashMap" resultMap="formOrder">
+        SELECT
+        <include refid="base_colums" />
+        FROM order_form AS oform
+        <where>
+            <if test="approveId != null  and approveId != ''"> oform.approve_ids REGEXP '^${approveId},|,${approveId},|^${approveId}$|,${approveId}$' AND </if>
+        </where>
+        oform.is_delete = 0
+    </select>
+</mapper>

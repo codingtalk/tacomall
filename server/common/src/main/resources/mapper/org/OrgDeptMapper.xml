@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tacomall.common.mapper.org.OrgDeptMapper">
+
+    <resultMap id="orgDept" type="com.tacomall.common.entity.org.OrgDept">
+        <id property="id" column="id"></id>
+    </resultMap>
+
+    <select id="queryListByMap" parameterType="hashMap" resultMap="orgDept">
+        SELECT *
+        FROM org_dept
+        <where>
+            <if test="orgDeptIds != null  and orgDeptIds != ''"> id IN ( ${orgDeptIds}) AND </if>
+        </where>
+        is_delete = 0
+    </select>
+
+</mapper>

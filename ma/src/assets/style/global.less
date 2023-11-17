@@ -1,0 +1,76 @@
+@import "./var.less";
+@import "./mixins.less";
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  font-size: 28rpx;
+  background: #f7f7f7;
+
+  &--column {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.border_1px {
+  &--top {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      border-top: 1px solid @border-color-split;
+      transform: scaleY(0.5);
+    }
+  }
+
+  &--left {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      border-left: 1px solid @border-color-split;
+      transform: scaleX(0.5);
+    }
+  }
+
+  &--bottom {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      border-bottom: 1px solid @border-color-split;
+      transform: scaleY(0.5);
+    }
+  }
+
+  &--right {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 0;
+      border-right: 1px solid @border-color-split;
+      transform: scaleX(0.5);
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@import "../../../assets/style/var.less";
+@import "../../../assets/style/mixins.less";
+
+.submit {
+  padding: 0 20px;
+  background: white;
+
+  &_form {
+    padding-bottom: 20px;
+
+    .form_wrapper {
+      .cvt_form {
+        .flex(@d: column, @a: center);
+
+        .form_ {
+          &step {
+            width: 1100px;
+
+            .cvt_step {
+              width: 100%;
+            }
+          }
+
+          &content,
+          &submit {
+            width: 700px;
+          }
+        }
+      }
+    }
+  }
+
+  &_toolbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    .flex(@a: center, @j: space-between);
+    width: 100%;
+    box-sizing: border-box;
+    height: 70px;
+    padding: 0 20px;
+    background: white;
+    box-shadow: 0 -6px 16px -8px rgb(0 0 0 / 8%),
+      0 -9px 28px 0 rgb(0 0 0 / 5%), 0 -12px 48px 16px rgb(0 0 0 / 3%);
+    z-index: 10;
+  }
+
+  &_result {
+    .flex(@d: column, @a: center);
+    padding: 20px 0 100px 0;
+    background: white;
+
+    i {
+      font-size: 150px;
+      color: @success-color;
+    }
+
+    h3 {
+      font-size: 30px;
+    }
+
+    p {
+      color: @text-color;
+    }
+  }
+
+  &_hint {
+    padding-bottom: 100px;
+    border-top: 1px solid @border-color-base;
+    .hint_{
+      &title{
+        .flex();
+        height: 50px;
+      }
+      &list{
+        .list_item{
+          color:#333;
+          .item_{
+            &label{
+              height: 30px;
+            }
+          }
+          &:not(:first-child){
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+}

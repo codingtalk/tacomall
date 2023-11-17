@@ -1,0 +1,25 @@
+# configuraion
+.env
+
+application-dev.yml
+application-test.yml
+application-prod.yml
+
+# vscode
+.vscode
+
+# gradle
+.gradle
+**/build/
+
+# maven
+target
+
+# npm
+node_modules
+
+# log
+.log
+
+# certificate files
+cert-wx-pay

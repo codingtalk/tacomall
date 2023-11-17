@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "iconfont_core"; /* Project id 3549033 */
+  src: url("/icon/core/iconfont.woff2?t=1658845079012") format("woff2"),
+    url("/icon/core/iconfont.woff?t=1658845079012") format("woff"),
+    url("/icon/core/iconfont.ttf?t=1658845079012") format("truetype");
+}
+
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 4330403 */
+  src: url('//at.alicdn.com/t/c/font_4330403_g0j1cfwtb08.woff2?t=1699963836257') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4330403_g0j1cfwtb08.woff?t=1699963836257') format('woff'),
+       url('//at.alicdn.com/t/c/font_4330403_g0j1cfwtb08.ttf?t=1699963836257') format('truetype');
+}
+
+.iconfont_core {
+  font-family: "iconfont_core" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

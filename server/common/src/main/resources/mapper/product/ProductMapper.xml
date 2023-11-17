@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tacomall.common.mapper.product.ProductMapper">
+    <sql id="base_colums">
+        p.*
+  </sql>
+    <resultMap id="product" type="com.tacomall.common.entity.product.Product">
+        <id column="id" property="id"></id>
+        <result column="info_data" property="infoData" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler" />
+    </resultMap>
+
+    <resultMap id="productPage" type="com.tacomall.common.vo.base.PaginatorVo">
+        <id column="id" property="id"></id>
+    </resultMap>
+
+    <select id="queryInfo" resultMap="product">
+        SELECT
+        <include refid="base_colums" />
+        FROM product AS p
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryPage" resultMap="productPage">
+        SELECT
+        <include refid="base_colums" />
+        FROM product AS p
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="queryInfoByMap" parameterType="hashMap" resultMap="product">
+        SELECT
+        <include refid="base_colums" />
+        FROM product AS p
+        <where>
+            <if test="approveId != null  and approveId != ''"> p.approve_ids REGEXP '^${approveId},|,${approveId},|^${approveId}$|,${approveId}$' AND </if>
+        </where>
+        p.is_delete = 0
+    </select>
+</mapper>
