@@ -51,7 +51,7 @@
         <aliyun.oss.version>2.4.0</aliyun.oss.version>
         <aliyun.sms.version>2.0.4</aliyun.sms.version>
         <commons.fileupload.version>1.3.1</commons.fileupload.version>
-        <shirospring.version>1.4.0</shirospring.version>
+        <shirospring.version>1.7.1</shirospring.version>
         <hutool.version>5.8.20</hutool.version>
         <p6spy.version>3.8.5</p6spy.version>
         <okhttp.version>4.11.0</okhttp.version>
