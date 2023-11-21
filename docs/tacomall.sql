@@ -11,7 +11,7 @@
  Target Server Version : 80012
  File Encoding         : 65001
 
- Date: 20/11/2023 16:30:12
+ Date: 21/11/2023 18:10:10
 */
 
 SET NAMES utf8mb4;
@@ -296,6 +296,27 @@ INSERT INTO `logistic_type` VALUES (9, '菜鸟', 'CNSD', NULL, 'yida178', 'ok', 
 INSERT INTO `logistic_type` VALUES (10, '百世', 'BEST', NULL, 'yida178', 'ok', 0, '2023-09-20 16:48:24', NULL, NULL);
 
 -- ----------------------------
+-- Table structure for ma_carousel
+-- ----------------------------
+DROP TABLE IF EXISTS `ma_carousel`;
+CREATE TABLE `ma_carousel`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `is_delete` int(11) NULL DEFAULT 0,
+  `create_time` datetime NULL DEFAULT NULL,
+  `update_time` datetime NULL DEFAULT NULL,
+  `delete_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of ma_carousel
+-- ----------------------------
+INSERT INTO `ma_carousel` VALUES (1, 'product', '美味汉堡', '//m15.360buyimg.com/mobilecms/s1062x420_jfs/t1/231060/5/3007/80337/6551bcd1Fad345a22/e35654a80c5b86fd.png!cr_1053x420_4_0', 0, NULL, NULL, NULL);
+
+-- ----------------------------
 -- Table structure for member
 -- ----------------------------
 DROP TABLE IF EXISTS `member`;
@@ -514,6 +535,7 @@ CREATE TABLE `post`  (
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `classification_id` int(11) NULL DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `amount` decimal(10, 2) NULL DEFAULT NULL,
   `info_data` json NULL,
@@ -528,7 +550,30 @@ CREATE TABLE `product`  (
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES (1, '汉堡', NULL, '{\"amount\": \"120\", \"status\": \"posted\", \"thumbnail\": \"\", \"description\": \"好吃汉堡\"}', NULL, 0, '2023-11-16 21:48:06', NULL, NULL);
+INSERT INTO `product` VALUES (1, NULL, '汉堡', NULL, '{\"amount\": \"120\", \"status\": \"posted\", \"thumbnail\": \"\", \"description\": \"好吃汉堡\"}', NULL, 0, '2023-11-16 21:48:06', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for product_classification
+-- ----------------------------
+DROP TABLE IF EXISTS `product_classification`;
+CREATE TABLE `product_classification`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `p_id` int(11) NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `is_delete` int(11) NULL DEFAULT 0,
+  `create_time` datetime NULL DEFAULT NULL,
+  `update_time` datetime NULL DEFAULT NULL,
+  `delete_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of product_classification
+-- ----------------------------
+INSERT INTO `product_classification` VALUES (1, 0, '热门', 0, NULL, NULL, NULL);
+INSERT INTO `product_classification` VALUES (2, 0, '冬季保暖', 0, NULL, NULL, NULL);
+INSERT INTO `product_classification` VALUES (3, 0, '潮流靴子', 0, NULL, NULL, NULL);
+INSERT INTO `product_classification` VALUES (4, 0, '家电产品', 0, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for product_sku

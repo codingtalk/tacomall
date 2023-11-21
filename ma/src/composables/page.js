@@ -20,11 +20,11 @@ export const checkToken = () => {
   })
 }
 
-export const pageLoad = (key, body, callback, opt) => {
-  const { api: apiJson } = getGlobalVariable('app');
+export const pageLoad = (key, body, callback, opt = { autoLoad: true }) => {
   let info = ref({});
   let urlQueries = ref({})
   const queryInfo = (obj) => {
+    const { api: apiJson } = getGlobalVariable('app');
     return new Promise((resolve) => {
       http.request({
         baseURL: apiJson['ma'].hostname,
@@ -35,7 +35,7 @@ export const pageLoad = (key, body, callback, opt) => {
         data: {
           ...body,
           ...obj,
-          ...opt?.getUrlQueries(urlQueries.value)
+          ...opt?.getUrlQueries ? opt?.getUrlQueries(urlQueries.value) : {}
         }
       })
         .then((res) => {
@@ -50,6 +50,9 @@ export const pageLoad = (key, body, callback, opt) => {
   onLoad((e) => {
     urlQueries.value = e
     if (opt?.getUrlQueries && !opt?.getUrlQueries(e)) {
+      return
+    }
+    if (!opt.autoLoad) {
       return
     }
     queryInfo().then(() => {

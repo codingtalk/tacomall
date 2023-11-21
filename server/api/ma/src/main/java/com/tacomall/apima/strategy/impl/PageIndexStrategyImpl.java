@@ -18,8 +18,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.tacomall.apima.strategy.PageStrategy;
 import com.tacomall.apima.vo.page.PageIndexVo;
 import com.tacomall.common.entity.logistic.LogisticType;
+import com.tacomall.common.entity.ma.MaCarousel;
+import com.tacomall.common.entity.product.Product;
+import com.tacomall.common.entity.product.ProductClassification;
 import com.tacomall.common.json.ResponseJson;
 import com.tacomall.common.mapper.logistic.LogisticTypeMapper;
+import com.tacomall.common.mapper.ma.MaCarouselMapper;
+import com.tacomall.common.mapper.product.ProductClassificationMapper;
+import com.tacomall.common.mapper.product.ProductMapper;
 import com.tacomall.common.util.ExceptionUtil;
 import com.tacomall.common.util.SnUtil;
 
@@ -37,7 +43,13 @@ public class PageIndexStrategyImpl implements PageStrategy {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Autowired
-  LogisticTypeMapper logisticTypeMapper;
+  MaCarouselMapper maCarouselMapper;
+
+  @Autowired
+  ProductMapper productMapper;
+
+  @Autowired
+  ProductClassificationMapper productClassificationMapper;
 
   @Autowired
   TransactionDefinition transactionDefinition;
@@ -49,7 +61,13 @@ public class PageIndexStrategyImpl implements PageStrategy {
   public ResponseJson<PageIndexVo> info(JSONObject body) {
     ResponseJson<PageIndexVo> responseJson = new ResponseJson<>();
 
-    responseJson.setData(PageIndexVo.builder().build());
+    responseJson.setData(PageIndexVo.builder()
+        .carousalList(maCarouselMapper.selectList(new QueryWrapper<MaCarousel>().lambda()))
+        .productClassificationForNavList(
+            productClassificationMapper.selectList(new QueryWrapper<ProductClassification>().lambda()))
+        .productClassificationForGridList(
+            productClassificationMapper.selectList(new QueryWrapper<ProductClassification>().lambda()))
+        .productForSecKill(productMapper.selectList(new QueryWrapper<Product>().lambda())).build());
     responseJson.ok();
     return responseJson;
   }

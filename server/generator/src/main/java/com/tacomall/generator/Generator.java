@@ -16,8 +16,8 @@ public class Generator {
   public static void main(String[] args) {
     ArrayList<Map<String, String>> doGenTableCfg = new ArrayList<>(Arrays.asList(new HashMap<String, String>() {
       {
-        put("table", "product");
-        put("domain", "product");
+        put("table", "ma_carousel");
+        put("domain", "ma");
       }
     }));
     for (Map<String, String> cfg : doGenTableCfg) {

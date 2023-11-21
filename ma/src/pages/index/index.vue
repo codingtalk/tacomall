@@ -3,32 +3,32 @@
     <weixin-wrapper>
       <template v-slot:nav>
         <view class="index_slogan">
-            <view class="slogan_logo">
-              <image :src="STATIC_PATH('logo-icon_small.png')"/>
-            </view>
-            <view class="slogan_search">
-              <view class="search_left">
-                <text class="iconfont">&#xe86e;</text>
-                <text class="left_text">搜索好品，共有16523件商品</text>
-              </view>
+          <view class="slogan_logo">
+            <image :src="STATIC_PATH('logo-icon_small.png')" />
+          </view>
+          <view class="slogan_search">
+            <view class="search_left">
+              <text class="iconfont">&#xe86e;</text>
+              <text class="left_text">搜索好品，共有16523件商品</text>
             </view>
           </view>
+        </view>
       </template>
       <view class="index_main">
         <view class="main_tabs">
-            <scroll-view>
-              <view class="tabs_wrapper">
-                <view class="wrapper_item" :key="key" v-for="(item, key) in [{ n: '推荐' }]">
-                  <text>{{ item.n }}</text>
-                </view>
+          <scroll-view>
+            <view class="tabs_wrapper">
+              <view class="wrapper_item" :key="key" v-for="(item, key) in getVal('productClassificationForNavList', [])">
+                <text>{{ item.name }}</text>
               </view>
-            </scroll-view>
-          </view>
+            </view>
+          </scroll-view>
+        </view>
         <view class="main_banner">
           <swiper class="banner_swiper" :indicator-dots="true" :autoplay="true" interval="2000" duration="3000">
-            <swiper-item :key="key" v-for="(item, key) in []">
+            <swiper-item :key="key" v-for="(item, key) in getVal('carousalList', [])">
               <view class="swiper_item">
-                <image :src="item.cover" />
+                <image :src="item.url" />
               </view>
             </swiper-item>
           </swiper>
@@ -48,7 +48,7 @@
           </view>
         </view>
         <view class="main_category">
-          <view class="category_item" :key="key" v-for="(item, key) in []">
+          <view class="category_item" :key="key" v-for="(item, key) in getVal('productClassificationForGridList', [])">
             <image src="http://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" />
             <text>{{ item.name }}</text>
           </view>
@@ -77,13 +77,13 @@
             </div>
           </view>
           <view class="flash_content">
-            <view class="content_item" :key="key" v-for="(item, key) in []">
+            <view class="content_item" :key="key" v-for="(item, key) in getVal('productForSecKill', [])">
               <view class="item_image">
                 <image
                   src="http://yanxuan.nosdn.127.net/598a7792fdef09260c6c6fb0ca4fa5cc.png?imageView&thumbnail=216x216&quality=75" />
               </view>
               <view class="item_price">
-                <text>￥{{ item.amount }}</text>
+                <text>￥10</text>
                 <text>￥5.0</text>
               </view>
             </view>
@@ -143,16 +143,20 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
 import weixinWrapper from '@/components/weixin-wrapper'
-import { checkToken, pullDownRefresh } from "@/composables/page";
+import { checkToken, pullDownRefresh, pageLoad } from "@/composables/page";
 import { STATIC_PATH } from '@/config'
-import { $toast, go } from 'codingtalk-uni-toolkit';
+import { $toast, go, ready } from 'codingtalk-uni-toolkit';
 
+const { queryInfo, getVal, resetInfo } = pageLoad('index', {}, null, { autoLoad: false })
 
 pullDownRefresh((ok) => {
-  ok()
+  queryInfo().then(() => {
+    ok()
+  })
 })
-onMounted(() => {
-});
+ready().then(() => {
+  queryInfo()
+})
 </script>
 
 
