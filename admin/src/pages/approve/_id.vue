@@ -185,8 +185,6 @@ function doAgree() {
 </script>
 
 <style lang="less">
-@import "../../assets/style/var.less";
-@import "../../assets/style/mixins.less";
 
 .approve {
   &_header {

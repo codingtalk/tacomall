@@ -24,7 +24,5 @@ onMounted(() => {
 
 
 <style lang="less">
-@import url("../../assets/style/var.less");
-@import url("../../assets/style/mixins.less");
 @import url("./__style__/index.less");
 </style>

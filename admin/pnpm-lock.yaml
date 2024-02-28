@@ -15,8 +15,8 @@ dependencies:
     specifier: ^1.5.1
     version: 1.5.1
   codingtalk-vue-toolkit:
-    specifier: 0.1.7
-    version: 0.1.7
+    specifier: 0.1.11
+    version: 0.1.11
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
@@ -38,9 +38,6 @@ dependencies:
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.3.5)
-  vue3-audio-player:
-    specifier: ^1.0.7
-    version: 1.0.7
 
 devDependencies:
   '@rushstack/eslint-patch':
@@ -123,38 +120,6 @@ packages:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons-svg': 4.2.1
       vue: 3.3.5
-    dev: false
-
-  /@any-touch/compute@2.2.0:
-    resolution: {integrity: sha512-hrw74b/cVT8SmiKFLValmllajw+bBvTa5iUwIXFVVIJM9T3tO15zZC2QbjVz8Uwi6XjH932RDUILGMs2TNvyQg==}
-    dependencies:
-      '@any-touch/shared': 2.2.0
-      '@any-touch/vector': 2.2.0
-      tslib: 2.4.0
-    dev: false
-
-  /@any-touch/core@2.2.0:
-    resolution: {integrity: sha512-xMHAA5aLCatFto+4fQWyE4YAsyN/LsXS4mnYuVpqFYoNz8dl5FsB/TIyb9JrqMKLYMxxcZ9joqR8gDprH1lwBw==}
-    dependencies:
-      '@any-touch/shared': 2.2.0
-      any-event: 2.2.0
-    dev: false
-
-  /@any-touch/pan@2.2.0:
-    resolution: {integrity: sha512-uMkCHbTm5qWji/FvhumP9n1ZCkPU7hy864g+ZhoWZ0OWAmn7s/TKRo4UqPBfqEPUMV6obGZvatrrgBLWT6J57w==}
-    dependencies:
-      '@any-touch/compute': 2.2.0
-      '@any-touch/shared': 2.2.0
-    dev: false
-
-  /@any-touch/shared@2.2.0:
-    resolution: {integrity: sha512-2n1zWaATi/3osr/dkIUq5O7aSffKUsTM4DsIbPMW1VEO77v/rX2HkLoxt2Djzj5eCGh7An55Vw8NeA33kTTSRA==}
-    dev: false
-
-  /@any-touch/vector@2.2.0:
-    resolution: {integrity: sha512-t7pGYegIDCJl+swwsohZHZKmF71ZMt+hjwVEyhaEP6nQhcx6S7zulxnRxNp1t8s+c/JdK02Q89HnzQ4Ukg4+IA==}
-    dependencies:
-      '@any-touch/shared': 2.2.0
     dev: false
 
   /@babel/code-frame@7.22.13:
@@ -1507,12 +1472,6 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /any-event@2.2.0:
-    resolution: {integrity: sha512-PB4sEiVUjL+5mLmwlAGYdI5/1ouckapxS6+RPIvrGXv9XTMav7M3k3rR/f9fwAR+e2608CTR3FOR5HrOEYTtKA==}
-    dependencies:
-      tslib: 2.4.0
-    dev: false
-
   /arch@2.2.0:
     resolution: {integrity: sha512-Of/R0wqp83cgHozfIYLbBMnej79U/SVGOOyuB3VVFv1NRM/PSFMK12x9KVtiYzJqmnU5WR2qp0Z5rHb7sWGnFQ==}
     dev: true
@@ -1771,8 +1730,8 @@ packages:
       - typescript
     dev: false
 
-  /codingtalk-vue-toolkit@0.1.7:
-    resolution: {integrity: sha512-yEICMJIFkBfHgLiNB6Ue3giiTptg7gCFw0gwBuYm1aGruecKSyNXnoxEoARHzL5+XSjre/qRmwTlsZqk6FSExg==}
+  /codingtalk-vue-toolkit@0.1.11:
+    resolution: {integrity: sha512-LrGR3DPJbMN2J9bGQjrWaVGuS6gMDxFThHNiGvG3P0VAqJmV+BuuAmWHmCBbaVmkJGTsS628bxl6BAHh1R+abA==}
     dependencies:
       axios: 1.6.0
       codingtalk-core: 0.0.6
@@ -4100,16 +4059,6 @@ packages:
     dependencies:
       is-plain-object: 3.0.1
       vue: 3.3.5
-    dev: false
-
-  /vue3-audio-player@1.0.7:
-    resolution: {integrity: sha512-7uGyCDzJaEIN4VV7Sf/s/nOUcO7SV0mRNFjf7dOAG+clVGF8rcL8Arp0vXGwmx4jzxqwOcLhl3C6TK/r9eoI/A==}
-    dependencies:
-      '@any-touch/core': 2.2.0
-      '@any-touch/pan': 2.2.0
-      vue: 3.3.5
-    transitivePeerDependencies:
-      - typescript
     dev: false
 
   /vue@3.3.5:

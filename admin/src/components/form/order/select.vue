@@ -54,8 +54,6 @@ function change(e) {
 </script>
 
 <style lang="less">
-@import "../../../assets/style/var.less";
-@import "../../../assets/style/mixins.less";
 
 .form-order_select {
   .select_info {

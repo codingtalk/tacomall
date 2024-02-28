@@ -15,8 +15,6 @@
 </template>
 
 <style lang="less">
-@import url("../../assets/style/var.less");
-@import url("../../assets/style/mixins.less");
 
 .panel_card {
     display: inline-block;

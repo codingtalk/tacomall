@@ -38,8 +38,6 @@ onMounted(() => {
 </script>
 
 <style lang="less">
-@import url("../../../assets/style/var.less");
-@import url("../../../assets/style/mixins.less");
 
 .member_invite-code {
   .flex(@d: column, @a: center);

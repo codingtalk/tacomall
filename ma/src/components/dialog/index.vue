@@ -17,8 +17,6 @@ defineExpose({
 </script>
 
 <style lang="less">
-@import url("../../assets/style/var.less");
-@import url("../../assets/style/mixins.less");
 
 .dialog {
   width: 600rpx;

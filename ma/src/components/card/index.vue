@@ -26,8 +26,6 @@ const props = defineProps({
 </script>
 
 <style lang="less">
-@import url("../../assets/style/var.less");
-@import url("../../assets/style/mixins.less");
 .card{
   padding: 10rpx 20rpx;
   margin: 0 20rpx 20rpx 20rpx;

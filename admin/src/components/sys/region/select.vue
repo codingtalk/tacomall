@@ -43,8 +43,6 @@ onMounted(() => {
 </script>
 
 <style lang="less">
-@import "../../../assets/style/var.less";
-@import "../../../assets/style/mixins.less";
 
 .sys-region_select {}
 </style>

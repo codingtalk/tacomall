@@ -84,8 +84,6 @@ const doLogin = () => {
 </script>
 
 <style lang="less">
-@import url(../assets/style/mixins.less);
-@import url(../assets/style/var.less);
 .login {
   position: fixed;
   top: 0;

@@ -47,7 +47,7 @@
     "@dcloudio/uni-mp-xhs": "3.0.0-3090520231028001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3090520231028001",
     "clipboard": "^2.0.11",
-    "codingtalk-core": "^0.0.8",
+    "codingtalk-core": "^0.0.9",
     "codingtalk-uni-toolkit": "0.1.4",
     "dayjs": "^1.11.5",
     "lodash": "^4.17.21",

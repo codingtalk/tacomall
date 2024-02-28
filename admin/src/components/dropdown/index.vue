@@ -31,6 +31,9 @@ export default {
     left: 0;
     display: none;
     z-index: 999;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: @shadow-down;
   }
   &:hover {
     .db-expand {

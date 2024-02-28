@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("../../assets/style/var.less");
-@import url("../../assets/style/mixins.less");
 
 .cell-item {
   position: relative;

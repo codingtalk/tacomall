@@ -110,8 +110,6 @@ import PanelCard from '@/components/panel-card/index.vue';
 </script>
 
 <style lang="less">
-@import url("../assets/style/var.less");
-@import url("../assets/style/mixins.less");
 
 .index {
   &_welcome {

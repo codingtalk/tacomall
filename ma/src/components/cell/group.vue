@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style lang="less">
-@import url("../../assets/style/var.less");
-@import url("../../assets/style/mixins.less");
 
 .cell-group {
   padding: 0 34rpx;

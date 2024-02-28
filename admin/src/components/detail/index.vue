@@ -8,8 +8,6 @@
 </template>
 
 <style lang="less">
-@import "../../assets/style/var.less";
-@import "../../assets/style/mixins.less";
 
 .detail {
     &_header {
