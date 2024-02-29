@@ -7,11 +7,11 @@ plugins {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.4.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.0'
     implementation 'mysql:mysql-connector-java:8.0.28'
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.3.2'
+    implementation 'com.baomidou:mybatis-plus-spring-boot3-starter:3.5.5'
     implementation 'com.baomidou:mybatis-plus-generator:3.5.1'
-    implementation 'org.freemarker:freemarker:2.3.30'
+    implementation 'org.freemarker:freemarker:2.3.32'
     compileOnly 'org.projectlombok:lombok:1.18.24'
 }
 

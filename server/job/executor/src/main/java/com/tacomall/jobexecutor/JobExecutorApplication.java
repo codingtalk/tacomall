@@ -12,10 +12,12 @@ import com.tacomall.common.config.WebMvcInterceptorConfig;
 import com.tacomall.common.util.RedisUtil;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.tacomall.common", "com.tacomall.jobexecutor" }, excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { NoRepeatSubmitAspect.class,
-                RedisUtil.class, RedisConfig.class,
-                WebMvcInterceptorConfig.class, WebMvcCorsConfig.class }) })
+@ComponentScan(basePackages = {"com.tacomall.jobexecutor" }, excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { 
+            NoRepeatSubmitAspect.class,
+            RedisUtil.class, RedisConfig.class,
+            WebMvcInterceptorConfig.class,
+            WebMvcCorsConfig.class }) })
 public class JobExecutorApplication {
 
     public static void main(String[] args) {

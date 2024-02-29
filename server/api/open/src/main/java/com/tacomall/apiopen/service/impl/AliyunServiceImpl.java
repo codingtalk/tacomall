@@ -4,7 +4,7 @@ package com.tacomall.apiopen.service.impl;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.oss.OSSClient;

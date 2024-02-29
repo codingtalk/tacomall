@@ -1,7 +1,7 @@
 
 package com.tacomall.common.config;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

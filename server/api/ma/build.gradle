@@ -4,12 +4,14 @@
 
 plugins {
     id 'com.tacomall.java-conventions'
+    id 'java-library'
 }
 
 dependencies {
-    implementation project(':common')
+    api project(':common')
     implementation 'org.springframework.boot:spring-boot-starter-validation:2.3.3.RELEASE'
     compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 description = 'api-ma'

@@ -1,7 +1,7 @@
 
 package com.tacomall.apiopen.service;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.tacomall.common.json.ResponseJson;
 

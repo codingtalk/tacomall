@@ -8,19 +8,17 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
+    maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+    mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.4.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.2.0'
 }
 
 group = 'com.tacomall'
 version = '1.0-SNAPSHOT'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 publishing {
     publications {

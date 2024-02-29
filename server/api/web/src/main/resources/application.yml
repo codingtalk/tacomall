@@ -5,7 +5,7 @@ spring:
   application:
     name: api_web
   profiles:
-    active: @environment@
+    active: dev
   main:
     allow-bean-definition-overriding: true
 logging:

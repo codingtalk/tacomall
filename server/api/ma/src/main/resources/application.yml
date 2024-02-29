@@ -4,7 +4,7 @@ spring:
   application:
     name: api_ma
   profiles:
-    active: @environment@
+    active: dev
 logging:
   level:
     com.tacomall.common.mapper: debug

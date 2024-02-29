@@ -16,12 +16,18 @@ import com.tacomall.common.properties.WxMaProperties;
 import com.tacomall.common.properties.WxPayProperties;
 import com.tacomall.common.util.RedisUtil;
 
-@SpringBootApplication(scanBasePackages = { "com.tacomall.common", "com.tacomall.apiweb" })
+@SpringBootApplication(scanBasePackages = { "com.tacomall.apiweb" })
 @MapperScan({ "com.tacomall.common.mapper", "com.tacomall.apiweb.mapper" })
 @ComponentScan(basePackages = { "com.tacomall.common", "com.tacomall.apiweb" }, excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { NoRepeatSubmitAspect.class,
-                RedisUtil.class, RedisConfig.class,
-                WebMvcInterceptorConfig.class, WxPayConfiguration.class, WxMaConfiguration.class, WxPayProperties.class, WxMaProperties.class}) })
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = { 
+            NoRepeatSubmitAspect.class,
+            RedisUtil.class, 
+            RedisConfig.class,
+            WebMvcInterceptorConfig.class,
+            WxPayConfiguration.class,
+            WxMaConfiguration.class,
+            WxPayProperties.class,
+            WxMaProperties.class}) })
 public class ApiWebApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApiWebApplication.class, args);

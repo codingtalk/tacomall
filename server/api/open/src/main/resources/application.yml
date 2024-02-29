@@ -2,7 +2,7 @@ server:
   port: 4000
 spring:
   profiles:
-    active: @environment@
+    active: dev
 
 logging:
   level:

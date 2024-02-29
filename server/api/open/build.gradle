@@ -4,13 +4,15 @@
 
 plugins {
     id 'com.tacomall.java-conventions'
+    id 'java-library'
 }
 
 dependencies {
-    implementation project(':common')
-    implementation 'org.springframework.boot:spring-boot-starter-amqp:2.4.2'
+    api project(':common')
+    implementation 'org.springframework.boot:spring-boot-starter-amqp:3.2.0'
     testImplementation 'junit:junit:4.12'
     compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 description = 'api-open'

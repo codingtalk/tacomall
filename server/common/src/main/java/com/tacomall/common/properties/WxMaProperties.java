@@ -1,6 +1,7 @@
 
 package com.tacomall.common.properties;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;

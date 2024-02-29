@@ -7,11 +7,11 @@ plugins {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.4.2'
-    implementation 'org.springframework.boot:spring-boot-starter-freemarker:2.4.2'
-    implementation 'org.springframework.boot:spring-boot-starter-mail:2.4.2'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.4.2'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:3.2.0'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
     implementation 'mysql:mysql-connector-java:8.0.28'
     implementation 'com.xuxueli:xxl-job-core:2.4.0'
 }

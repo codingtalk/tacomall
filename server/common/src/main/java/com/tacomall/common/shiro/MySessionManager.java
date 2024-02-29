@@ -1,9 +1,9 @@
 
 package com.tacomall.common.shiro;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 
 import org.apache.shiro.web.servlet.ShiroHttpServletRequest;

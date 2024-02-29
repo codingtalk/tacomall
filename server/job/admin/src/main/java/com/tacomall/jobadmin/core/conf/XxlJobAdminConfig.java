@@ -10,7 +10,7 @@ import com.tacomall.jobadmin.core.alarm.JobAlarmer;
 import com.tacomall.jobadmin.core.scheduler.XxlJobScheduler;
 import com.tacomall.jobadmin.dao.*;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import javax.sql.DataSource;
 
 import java.util.Arrays;
