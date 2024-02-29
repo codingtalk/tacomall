@@ -1,0 +1,24 @@
+server:
+  port: 4001
+
+spring:
+  application:
+    name: api_admin
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+logging:
+  level:
+    com.baomidou: debug
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  type-aliases-package: com.tacomall.common.mapper
+  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+  configuration:
+    call-setters-on-nulls: true
+

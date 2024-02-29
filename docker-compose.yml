@@ -17,7 +17,14 @@ services:
     ports:
       - ${PORT_NGINX}:80
     volumes:
-      - ./admin:/var/www/html/admin
+      - ./admin/dist:/var/www/html/admin
       - ${IMAGES_ROOT}/nginx/etc/nginx/ssl:/etc/nginx/ssl
       - ${IMAGES_ROOT}/nginx/etc/nginx/conf.d:/etc/nginx/conf.d
       - ${IMAGES_ROOT}/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+  admin:
+    build: ${IMAGES_ROOT}/admin
+    container_name: ${PROJECT_NAME}_admin
+    ports:
+      - ${PORT_ADMIN}:4001
+    volumes:
+      - ./admin:/var/www/html

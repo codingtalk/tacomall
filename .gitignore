@@ -1,6 +1,3 @@
-# configuraion
-.env
-
 application-dev.yml
 application-test.yml
 application-prod.yml
