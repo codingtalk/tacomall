@@ -1,0 +1,23 @@
+version: "3"
+services:
+  mysql:
+    build: ${IMAGES_ROOT}/mysql
+    container_name: ${PROJECT_NAME}_mysql
+    ports:
+      - ${PORT_MYSQL}:3306
+    volumes:
+      - ${IMAGES_ROOT}/mysql/data:/var/lib/mysql/:rw
+      - ${IMAGES_ROOT}/mysql/my.cnf:/etc/mysql/mysql.conf.d/my.cnf:rw
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MASTER_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MASTER_DATABASE}
+  nginx:
+    build: ${IMAGES_ROOT}/nginx
+    container_name: ${PROJECT_NAME}_nginx
+    ports:
+      - ${PORT_NGINX}:80
+    volumes:
+      - ./admin:/var/www/html/admin
+      - ${IMAGES_ROOT}/nginx/etc/nginx/ssl:/etc/nginx/ssl
+      - ${IMAGES_ROOT}/nginx/etc/nginx/conf.d:/etc/nginx/conf.d
+      - ${IMAGES_ROOT}/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
