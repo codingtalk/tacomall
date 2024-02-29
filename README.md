@@ -7,10 +7,10 @@
 		<img src="https://img.shields.io/badge/License-Apache2.0-FA8072.svg" alt="License-Apache2.0"/>
 	</a>
     <a target="_blank" href="https://spring.io/projects/spring-boot">
-		<img src="https://img.shields.io/badge/springboot-2.4.2-green" alt="springboot-2.4.2"/>
+		<img src="https://img.shields.io/badge/springboot-3.2.0-green" alt="springboot-3.2.0"/>
 	</a>
     <a target="_blank" href="https://www.oracle.com/java/technologies/downloads/">
-		<img src="https://img.shields.io/badge/JDK->=1.8-FF6347" alt="JDK->=1.8"/>
+		<img src="https://img.shields.io/badge/JDK->=17-FF6347" alt="JDK->=17"/>
 	</a>
      <a target="_blank" href="https://cn.vuejs.org/">
 		<img src="https://img.shields.io/badge/vuejs-3.3-3CB371" alt="vuejs-3.3"/>
@@ -23,7 +23,7 @@
 	</a>
 </p>
 <p align="center">
-🌮塔可商城, 一个基于springboot+uniapp+vue3技术栈开发的开源跨平台小程序、管理后台，后端服务的项目，它内置提供了会员分销， 区域代理， 商品零售等功能的新零售电商系统。强大弹性的架构设计，简洁的代码，最新的技术栈，全方面适合不同需求的前端，后端，架构的同学，同时更是企业开发需求的不二选择。开源不易，你的星星是我们持续更新的最大动力！🥳
+🌮塔可商城, 一个基于springboot3+uniapp+vue3技术栈开发的开源跨平台小程序、管理后台，后端服务的项目，它内置提供了会员分销， 区域代理， 商品零售等功能的新零售电商系统。强大弹性的架构设计，简洁的代码，最新的技术栈，全方面适合不同需求的前端，后端，架构的同学，同时更是企业开发需求的不二选择。开源不易，你的星星是我们持续更新的最大动力！🥳
 </p>
 
 ```
