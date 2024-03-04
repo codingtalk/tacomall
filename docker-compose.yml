@@ -21,6 +21,13 @@ services:
       - ${IMAGES_ROOT}/nginx/etc/nginx/ssl:/etc/nginx/ssl
       - ${IMAGES_ROOT}/nginx/etc/nginx/conf.d:/etc/nginx/conf.d
       - ${IMAGES_ROOT}/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+  open:
+    build: ${IMAGES_ROOT}/open
+    container_name: ${PROJECT_NAME}_open
+    ports:
+      - ${PORT_ADMIN}:4000
+    volumes:
+      - ./server:/app
   admin:
     build: ${IMAGES_ROOT}/admin
     container_name: ${PROJECT_NAME}_admin
@@ -28,3 +35,4 @@ services:
       - ${PORT_ADMIN}:4001
     volumes:
       - ./admin:/var/www/html
+      - ./server:/app

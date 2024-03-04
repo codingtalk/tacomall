@@ -3,8 +3,11 @@
  */
 
 plugins {
-    id 'com.tacomall.java-conventions'
+    id 'java'
     id 'java-library'
+    id 'com.tacomall.java-conventions'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 dependencies {
@@ -13,6 +16,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+bootJar {
+    enabled = true
 }
 
 description = 'api-open'

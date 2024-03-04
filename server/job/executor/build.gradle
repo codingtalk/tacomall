@@ -3,8 +3,11 @@
  */
 
 plugins {
-    id 'com.tacomall.java-conventions'
+    id 'java'
     id 'java-library'
+    id 'com.tacomall.java-conventions'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 dependencies {
@@ -12,6 +15,10 @@ dependencies {
     implementation 'com.xuxueli:xxl-job-core:2.4.0'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+bootJar {
+    enabled = true
 }
 
 description = 'job-executor'

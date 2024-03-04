@@ -3,7 +3,11 @@
  */
 
 plugins {
+    id 'java'
+    id 'java-library'
     id 'com.tacomall.java-conventions'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 dependencies {
@@ -13,6 +17,10 @@ dependencies {
     implementation 'com.baomidou:mybatis-plus-generator:3.5.1'
     implementation 'org.freemarker:freemarker:2.3.32'
     compileOnly 'org.projectlombok:lombok:1.18.24'
+}
+
+bootJar {
+    enabled = true
 }
 
 description = 'generator'

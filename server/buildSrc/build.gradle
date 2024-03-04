@@ -4,10 +4,21 @@
 
 plugins {
     // Support convention plugins written in Groovy. Convention plugins are build scripts in 'src/main' that automatically become available as plugins in the main build.
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'groovy-gradle-plugin'
 }
 
 repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
     gradlePluginPortal()
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
 }
