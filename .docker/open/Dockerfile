@@ -15,13 +15,11 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 ENV PATH "$PATH:/usr/local/gradle-${GRADLE_VERSION}/bin/"
 
-WORKDIR /var/www/html
+WORKDIR /app
 
-CMD npm install \
-    && npm run build \
-    && cd /app \
-    && gradle clean :api-admin:build \
-    && cd ./api/admin/build/libs \
-    && java -jar api-admin-1.0-SNAPSHOT.jar
+CMD rm -f -r ./api/open/build \
+    && gradle :api-open:build \
+    && cd ./api/open/build/libs \
+    && java -jar api-open-1.0-SNAPSHOT.jar
 
 

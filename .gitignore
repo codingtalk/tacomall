@@ -22,4 +22,4 @@ node_modules
 cert-wx-pay
 
 # docker mysql data
-_docker/mysql/data
+.docker/mysql/data

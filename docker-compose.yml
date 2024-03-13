@@ -36,3 +36,11 @@ services:
     volumes:
       - ./admin:/var/www/html
       - ./server:/app
+  ma:
+    build: ${IMAGES_ROOT}/admin
+    container_name: ${PROJECT_NAME}_admin
+    ports:
+      - ${PORT_ADMIN}:4001
+    volumes:
+      - ./ma:/var/www/html
+      - ./server:/app
