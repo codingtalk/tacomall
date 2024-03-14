@@ -17,12 +17,15 @@ ENV PATH "$PATH:/usr/local/gradle-${GRADLE_VERSION}/bin/"
 
 WORKDIR /var/www/html
 
-CMD npm install \
+ENV SPRING_PROFILE test
+
+CMD echo "==============> Current evironment: ${SPRING_PROFILE}" \
+    && npm install \
     && npm run build \
     && cd /app \
     && rm -f -r ./api/admin/build \
     && gradle :api-admin:build \
     && cd ./api/admin/build/libs \
-    && java -jar api-admin-1.0-SNAPSHOT.jar
+    && java -jar api-admin-1.0-SNAPSHOT.jar --spring.profiles.active=${SPRING_PROFILE}
 
 

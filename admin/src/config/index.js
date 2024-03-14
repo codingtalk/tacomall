@@ -31,13 +31,13 @@ import { rep } from "@/utils/navigator";
 const APP_URL = {
   dev: "http://localhost:4000/sys/app",
   test: "",
-  prod: "//admin.tacomall.codingtalk.cn/open/sys/app",
+  prod: "/open/sys/app",
 };
 
 const ENTITY_URL = {
   dev: "http://localhost:4000/sys/entity",
   test: "",
-  prod: "//admin.tacomall.codingtalk.cn/open/sys/entity",
+  prod: "/open/sys/entity",
 };
 
 export const TOKEN_KEY = "jwt-token";

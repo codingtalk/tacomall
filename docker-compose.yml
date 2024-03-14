@@ -7,10 +7,21 @@ services:
       - ${PORT_MYSQL}:3306
     volumes:
       - ${IMAGES_ROOT}/mysql/data:/var/lib/mysql/:rw
-      - ${IMAGES_ROOT}/mysql/my.cnf:/etc/mysql/mysql.conf.d/my.cnf:rw
+      - ${IMAGES_ROOT}/mysql/conf.d:/etc/mysql/conf.d/:r
     environment:
-      MYSQL_ROOT_PASSWORD: ${MASTER_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MASTER_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    networks:
+      - tacomall_network
+  redis:
+    build: ${IMAGES_ROOT}/redis
+    container_name: ${PROJECT_NAME}_redis
+    ports:
+      - ${PORT_REDIS}:6379
+    volumes:
+      - ${IMAGES_ROOT}/redis/redis.conf:/etc/redis/redis.conf
+    networks:
+      - tacomall_network
   nginx:
     build: ${IMAGES_ROOT}/nginx
     container_name: ${PROJECT_NAME}_nginx
@@ -21,26 +32,58 @@ services:
       - ${IMAGES_ROOT}/nginx/etc/nginx/ssl:/etc/nginx/ssl
       - ${IMAGES_ROOT}/nginx/etc/nginx/conf.d:/etc/nginx/conf.d
       - ${IMAGES_ROOT}/nginx/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - tacomall_network
   open:
-    build: ${IMAGES_ROOT}/open
+    build: 
+      context: ${IMAGES_ROOT}/open
+    environment:
+      - SPRING_PROFILE=${SPRING_PROFILE}
     container_name: ${PROJECT_NAME}_open
     ports:
-      - ${PORT_ADMIN}:4000
+      - ${PORT_OPEN}:4000
     volumes:
       - ./server:/app
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - tacomall_network
   admin:
-    build: ${IMAGES_ROOT}/admin
+    build: 
+      context: ${IMAGES_ROOT}/admin
+    environment:
+      - SPRING_PROFILE=${SPRING_PROFILE}
     container_name: ${PROJECT_NAME}_admin
     ports:
       - ${PORT_ADMIN}:4001
     volumes:
       - ./admin:/var/www/html
       - ./server:/app
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - tacomall_network
   ma:
-    build: ${IMAGES_ROOT}/admin
-    container_name: ${PROJECT_NAME}_admin
+    build: 
+      context: ${IMAGES_ROOT}/ma
+    environment:
+      - SPRING_PROFILE=${SPRING_PROFILE}
+    container_name: ${PROJECT_NAME}_ma
     ports:
-      - ${PORT_ADMIN}:4001
+      - ${PORT_MA}:4002
     volumes:
       - ./ma:/var/www/html
       - ./server:/app
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - tacomall_network
+networks:
+  tacomall_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.0.0/24

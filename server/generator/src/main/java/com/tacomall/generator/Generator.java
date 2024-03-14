@@ -24,7 +24,7 @@ public class Generator {
       String table = cfg.get("table");
       String domain = cfg.get("domain");
       FastAutoGenerator.create(
-          "jdbc:mysql://localhost:3306/tacomall?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true",
+          "jdbc:mysql://localhost:10020/tacomall?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true",
           "root", "123456").globalConfig(builder -> {
             builder.author("码上talk").outputDir(System.getProperty("user.dir") + "\\server\\common\\src\\main\\java")
                 .commentDate("yyyy-MM-dd");

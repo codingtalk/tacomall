@@ -17,9 +17,12 @@ ENV PATH "$PATH:/usr/local/gradle-${GRADLE_VERSION}/bin/"
 
 WORKDIR /app
 
-CMD rm -f -r ./api/open/build \
+ENV SPRING_PROFILE test
+
+CMD echo "==============> Current evironment: ${SPRING_PROFILE}" \
+    && rm -f -r ./api/open/build \
     && gradle :api-open:build \
     && cd ./api/open/build/libs \
-    && java -jar api-open-1.0-SNAPSHOT.jar
+    && java -jar api-open-1.0-SNAPSHOT.jar --spring.profiles.active=${SPRING_PROFILE}
 
 

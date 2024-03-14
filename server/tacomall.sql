@@ -11,7 +11,7 @@
  Target Server Version : 80012
  File Encoding         : 65001
 
- Date: 21/11/2023 18:10:10
+ Date: 14/03/2024 16:57:05
 */
 
 SET NAMES utf8mb4;
@@ -506,11 +506,14 @@ CREATE TABLE `org_staff_login_log`  (
   `update_time` datetime NULL DEFAULT NULL,
   `delete_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 152 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 155 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of org_staff_login_log
 -- ----------------------------
+INSERT INTO `org_staff_login_log` VALUES (152, NULL, '0:0:0:0:0:0:0:1', 0, '2024-02-28 15:32:56', NULL, NULL);
+INSERT INTO `org_staff_login_log` VALUES (153, NULL, '0:0:0:0:0:0:0:1', 0, '2024-02-29 15:42:17', NULL, NULL);
+INSERT INTO `org_staff_login_log` VALUES (154, NULL, '0:0:0:0:0:0:0:1', 0, '2024-02-29 21:46:42', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for post

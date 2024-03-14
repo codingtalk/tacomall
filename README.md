@@ -60,6 +60,42 @@
 ├─── ma       uniapp开发的小程序商城。
 ~~~
 
+### 环境启动
+
+#### 开发环境
+- docker
+- docker-compose 
+- python >= 3.10
+- nodejs
+
+#### 开发阶段
+
+1 数据库
+```
+docker-compose up --build -d mysql
+```
+
+2 初始化数据库
+```
+cd ./server/tacomall.sql && mysql -u username -p tacomall < tacomall.sql
+```
+
+3 admin
+```
+cd ./admin && npm install && npm run dev
+```
+
+4 server
+```
+使用 VS Code / Idea启动
+```
+
+#### 测试环境上线
+
+```
+docker-compose up --build -d
+```
+
 ### 🙈程序预览
 - 以下为程序在手机端的运行预览图（取至部分功能页面）
 
