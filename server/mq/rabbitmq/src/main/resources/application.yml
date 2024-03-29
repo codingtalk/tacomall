@@ -8,7 +8,6 @@ spring:
 logging:
   level:
     com.baomidou: debug
-
 mybatis-plus:
   global-config:
     db-config:

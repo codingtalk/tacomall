@@ -11,7 +11,8 @@ import { ref, onMounted } from 'vue'
 import { Member } from '@/entity';
 import { TOKEN_KEY, MP_APPID } from '@/config';
 import { storeApp } from '@/composables/store';
-import { rep, swi, $toast, localCache } from 'codingtalk-uni-toolkit';
+import { rep, swi, $toast } from 'codingtalk-uni-toolkit';
+import { localCache } from "codingtalk-core"
 import { STATIC_PATH } from '@/config'
 import { onLoad } from '@dcloudio/uni-app'
 

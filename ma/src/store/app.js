@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
-import { localCache, ready, getGlobalVariable } from "codingtalk-uni-toolkit";
+import { ready, getGlobalVariable } from "codingtalk-uni-toolkit";
+import { localCache } from "codingtalk-core"
 import { TOKEN_KEY } from "@/config";
 import { Member } from "@/entity";
 import dayjs from 'dayjs';

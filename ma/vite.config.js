@@ -1,15 +1,22 @@
-import { defineConfig } from 'vite'
-import uni from '@dcloudio/vite-plugin-uni'
-import { resolve } from 'path'
+import { defineConfig } from "vite";
+import uni from "@dcloudio/vite-plugin-uni";
+import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    uni(),
-  ],
+  plugins: [uni()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
+      "@": resolve(__dirname, "./src"),
     },
   },
-})
+  css: {
+    preprocessorOptions: {
+      less: {
+        charset: false,
+        additionalData:
+          '@import "@/assets/style/var.less"; @import "@/assets/style/mixins.less";',
+      },
+    },
+  },
+});

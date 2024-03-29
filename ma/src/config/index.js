@@ -1,9 +1,9 @@
 import _ from "lodash";
 import {
   install,
-  localCache,
   getGlobalVariable
 } from "codingtalk-uni-toolkit";
+import { localCache } from "codingtalk-core"
 import entities from "@/entity";
 
 const APP_URL = {

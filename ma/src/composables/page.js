@@ -4,7 +4,8 @@ import { storeToRefs } from "pinia";
 import useAppStore from "@/store/app";
 import _ from "lodash";
 import { TOKEN_KEY } from "@/config";
-import { localCache, rep, toParse, http, getGlobalVariable } from "codingtalk-uni-toolkit";
+import { rep, toParse, http, getGlobalVariable } from "codingtalk-uni-toolkit";
+import { localCache } from "codingtalk-core"
 
 export const checkToken = () => {
   onMounted(() => {
